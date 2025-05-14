@@ -69,18 +69,13 @@ import PeopleList from "../components/people/PeopleList.astro";
 
                 <p>May 18–22, 2026<br /> The Netherlands</p>
 
-                <!-- <ButtonGroup> -->
-                <!--     <Button -->
-                <!--         scale={1.25} -->
-                <!--         link="/schedule" -->
-                <!--         >Schedule</Button -->
-                <!--     > -->
-                <!--     <Button -->
-                <!--         scale={1.25} -->
-                <!--         link="/live" -->
-                <!--         >Livestream</Button -->
-                <!--     > -->
-                <!-- </ButtonGroup> -->
+                <ButtonGroup>
+                    <Button
+                        scale={1.25}
+                        link="https://event.onliveevent.nl/rw26-prereg"
+                        >Get Updates</Button
+                    >
+                </ButtonGroup>
 
                 <a class="down-arrow" href="#explainer"></a>
             </Hero>
@@ -91,54 +86,7 @@ import PeopleList from "../components/people/PeopleList.astro";
                     <slot name="explainer" />
                 </div>
             </section>
-            <!-- <section class="container anchor" id="schedule"> -->
-            <!--     <MainSchedule /> -->
-            <!---->
-            <!--     <div class="details-button"> -->
-            <!--         <Button link="/overview">More details</Button> -->
-            <!--     </div> -->
-            <!-- </section> -->
-            <!---->
-            <!-- <section class="container space-y-6"> -->
-            <!--     <h2 class="text-center">Speakers</h2> -->
-            <!--     <PeopleList> -->
-            <!--         <slot name="speakers" /> -->
-            <!--     </PeopleList> -->
-            <!--     <ButtonGroup> -->
-            <!--         <Button link="/speakers">All speakers</Button> -->
-            <!--     </ButtonGroup> -->
-            <!-- </section> -->
-            <!---->
-            <!-- <Divider /> -->
-
-            <!-- <section class="container md:grid md:cols-12"> -->
-            <!--     <div -->
-            <!--         class="cfp md:col-start-3 md:col-end-11 xl:col-start-4 xl:col-end-10" -->
-            <!--     > -->
-            <!--         <slot name="cfp" /> -->
-            <!--     </div> -->
-            <!-- </section> -->
-            <!---->
-            <!-- <Divider /> -->
-            <!---->
-            <!-- <section class="container md:grid md:cols-12" id="where"> -->
-            <!--     <div -->
-            <!--         class="where md:col-start-3 md:col-end-11 xl:col-start-4 xl:col-end-10" -->
-            <!--     > -->
-            <!--         <slot name="where" /> -->
-            <!--     </div> -->
-            <!-- </section> -->
-            <!---->
-            <!-- <Location /> -->
-            <!---->
-            <!-- <section class="container" id="sponsors"> -->
-            <!--     <Sponsors> -->
-            <!--         <h2>Sponsors</h2> -->
-            <!--         <slot name="sponsors" /> -->
-            <!--     </Sponsors> -->
-            <!-- </section> -->
-
-            <Divider />
+ 
 
             <section class="container md:grid md:cols-12">
                 <div
