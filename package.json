@@ -3,11 +3,11 @@
     "type": "module",
     "version": "0.0.1",
     "scripts": {
-        "predev": "pagefind --site dist --output-path ./public/pagefind",
+        "__predev": "pagefind --site dist --output-path ./public/pagefind",
         "dev": "astro dev",
         "start": "astro dev",
         "build": "astro check && astro build",
-        "postbuild": "pagefind --site dist",
+        "__postbuild": "pagefind --site dist",
         "preview": "astro preview",
         "astro": "astro"
     },
