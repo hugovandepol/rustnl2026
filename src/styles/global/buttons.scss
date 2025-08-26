@@ -1,0 +1,32 @@
+@use "../variables.scss";
+
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: variables.space(3);
+}
+
+.button {
+    align-items: center;
+    appearance: none;
+    cursor: pointer;
+    display: inline-flex;
+    font-size: 1.125rem;
+    font-size: variables.$font-size-md;
+    font-weight: 700;
+    line-height: 1;
+    min-height: variables.space(12);
+    padding-inline: variables.space(6);
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    border-radius: variables.space(6) 0 variables.space(6) 0;
+}
+
+.button-primary {
+    background-color: variables.$color-red-400;
+}
+
+.button-secondary {
+    background-color: variables.$color-blue-400;
+}
