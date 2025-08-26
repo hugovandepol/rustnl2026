@@ -47,11 +47,15 @@ const slides = Array.from({ length: 9 }, (_, i) => i + 1);
 <script>
   import "swiper/css";
   import Swiper from "swiper";
-  import { Autoplay, Keyboard } from "swiper/modules";
+  import { Autoplay, Keyboard, Navigation } from "swiper/modules";
 
   const swiper = new Swiper(".swiper", {
     loop: true,
-    modules: [Autoplay, Keyboard],
+    modules: [Autoplay, Keyboard, Navigation],
+    navigation: {
+        nextEl: '.swiper-navigation-next',
+        prevEl: '.swiper-navigation-prev'
+    },
     keyboard: true,
     autoplay: {
       delay: 5000,
