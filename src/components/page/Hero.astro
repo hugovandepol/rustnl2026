@@ -10,7 +10,7 @@ const { style = "page" }: Props = Astro.props;
   <div class="container grid cols-12">
     <div class="col-5 space-y-8">
       <div>
-        <h1>RustWeek 2026</h1>
+        <h1 class="font-display">RustWeek 2026</h1>
         <h2>May 18-23 — Utrecht, NL</h2>
       </div>
       <p>
@@ -23,10 +23,11 @@ const { style = "page" }: Props = Astro.props;
       </div>
     </div>
     <div class="col-7">
-      <div class="slider-container">
-        <div class="slider">1</div>
+      <div class="slider">
+        <div class="swiper"></div>
       </div>
     </div>
+    <div class="ferris"></div>
   </div>
 </section>
 
@@ -39,25 +40,42 @@ const { style = "page" }: Props = Astro.props;
     background-color: variables.$color-yellow-400;
     display: flex;
     min-height: calc(100dvh - variables.space(20));
-  }
-
-  .hero.home .slider-container {
     position: relative;
-  }
-
-  .hero.home .slider-container::after {
-    content: "";
-    position: absolute;
-    inset: -5%;
-    background-image: url('/svg/hero-cutout.svg');
-    background-size: 100% 100%;
+    overflow: clip;
   }
 
   .hero.home .slider {
+    position: relative;
+  }
+
+  .hero.home .slider::after {
+    content: "";
+    position: absolute;
+    inset: -5%;
+    background-image: url("/svg/hero-cutout.svg");
+    background-size: 100% 100%;
+  }
+
+  .hero.home .swiper {
     aspect-ratio: 4 / 3;
     background-color: black;
     border-radius: 50% 0 50% 0;
     position: relative;
+    z-index: 1;
+  }
+
+  .hero.home .ferris {
+    aspect-ratio: 1;
+    background-image: url("/images/ferris.png");
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    bottom: 0;
+    left: 50%;
+    max-width: 34rem;
+    position: absolute;
+    translate: -50% 25%;
+    width: 100%;
     z-index: 1;
   }
 </style>

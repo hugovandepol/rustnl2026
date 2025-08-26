@@ -51,6 +51,12 @@ h2 {
     line-height: 1.125;
 }
 
+.font-display {
+    font-family: "Alfa Slab One", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
 [id] {
     scroll-margin-top: variables.space(24);
 }
@@ -106,5 +112,5 @@ a {
 }
 
 img {
-  vertical-align: middle;
+    vertical-align: middle;
 }
