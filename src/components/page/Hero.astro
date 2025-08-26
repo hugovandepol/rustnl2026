@@ -1,114 +1,62 @@
 ---
 interface Props {
-  style?: 'page' | 'home';
+  style?: "page" | "home";
 }
 
-const { style = 'page' }: Props = Astro.props;
+const { style = "page" }: Props = Astro.props;
 ---
 
-<section class:list={['hero', style]}>
-  <slot />
+<section class:list={["hero", style]}>
+  <div class="container grid cols-12">
+    <div class="col-5 space-y-8">
+      <div>
+        <h1>RustWeek 2026</h1>
+        <h2>May 18-23 — Utrecht, NL</h2>
+      </div>
+      <p>
+        The week features two days of talks, a day of workshops, a hackathon,
+        ongoing social events, an unconference.
+      </p>
+      <div class="button-group">
+        <div class="buttons">test</div>
+      </div>
+    </div>
+    <div class="col-7">
+      <div class="slider-container">
+        <div class="slider">1</div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <style lang="scss" is:global>
-  @use '../../styles/breakpoint.scss';
-  @use '../../styles/variables.scss';
+  @use "../../styles/breakpoint.scss";
+  @use "../../styles/variables.scss";
 
-  .hero {
+  .hero.home {
     align-items: center;
-
-    background: variables.$color-yellow-400;
-    box-sizing: border-box;
-    color: white;
+    background-color: variables.$color-yellow-400;
     display: flex;
-    flex-direction: column;
-    font-size: variables.$font-size-lg;
-    font-weight: 600;
+    min-height: calc(100dvh - variables.space(20));
+  }
 
-    // background:
-    // linear-gradient(rgb(0 0 0 / 50%), rgb(255 255 255 / 30%), rgb(0 0 0 / 50%)),
-    // no-repeat right 30% / cover url("images/backgrounds/background.jpg");
-    // no-repeat right 30% / cover url("images/backgrounds/background-conf-stage.webp");
-    // no-repeat right 30% / cover url("images/backgrounds/background-conf-stage-opening.jpeg");
-    // no-repeat right 30% / cover url("images/backgrounds/background-conf-stage-side.jpg");
-
-    gap: variables.space(10);
-    justify-content: center;
-    line-height: variables.$line-height-tight;
-    min-height: 100svh;
-    padding-block: variables.space(12);
-    padding-inline: variables.space(6);
+  .hero.home .slider-container {
     position: relative;
-    text-align: center;
-    z-index: 0;
-    margin-block-end: 3rem;
+  }
 
-    @include breakpoint.wider_than(sm) {
-      font-size: variables.$font-size-xl;
-    }
+  .hero.home .slider-container::after {
+    content: "";
+    position: absolute;
+    inset: -5%;
+    background-image: url('/svg/hero-cutout.svg');
+    background-size: 100% 100%;
+  }
 
-    @include breakpoint.wider_than(md) {
-      border-width: variables.space(6) variables.space(6) 0 variables.space(6);
-      padding-block: variables.space(12);
-      padding-inline: variables.space(6);
-    }
-
-    @include breakpoint.wider_than(xl) {
-      border-width: variables.space(12) variables.space(12) 0
-        variables.space(12);
-      padding-block: variables.space(24);
-      padding-inline: variables.space(12);
-    }
-
-    &::before {
-      background: variables.$color-yellow-500;
-      clip-path: polygon(0 0, 100% 0, 100% 100%);
-      content: '';
-      inset: 0;
-      position: absolute;
-      z-index: -1;
-    }
-
-    &::after {
-      background-image: url('/images/stripes.svg');
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-size: 100% auto;
-      bottom: 0;
-      content: '';
-      height: variables.space(6);
-      max-width: 44.25rem;
-      position: absolute;
-      width: 100%;
-    }
-
-    svg {
-      height: auto;
-      max-width: 95vw;
-
-      @include breakpoint.wider_than(md) {
-        max-width: 60vw;
-      }
-
-      @include breakpoint.wider_than(xl) {
-        max-width: 40vw;
-      }
-    }
-
-    .nav {
-      display: flex;
-      justify-content: spacebetween;
-      flex: 1;
-      width: 100%;
-      align-items: center;
-    }
-
-    &.page {
-      min-height: 8rem;
-
-      img {
-        max-height: 3rem;
-      }
-    }
+  .hero.home .slider {
+    aspect-ratio: 4 / 3;
+    background-color: black;
+    border-radius: 50% 0 50% 0;
+    position: relative;
+    z-index: 1;
   }
 </style>

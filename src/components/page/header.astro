@@ -6,39 +6,41 @@ interface Props {
     withoutMenu?: boolean;
 }
 
-const { withLogo = false, withoutMenu = false }: Props = Astro.props;
+const { withLogo = true, withoutMenu = false }: Props = Astro.props;
 ---
 
 <div class="header">
-    <!-- { -->
-    <!--     withLogo && ( -->
-    <!--         <a class="logo" href="/"> -->
-    <!--             <img -->
-    <!--                 src="/svg/hero-logo-rustweek.svg" -->
-    <!--                 alt="Logo RustWeek 2025" -->
-    <!--             /> -->
-    <!--         </a> -->
-    <!--     ) -->
-    <!-- } -->
-    {
-        !withoutMenu && (
-            <script is:inline>
-              window.addEventListener('DOMContentLoaded', (event) => {
-                new PagefindUI({ element: '#search', resetStyles: false });
-              });
-            </script>
-            <div class="search-relative-parent">
-                <div id="search">
-                </div>
-            </div>
+    <div class="container">
+        { 
+            withLogo && ( 
+                <a class="logo" href="/"> 
+                    <img 
+                        src="/svg/logo.svg" 
+                        alt="Logo RustWeek 2025" 
+                    /> 
+                </a> 
+            ) 
+        }
+        {
+            !withoutMenu && (
+                // <script is:inline>
+                //   window.addEventListener('DOMContentLoaded', (event) => {
+                //     new PagefindUI({ element: '#search', resetStyles: false });
+                //   });
+                // </script>
+                // <div class="search-relative-parent">
+                //     <div id="search">
+                //     </div>
+                // </div>
 
-            <div class="hamburger button primary" data-menu-toggle></div>
-            <div class="menu" data-menu>
-                <Menu location="header" />
-            </div>
-            <div class="overlay" data-menu-overlay></div>
-        )
-    }
+                <div class="hamburger button primary" data-menu-toggle></div>
+                <div class="menu" data-menu>
+                    <Menu location="header" />
+                </div>
+                <div class="overlay" data-menu-overlay></div>
+            )
+        }
+    </div>
 </div>
 
 <script>
@@ -111,22 +113,24 @@ const { withLogo = false, withoutMenu = false }: Props = Astro.props;
     }
 
     .header {
-        align-items: center;
-        display: flex;
-        gap: 1em;
-
-        height: variables.space(18);
-        padding-inline: variables.space(4);
-        position: fixed;
-
-        width: 100%;
-        z-index: 100;
-        background-color: transparent;
-        transition-property: background-color, height;
+        background-color: variables.$color-yellow-400;
+        position: sticky;
         transition-duration: 150ms;
+        transition-property: background-color, height;
+        z-index: 100;
+        top: 0;
+        left: 0;
+        
+        > div {
+            align-items: center;
+            height: variables.space(18);
+            display: flex;
+            gap: 1em;
+            border-bottom: 1px solid variables.$color-yellow-500;
 
-        @include breakpoint.wider_than(lg) {
-          height: variables.space(24);
+            @include breakpoint.wider_than(lg) {
+                height: variables.space(20);
+            }
         }
 
         &.scrolled {
@@ -139,7 +143,7 @@ const { withLogo = false, withoutMenu = false }: Props = Astro.props;
 
         .logo {
             img {
-                height: variables.space(12);
+                height: variables.space(14);
             }
         }
 

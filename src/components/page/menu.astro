@@ -134,10 +134,6 @@ const { location }: Props = Astro.props;
   .menu {
     display: contents;
 
-    @include breakpoint.smaller_than(lg) {
-        font-size: variables.$font-size-md;
-    }
-
     &.footer {
       display: flex;
       justify-content: center;
@@ -160,6 +156,8 @@ const { location }: Props = Astro.props;
         @include breakpoint.wider_than(lg) {
           align-items: stretch;
           flex-direction: row;
+          font-size: variables.$font-size-lg;
+          gap: variables.space(6);
         }
       }
 
@@ -237,15 +235,12 @@ const { location }: Props = Astro.props;
         justify-content: center;
         display: flex;
         flex-direction: column;
-        font-weight: 700;
         cursor: pointer;
 
         @include breakpoint.wider_than(lg) {
-          color: variables.$color-background;
           flex: 1;
           min-height: auto;
           margin: 0;
-          padding-inline: variables.space(4);
           position: relative;
 
           &:has(.submenu):hover,
@@ -288,7 +283,7 @@ const { location }: Props = Astro.props;
 
         &::after {
           @include breakpoint.wider_than(lg) {
-            background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48IS0tIUZvbnQgQXdlc29tZSBGcmVlIDYuNy4yIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlL2ZyZWUgQ29weXJpZ2h0IDIwMjUgRm9udGljb25zLCBJbmMuLS0+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0yMDEuNCAzNzQuNmMxMi41IDEyLjUgMzIuOCAxMi41IDQ1LjMgMGwxNjAtMTYwYzEyLjUtMTIuNSAxMi41LTMyLjggMC00NS4zcy0zMi44LTEyLjUtNDUuMyAwTDIyNCAzMDYuNyA4Ni42IDE2OS40Yy0xMi41LTEyLjUtMzIuOC0xMi41LTQ1LjMgMHMtMTIuNSAzMi44IDAgNDUuM2wxNjAgMTYweiIvPjwvc3ZnPg==");
+            background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48IS0tIUZvbnQgQXdlc29tZSBGcmVlIDYuNy4yIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlL2ZyZWUgQ29weXJpZ2h0IDIwMjUgRm9udGljb25zLCBJbmMuLS0+PHBhdGggZmlsbD0iIzIyMiIgZD0iTTIwMS40IDM3NC42YzEyLjUgMTIuNSAzMi44IDEyLjUgNDUuMyAwbDE2MC0xNjBjMTIuNS0xMi41IDEyLjUtMzIuOCAwLTQ1LjNzLTMyLjgtMTIuNS00NS4zIDBMMjI0IDMwNi43IDg2LjYgMTY5LjRjLTEyLjUtMTIuNS0zMi44LTEyLjUtNDUuMyAwcy0xMi41IDMyLjggMCA0NS4zbDE2MCAxNjB6Ii8+PC9zdmc+");
             background-position: center center;
             background-repeat: no-repeat;
             content: "";

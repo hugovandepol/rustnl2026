@@ -20,8 +20,7 @@ body {
     background-color: variables.$color-background;
     color: variables.$color-black;
     font-family: variables.$font-family;
-    font-size: 1.0625rem;
-
+    font-size: 1rem;
     font-weight: 300;
     line-height: variables.$line-height-normal;
 
@@ -29,7 +28,8 @@ body {
         font-size: variables.$font-size-md;
     }
 }
-s
+
+s,
 h1,
 h2,
 h3,
@@ -41,12 +41,14 @@ b {
     font-weight: 700;
 }
 
-h1,
+h1 {
+    font-size: variables.$font-size-3xl;
+    line-height: 1.125;
+}
+
 h2 {
-    // note: writing this as text-decoration shorthand does not work on safari
-    text-decoration-line: underline;
-    text-decoration-color: variables.$color-red-400;
-    text-decoration-thickness: 0.3rem;
+    font-size: variables.$font-size-2xl;
+    line-height: 1.125;
 }
 
 [id] {
@@ -70,27 +72,6 @@ blockquote {
 blockquote>p {
     margin-block-start: variables.space(6);
 
-}
-
-h1 {
-    font-size: variables.$font-size-xl;
-    text-align: center;
-    margin: 0;
-    padding-block: 2rem;
-
-    @include breakpoint.wider_than(sm) {
-        font-size: variables.$font-size-2xl;
-    }
-}
-
-h2 {
-    font-size: variables.$font-size-lg;
-    margin: 0;
-    padding-block: 1rem 0.5rem;
-
-    @include breakpoint.wider_than(sm) {
-        font-size: variables.$font-size-xl;
-    }
 }
 
 .text-center {
