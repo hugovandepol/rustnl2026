@@ -36,7 +36,9 @@ const { withLogo = true, withoutMenu = false }: Props = Astro.props;
                 <div class="hamburger button primary" data-menu-toggle></div>
                 <div class="menu" data-menu>
                     <Menu location="header" />
-                    <div class="button button-primary">Tickets</div>
+                    <div class="cutout cutout-button">
+                        <div class="button button-primary">Tickets</div>
+                    </div>
                 </div>
                 <div class="overlay" data-menu-overlay></div>
             )
