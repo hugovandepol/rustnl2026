@@ -7,12 +7,17 @@ import HomeLayout from "../layouts/HomeLayout.astro";
 
 import Button from "../components/Button.astro";
 import ButtonGroup from "../components/ButtonGroup.astro";
+import Image from "../components/Image.astro";
+import PeopleOverview from "../components/PeopleOverview.astro";
+import Person from "../components/Person.astro";
 // import { useTalks } from "../components/useTalks";
 //
 //
 // const talks = await Astro.glob('./talks/*.md');
 // const {alice, julius, pietro, alex, niko, miguel, ciara, raph} = useTalks(talks);
 // const featured_talks = [alice, julius, pietro, alex, niko, miguel, ciara, raph];
+
+const people = Array.from({ length: 9 }, (_, i) => i + 1);
 ---
 
 <HomeLayout>
@@ -37,4 +42,8 @@ import ButtonGroup from "../components/ButtonGroup.astro";
             <Button link="/about">More About Us</Button>
         </ButtonGroup>
     </div>
+    <Image src="https://images.pexels.com/photos/1563356/pexels-photo-1563356.jpeg" alt="RustWeek 2026 Banner" />
+    <PeopleOverview title="volunteers" lead=" RustWeek would not be possible without the incredible help from our volunteers before and during the event. ">
+        {people.map(person => <Person />)}
+    </PeopleOverview>
 </HomeLayout>

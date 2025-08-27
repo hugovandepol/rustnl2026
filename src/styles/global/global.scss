@@ -40,6 +40,15 @@ b {
     font-weight: 700;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    // max-width: 35ch;
+}
+
 h1 {
     font-size: variables.$font-size-xl;
     line-height: 1.125;
@@ -120,4 +129,12 @@ a {
 
 img {
     vertical-align: middle;
+}
+
+p {
+    max-width: 65ch;
+}
+
+.lead {
+    text-wrap: balance;
 }

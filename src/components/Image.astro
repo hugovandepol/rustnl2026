@@ -1,0 +1,36 @@
+---
+interface Props {
+    src: string,
+    alt: string,
+}
+
+const { src, alt }: Props = Astro.props;
+---
+
+<style>
+    .image {
+        aspect-ratio: 4 / 3;
+        background-color: #222;
+        border-radius: 50% 0 50% 0;
+        overflow: clip;
+        position: relative;
+    }
+
+    img {
+        height: 100%;
+        left: 0;
+        object-fit: cover;
+        object-position: center;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+</style>
+
+<section class="container md:grid md:cols-12">
+    <div class="md:col-start-3 md:col-end-11 xl:col-start-3 xl:col-end-11 cutout cutout-hero">
+        <div class="image">
+            <img src={src} alt={alt} />
+        </div>
+    </div>
+</section>
