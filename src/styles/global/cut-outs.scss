@@ -1,4 +1,5 @@
 @use '../variables.scss';
+@use '../breakpoint.scss';
 
 .cutout {
     position: relative;
@@ -14,15 +15,20 @@
 
 .cutout-button::after {
     background-image: url('/svg/button-cutout.svg');
-    background-size: 100% auto;
-    width: calc(100% + variables.space(8));
-    height: calc(100% + variables.space(5));
-    top: 50%;
-    left: 50%;
-    translate: -50% -50%;
+    inset: -25%;
 }
 
 .cutout-button-group::after {
-    background-image: url('/svg/button-group-cutout.svg');
-    inset: variables.space(-6);
+    display: none;
+
+    @include breakpoint.wider_than(lg) {
+        display: block;
+        background-image: url('/svg/button-group-cutout.svg');
+        inset: -20%;
+    }
+}
+
+.cutout-hero::after {
+    background-image: url('/svg/hero-cutout.svg');
+    inset: -5%;
 }

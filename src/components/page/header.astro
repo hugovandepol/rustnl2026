@@ -33,12 +33,10 @@ const { withLogo = true, withoutMenu = false }: Props = Astro.props;
                 //     </div>
                 // </div>
 
-                <div class="hamburger button primary" data-menu-toggle></div>
+                <div class="hamburger button button-primary" data-menu-toggle></div>
                 <div class="menu" data-menu>
                     <Menu location="header" />
-                    <div class="cutout cutout-button">
-                        <div class="button button-primary">Tickets</div>
-                    </div>
+                    <div class="button button-primary">Tickets</div>
                 </div>
                 <div class="overlay" data-menu-overlay></div>
             )
@@ -134,14 +132,6 @@ const { withLogo = true, withoutMenu = false }: Props = Astro.props;
             @include breakpoint.wider_than(lg) {
                 height: variables.space(20);
             }
-        }
-
-        &.scrolled {
-          background-color: variables.$color-yellow-500;
-
-          @include breakpoint.wider_than(lg) {
-            height: variables.space(20);
-          }
         }
 
         .logo {

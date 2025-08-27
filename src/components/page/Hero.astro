@@ -8,8 +8,8 @@ const slides = Array.from({ length: 9 }, (_, i) => i + 1);
 ---
 
 <section class:list={["hero", style]}>
-  <div class="container grid cols-12">
-    <div class="col-5 space-y-8">
+  <div class="container space-y-12 lg:grid lg:cols-12 lg:space-y-0">
+    <div class="col-5 space-y-6 lg:space-y-8">
       <div>
         <h1 class="font-display">RustWeek 2026</h1>
         <h2>May 18-23 — Utrecht, NL</h2>
@@ -24,7 +24,7 @@ const slides = Array.from({ length: 9 }, (_, i) => i + 1);
       </div>
     </div>
     <div class="col-7">
-      <div class="slider">
+      <div class="cutout cutout-hero">
         <div class="swiper">
           <div class="swiper-wrapper">
             {
@@ -49,17 +49,31 @@ const slides = Array.from({ length: 9 }, (_, i) => i + 1);
   import Swiper from "swiper";
   import { Autoplay, Keyboard, Navigation } from "swiper/modules";
 
+  const ferris = document.querySelector(".ferris");
+
   const swiper = new Swiper(".swiper", {
     loop: true,
     modules: [Autoplay, Keyboard, Navigation],
     navigation: {
-        nextEl: '.swiper-navigation-next',
-        prevEl: '.swiper-navigation-prev'
+      nextEl: ".swiper-navigation-next",
+      prevEl: ".swiper-navigation-prev",
     },
     keyboard: true,
     autoplay: {
-      delay: 5000,
+      delay: 10000,
     },
+  });
+
+  swiper.on("slideChangeTransitionEnd", () => {
+    if (ferris) {
+      ferris.classList.remove("ferris-animate");
+      ferris.offsetWidth;
+      ferris.classList.add("ferris-animate");
+    }
+  });
+
+  swiper.on("slideChange", () => {
+    ferris?.classList.remove("peek");
   });
 </script>
 
@@ -67,40 +81,28 @@ const slides = Array.from({ length: 9 }, (_, i) => i + 1);
   @use "../../styles/breakpoint.scss";
   @use "../../styles/variables.scss";
 
-  @keyframes look {
+  @keyframes peek {
     0% {
-        translate: -50% 50%;
+      translate: -50% 40%;
     }
 
     50% {
-        translate: -50% 25%;
+      translate: -50% 20%;
     }
 
     0% {
-        translate: -50% 50%;
+      translate: -50% 40%;
     }
   }
 
   .hero {
     align-items: center;
+    aspect-ratio: 16 / 9;
     background-color: variables.$color-yellow-400;
     display: flex;
-    aspect-ratio: 16 / 9;
-    position: relative;
     overflow: clip;
-  }
-
-  .slider {
+    padding-block: variables.space(12);
     position: relative;
-  }
-
-  .slider::after {
-    content: "";
-    position: absolute;
-    inset: -5%;
-    background-image: url("/svg/hero-cutout.svg");
-    background-size: 100% 100%;
-    pointer-events: none;
   }
 
   .swiper {
@@ -126,10 +128,6 @@ const slides = Array.from({ length: 9 }, (_, i) => i + 1);
   }
 
   .ferris {
-    animation-name: look;
-    animation-duration: 10000ms;
-    animation-delay: 2000ms;
-    animation-iteration-count: infinite;
     aspect-ratio: 1;
     background-image: url("/images/ferris.png");
     background-position: bottom;
@@ -137,11 +135,18 @@ const slides = Array.from({ length: 9 }, (_, i) => i + 1);
     background-size: 100% auto;
     bottom: 0;
     left: 50%;
-    max-width: 34rem;
+    max-width: 40rem;
     position: absolute;
-    translate: -50% 50%;
+    translate: -50% 40%;
     width: 100%;
     z-index: 1;
+  }
+
+  .ferris-animate {
+    animation-delay: 300ms;
+    animation-name: peek;
+    animation-duration: 2500ms;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .swiper-navigation-next,

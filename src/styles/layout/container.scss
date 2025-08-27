@@ -3,5 +3,9 @@
 
 .container {
     margin-inline: auto;
-    width: min(calc(100% - variables.space(24)), 80rem);
+    width: min(calc(100% - variables.space(12)), 80rem);
+
+    @include breakpoint.wider_than(lg) {
+        width: min(calc(100% - variables.space(24)), 80rem);
+    }
 }

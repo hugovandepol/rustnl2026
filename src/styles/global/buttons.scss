@@ -21,12 +21,21 @@
     text-align: center;
     text-decoration: none;
     user-select: none;
+    transition-property: filter, scale;
+    transition-duration: 150ms;
+}
+
+.button:hover {
+    filter: brightness(90%);
+    scale: 1.025;
 }
 
 .button-primary {
     background-color: variables.$color-red-400;
+    color: white;
 }
 
 .button-secondary {
     background-color: variables.$color-blue-400;
+    color: white;
 }

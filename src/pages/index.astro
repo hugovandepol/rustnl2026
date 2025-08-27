@@ -16,20 +16,23 @@ import ButtonGroup from "../components/ButtonGroup.astro";
 ---
 
 <HomeLayout>
+    
     <div slot="explainer">
-        <h1 id="explainer">RustWeek 2026</h1>
+        <h2 class="font-display" id="explainer">RustWeek 2026</h2    >
         <p>
             Rust Week will be back in 2026! Block your calendars now from the 18nd of may to the 22nd!
         </p>
     </div>
 
-    <div slot="about">
-        <h2 id="about">About RustWeek</h2>
-        <p>
-            RustWeek is organised by Stichting Rust Nederland, RustNL for short,
-            a non-profit that strives to promote the implementation of the Rust
-            programming language.
-        </p>
+    <div slot="about" class="space-y-12">
+        <div>
+            <h2 id="about">About RustWeek</h2>
+            <p>
+                RustWeek is organised by Stichting Rust Nederland, RustNL for short,
+                a non-profit that strives to promote the implementation of the Rust
+                programming language.
+            </p>
+        </div>
         <ButtonGroup>
             <Button link="/about">More About Us</Button>
         </ButtonGroup>
