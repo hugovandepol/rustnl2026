@@ -8,8 +8,8 @@ import HomeLayout from "../layouts/HomeLayout.astro";
 import Button from "../components/Button.astro";
 import ButtonGroup from "../components/ButtonGroup.astro";
 import Image from "../components/Image.astro";
-import PeopleOverview from "../components/PeopleOverview.astro";
-import Person from "../components/Person.astro";
+import Person from "src/components/people/Person.astro";
+import PeopleList from "src/components/people/PeopleList.astro";
 // import { useTalks } from "../components/useTalks";
 //
 //
@@ -43,7 +43,41 @@ const people = Array.from({ length: 9 }, (_, i) => i + 1);
         </ButtonGroup>
     </div>
     <Image src="https://images.pexels.com/photos/1563356/pexels-photo-1563356.jpeg" alt="RustWeek 2026 Banner" />
-    <PeopleOverview title="volunteers" lead=" RustWeek would not be possible without the incredible help from our volunteers before and during the event. ">
-        {people.map(person => <Person />)}
-    </PeopleOverview>
+        <PeopleList title="title" lead="lead">
+            <Person
+                name="Erik Jonkers"
+                image="erik.jpg"
+                title="Board member of the RustNL foundation and Director of Open Source of software agency Tweede golf."
+                tracks={["organisation"]}
+                smalltile
+            />
+            <Person
+                name="Laura Pircalaboiu"
+                image="laura.png"
+                title="Embedded software engineer at Q*Bird"
+                tracks={["organisation"]}
+                smalltile
+            />
+            <Person
+                name="Jana Dönszelmann"
+                image="jana.png"
+                title="Lecturer in Embedded Systems at Delft University of Technology and founder of Hexcat"
+                tracks={["organisation"]}
+                smalltile
+            />
+            <Person
+                name="Terts Diepraam"
+                image="terts.png"
+                title="Maintainer on Uutils and Software Engineer at NLnet Labs"
+                tracks={["organisation", "mc"]}
+                smalltile
+            />
+            <Person
+                name="Mara Bos"
+                image="mara.jpg"
+                title="Rust leadership council and founder of Hexcat"
+                tracks={["organisation", "mc"]}
+                smalltile
+            />
+        </PeopleList>
 </HomeLayout>

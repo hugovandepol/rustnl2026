@@ -81,8 +81,8 @@ const imageFile = image
     : empty_path;
 ---
 
-<div class:list={["person", tile ? "tile" : (smalltile? "small-tile": "detail")]}>
-  <div class="image-container">
+<div class:list={["person space-y-6", tile ? "tile" : (smalltile? "small-tile": "detail")]}>
+  <div class="image">
     {
       link ? (
         <a href={link}>
@@ -106,7 +106,7 @@ const imageFile = image
     </div>
   </div>
   <div class="person-info">
-    <h4>{name}</h4>
+    <h3>{name}</h3>
     {title && <div class="title">{title}</div>}
     {
       !(tile || smalltile) && (
@@ -150,134 +150,47 @@ const imageFile = image
 </div>
 
 <style lang="scss">
-  @use "../../styles/breakpoint.scss";
-  @use "../../styles/variables.scss";
+    @use '../../styles/variables.scss';
 
-  .person.tile,.person.small-tile {
-      display: flex;
-      flex-direction: column;
-      gap: 1em;
-      width: 100%;
-
-      &.small-tile {
-          width: 15em;
-      }
-  }
-
-  .person.detail {
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-  
-    & h4 {
-      font-weight: 500;
-      margin-bottom: 0.2em;
+    .person {
+        border: 1px solid variables.$color-neutral-400;
+        padding: variables.space(4);
+        position: relative;
     }
 
-    @include breakpoint.wider_than(sm) {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      align-items: start;
-      // flex-direction: row;
-      gap: 1em;
-      width: 100%;
-    }
-  }
-
-  .title {
-    margin-bottom: 0.5em;
-  }
-
-  .bio {
-    margin-top: 1em;
-  }
-
-  .person {
-    margin-bottom: 1em;
-    a {
-      color: inherit;
-      text-decoration: underline;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+    .person .image {
+        aspect-ratio: 4 / 3;
+        border-radius: 50% 0 50% 0;
+        overflow: clip;
+        position: relative;
     }
 
-    h4 {
-      font-size: variables.$font-size-lg;
-      font-weight: variables.$font-weight-light;
-      line-height: variables.$line-height-tight;
-
-      margin-bottom: 0;
-      margin-top: 0.2em;
+    .person .image img {
+        width: auto;
+        max-width: 100%;
     }
 
-    p {
-      font-size: variables.$font-size-sm;
-    }
-
-    .image-container {
-      position: relative;
-      max-width: 30rem;
-      width: 100%;
-      a,
-      .image {
-        aspect-ratio: 1/1;
-        height: auto;
-        vertical-align: middle;
-        width: 100%;
-
-        img {
-          border-radius: 0.5em;
-
-          width: 100%;
-          height: 100%;
-
-          object-fit: cover;
-
-          &.empty {
-            background: variables.$color-yellow-400;
-          }
-        }
-      }
-
-      div.tags {
-        position: absolute;
-        bottom: 1.25rem;
-        left: 0.75rem;
-
-        .tag {
-          padding: 0.3rem 0.5rem;
-          margin-right: 0.75rem;
-
-          border-radius: 5px;
-          font-size: variables.$font-size-xs;
-          background-color: variables.$color-blue-400;
-
-          &.project {
-            background-color: variables.$color-red-400;
-          }
-
-          &.industry, &.gosim-spotlight {
-            background-color: variables.$color-yellow-400;
-          }
-
-          span {
-            font-weight: bold;
-            text-transform: lowercase;
-          }
-        }
-      }
-    }
-
-    .socials {
-      display: flex;
-      flex-direction: row;
-      gap: 0.3em;
-
-      @include breakpoint.wider_than(lg) {
+    .person .title {
         font-size: variables.$font-size-md;
-        text-align: left !important;
-      }
     }
-  }
+
+    .person .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: variables.space(2);
+        position: absolute;
+        bottom: variables.space(2);
+        left: variables.space(2);
+    }
+
+    .person .tag {
+        align-items: center;
+        background-color: variables.$color-yellow-400;
+        border-radius: variables.space(1);
+        display: flex;
+        font-size: variables.$font-size-md;
+        line-height: 1;
+        min-height: variables.space(8);
+        padding-inline: variables.space(3);
+    }
 </style>

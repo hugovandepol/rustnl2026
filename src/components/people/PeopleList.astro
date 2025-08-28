@@ -1,18 +1,35 @@
 ---
+interface Props {
+    title?: string,
+    lead?: string,
+}
 
+const { title, lead }: Props = Astro.props;
 ---
 
-<div class="people">
-    <slot />
-</div>
+<style lang="scss">
+    .header {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
 
-<style>
-  .people {
-      display: grid;
-      gap: 2em;
-      grid-template-columns: repeat(auto-fit, minmax(18.5rem, 1fr));
-      margin-block-end: 3rem;
-      width: 100%;
-      justify-items: center;
-  }
+    .people {
+        display: grid;
+        gap: 2em;
+        grid-template-columns: repeat(auto-fit,minmax(15rem,1fr));
+    }
 </style>
+
+<div class="container space-y-12">
+    {title && 
+        <div class="header">
+            <h2>{title}</h2>
+            {lead && <p>{lead}</p>}
+        </div>
+    }
+    <div class="people">
+        <slot />
+    </div>
+</div>
