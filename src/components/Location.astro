@@ -22,7 +22,6 @@
 
     .location {
         position: relative;
-        border-radius: 50% 0 50% 0;
 
         @include breakpoint.wider_than(sm) {
             display: grid;
@@ -32,19 +31,18 @@
                 "a c";
         }
 
-        &::before {
-            aspect-ratio: 16 / 9;
-            background-color: variables.$color-neutral-500;
-            clip-path: polygon(0 100%, 100% 0, 100% 100%);
-            content: "";
-            position: absolute;
-            right: 0;
-            top: 0;
-            translate: 0 -100%;
-            width: 50%;
-            z-index: -1;
-            border-bottom-right-radius: 50%;
-        }
+        // &::before {
+        //     aspect-ratio: 16 / 9;
+        //     background-color: variables.$color-neutral-500;
+        //     clip-path: polygon(0 100%, 100% 0, 100% 100%);
+        //     content: "";
+        //     position: absolute;
+        //     right: 0;
+        //     top: 0;
+        //     translate: 0 -100%;
+        //     width: 50%;
+        //     z-index: -1;
+        // }
 
         > .ferris {
             display: none;
@@ -132,7 +130,6 @@
             background-position: top;
             background-repeat: no-repeat;
             overflow: clip;
-            border-radius: 0 50% 0 50%;
 
             &.boat {
                 background-size: 100%;
@@ -159,7 +156,6 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                border-radius: 50% 0 50% 0;
                 overflow: clip;
             }
 

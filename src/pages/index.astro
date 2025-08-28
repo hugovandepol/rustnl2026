@@ -11,6 +11,7 @@ import Image from "../components/Image.astro";
 import Person from "src/components/people/Person.astro";
 import PeopleList from "src/components/people/PeopleList.astro";
 import Location from "src/components/Location.astro";
+import MainSchedule from "src/components/schedule/MainSchedule.astro";
 // import { useTalks } from "../components/useTalks";
 //
 //
@@ -81,6 +82,8 @@ const people = Array.from({ length: 9 }, (_, i) => i + 1);
                 smalltile
             />
         </PeopleList>
+
+        <MainSchedule></MainSchedule>
 
         <Location />
 </HomeLayout>
