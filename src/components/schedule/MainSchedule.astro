@@ -10,7 +10,7 @@ import BottomNote from "./BottomNote.astro";
 <Schedule logo>
     <ScheduleDay>
         <ScheduleSection>
-            <span slot="location">Kinepolis Jaarbeurs, Utrecht,&nbsp;NL</span>
+            <!-- <span slot="location">Kinepolis Jaarbeurs, Utrecht,&nbsp;NL</span> -->
             <ScheduleItem>
                 <span slot="header">Pre-registration</span>
                 <span slot="attendees">optional</span>
@@ -38,7 +38,7 @@ import BottomNote from "./BottomNote.astro";
     </ScheduleDay>
     <ScheduleDay>
         <ScheduleSection>
-            <span slot="location">Kinepolis Jaarbeurs, Utrecht,&nbsp;NL</span>
+            <!-- <span slot="location">Kinepolis Jaarbeurs, Utrecht,&nbsp;NL</span> -->
 
             <ScheduleItem>
                 <span slot="header">Conference day 1</span>
@@ -53,7 +53,7 @@ import BottomNote from "./BottomNote.astro";
             </ScheduleItem>
         </ScheduleSection>
         <ScheduleSection>
-            <span slot="location">Utrecht,&nbsp;NL</span>
+            <!-- <span slot="location">Utrecht,&nbsp;NL</span> -->
             <ScheduleItem>
                 <span slot="header">Social activities</span>
                 <span slot="attendees">in small groups</span>
@@ -66,7 +66,7 @@ import BottomNote from "./BottomNote.astro";
     </ScheduleDay>
     <ScheduleDay>
         <ScheduleSection>
-            <span slot="location">Kinepolis Jaarbeurs, Utrecht,&nbsp;NL</span>
+            <!-- <span slot="location">Kinepolis Jaarbeurs, Utrecht,&nbsp;NL</span> -->
 
             <ScheduleItem>
                 <span slot="header">Conference day 2</span>
@@ -81,7 +81,7 @@ import BottomNote from "./BottomNote.astro";
             </ScheduleItem>
         </ScheduleSection>
         <ScheduleSection>
-            <span slot="location">Utrecht,&nbsp;NL</span>
+            <!-- <span slot="location">Utrecht,&nbsp;NL</span> -->
             <ScheduleItem>
                 <span slot="header">Social activities</span>
                 <span slot="attendees">in small groups</span>
@@ -95,7 +95,7 @@ import BottomNote from "./BottomNote.astro";
 
     <ScheduleDay>
         <ScheduleSection>
-            <span slot="location">DUS, Sophialaan&nbsp;1, Utrecht,&nbsp;NL</span>
+            <!-- <span slot="location">DUS, Sophialaan&nbsp;1, Utrecht,&nbsp;NL</span> -->
 
             <ScheduleItem>
                 <span slot="header">Workshops</span>
@@ -108,7 +108,7 @@ import BottomNote from "./BottomNote.astro";
             </ScheduleItem>
         </ScheduleSection>
         <ScheduleSection>
-            <span slot="location">DUS, Sophialaan&nbsp;1, Utrecht,&nbsp;NL</span>
+            <!-- <span slot="location">DUS, Sophialaan&nbsp;1, Utrecht,&nbsp;NL</span> -->
 
             <ScheduleItem align_end>
                 <span slot="header">10 Years of Rust Celebration</span>
@@ -124,7 +124,7 @@ import BottomNote from "./BottomNote.astro";
 
     <ScheduleDay>
         <ScheduleSection>
-            <span slot="location">Princetonlaan 6, Utrecht, NL</span>
+            <!-- <span slot="location">Princetonlaan 6, Utrecht, NL</span> -->
 
             <ScheduleItem>
                 <span slot="header">Hackathon</span>
@@ -139,7 +139,7 @@ import BottomNote from "./BottomNote.astro";
             </ScheduleItem>
         </ScheduleSection>
         <ScheduleSection>
-            <span slot="location">DUS, Sophialaan&nbsp;1, Utrecht,&nbsp;NL</span>
+            <!-- <span slot="location">DUS, Sophialaan&nbsp;1, Utrecht,&nbsp;NL</span> -->
 
             <ScheduleItem>
                 <span slot="header">Rust All-Hands & Unconference</span>
@@ -155,7 +155,7 @@ import BottomNote from "./BottomNote.astro";
 
     <ScheduleDay>
         <ScheduleSection>
-            <span slot="location">Utrecht,&nbsp;NL</span>
+            <!-- <span slot="location">Utrecht,&nbsp;NL</span> -->
 
             <ScheduleItem>
                 <span slot="header">Social activities</span>
@@ -182,8 +182,9 @@ import BottomNote from "./BottomNote.astro";
         </ScheduleSection>
     </ScheduleDay>
 
-    <div slot="extra">
-        <a href="https://discord.gg/9ezhugbhAM">Join our discord to discuss social activities and find others before the event</a>
+    <div slot="extra" class="extra">
+        <p>Join our discord to discuss social activities and find others before the event</p>
+        <a href="https://discord.gg/9ezhugbhAM" target="_blank" class="button button-primary">Join Discord</a>
     </div>
 </Schedule>
 
@@ -191,4 +192,13 @@ import BottomNote from "./BottomNote.astro";
 .align-end {
     margin-top: auto !important;
 }
+
+.extra {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+}
+
 </style>
