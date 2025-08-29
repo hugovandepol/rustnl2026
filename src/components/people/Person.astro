@@ -82,15 +82,17 @@ const imageFile = image
 ---
 
 <div class:list={["person space-y-6", tile ? "tile" : (smalltile? "small-tile": "detail")]}>
-  <div class="image">
+    <div class="image-container">
     {
       link ? (
         <a href={link}>
             <img src={`${imageFile}`} alt={`Picture of ${name}`} class={imageFile == empty_path?"empty":null} />
         </a>
       ) : (
-        <div class="image">
-          <img src={`${imageFile}`} alt={`Picture of ${name}`} class={imageFile == empty_path?"empty":null}/>
+        <div>
+            <div class="image">
+                <img src={`${imageFile}`} alt={`Picture of ${name}`} class={imageFile == empty_path?"empty":null}/>
+            </div>
         </div>
       )
     }
@@ -158,6 +160,10 @@ const imageFile = image
         position: relative;
     }
 
+    .person .image-container {
+        position: relative;
+    }
+
     .person .image {
         aspect-ratio: 1;
         border-radius: 50% 0 50% 0;
@@ -187,12 +193,21 @@ const imageFile = image
 
     .person .tag {
         align-items: center;
-        background-color: variables.$color-yellow-400;
+        background-color: variables.$color-blue-400;
         border-radius: variables.space(1);
         display: flex;
         font-size: variables.$font-size-md;
         line-height: 1;
         min-height: variables.space(8);
         padding-inline: variables.space(3);
+
+        &.project {
+            background-color: variables.$color-red-400;
+        }
+
+        &.industry, 
+        &.gosim-spotlight {
+            background-color: variables.$color-yellow-400;
+        }
     }
 </style>

@@ -97,12 +97,15 @@ const slides = Array.from({ length: 9 }, (_, i) => i + 1);
 
   .hero {
     align-items: center;
-    aspect-ratio: 16 / 9;
     background-color: variables.$color-yellow-400;
     display: flex;
     overflow: clip;
     padding-block: variables.space(12);
     position: relative;
+
+    @include breakpoint.wider_than(lg) {
+        padding-block: variables.space(20);
+    }
   }
 
   .swiper {
@@ -151,14 +154,19 @@ const slides = Array.from({ length: 9 }, (_, i) => i + 1);
 
   .swiper-navigation-next,
   .swiper-navigation-prev {
-    position: absolute;
-    top: 50%;
-    translate: 0 -50%;
-    width: variables.space(12);
-    aspect-ratio: 1;
-    border-radius: 100%;
-    background-color: white;
-    z-index: 2;
+    display: none;
+
+    @include breakpoint.wider_than(lg) {
+        aspect-ratio: 1;
+        background-color: white;
+        border-radius: 100%;
+        display: flex;
+        position: absolute;
+        top: 50%;
+        translate: 0 -50%;
+        width: variables.space(12);
+        z-index: 2;
+    }
   }
 
   .swiper-navigation-next {
