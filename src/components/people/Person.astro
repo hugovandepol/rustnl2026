@@ -68,8 +68,13 @@ outer: for (const i of speakers) {
   }
 }
 
-if ((image === null || (typeof image === "undefined")) && github_of_person === null && (typeof github !== "undefined") && github !== null) {
-    github_of_person = github.replace(/\/$/g, "");
+if (
+  (image === null || typeof image === "undefined") &&
+  github_of_person === null &&
+  typeof github !== "undefined" &&
+  github !== null
+) {
+  github_of_person = github.replace(/\/$/g, "");
 }
 
 const empty_path = "/images/people/empty.png";
@@ -81,18 +86,35 @@ const imageFile = image
     : empty_path;
 ---
 
-<div class:list={["person space-y-6", tile ? "tile" : (smalltile? "small-tile": "detail")]}>
-    <div class="image-container">
+<div
+  class:list={[
+    "person space-y-6",
+    tile ? "tile" : smalltile ? "small-tile" : "detail",
+  ]}
+>
+  <div class="image-container">
     {
       link ? (
-        <a href={link}>
-            <img src={`${imageFile}`} alt={`Picture of ${name}`} class={imageFile == empty_path?"empty":null} />
-        </a>
+        <div>
+          <div class="image">
+            <a href={link}>
+              <img
+                src={`${imageFile}`}
+                alt={`Picture of ${name}`}
+                class={imageFile == empty_path ? "empty" : null}
+              />
+            </a>
+          </div>
+        </div>
       ) : (
         <div>
-            <div class="image">
-                <img src={`${imageFile}`} alt={`Picture of ${name}`} class={imageFile == empty_path?"empty":null}/>
-            </div>
+          <div class="image">
+            <img
+              src={`${imageFile}`}
+              alt={`Picture of ${name}`}
+              class={imageFile == empty_path ? "empty" : null}
+            />
+          </div>
         </div>
       )
     }
@@ -146,68 +168,72 @@ const imageFile = image
         </div>
       )
     }
-    {!(tile || smalltile) && description && <div class="bio" set:html={description}></div>}
+    {
+      !(tile || smalltile) && description && (
+        <div class="bio" set:html={description} />
+      )
+    }
     <slot />
   </div>
 </div>
 
 <style lang="scss">
-    @use '../../styles/variables.scss';
+  @use "../../styles/variables.scss";
 
-    .person {
-        border: 1px solid variables.$color-neutral-400;
-        padding: variables.space(4);
-        position: relative;
+  .person {
+    border: 1px solid variables.$color-neutral-400;
+    padding: variables.space(4);
+    position: relative;
+  }
+
+  .person .image-container {
+    position: relative;
+  }
+
+  .person .image {
+    aspect-ratio: 1;
+    border-radius: 50% 0 50% 0;
+    overflow: clip;
+    position: relative;
+  }
+
+  .person .image img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .person .title {
+    font-size: variables.$font-size-md;
+  }
+
+  .person .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: variables.space(2);
+    position: absolute;
+    bottom: variables.space(2);
+    left: variables.space(2);
+  }
+
+  .person .tag {
+    align-items: center;
+    background-color: variables.$color-blue-400;
+    border-radius: variables.space(1);
+    display: flex;
+    font-size: variables.$font-size-md;
+    line-height: 1;
+    min-height: variables.space(8);
+    padding-inline: variables.space(3);
+
+    &.project {
+      background-color: variables.$color-red-400;
     }
 
-    .person .image-container {
-        position: relative;
+    &.industry,
+    &.gosim-spotlight {
+      background-color: variables.$color-yellow-400;
     }
-
-    .person .image {
-        aspect-ratio: 1;
-        border-radius: 50% 0 50% 0;
-        overflow: clip;
-        position: relative;
-    }
-
-    .person .image img {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .person .title {
-        font-size: variables.$font-size-md;
-    }
-
-    .person .tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: variables.space(2);
-        position: absolute;
-        bottom: variables.space(2);
-        left: variables.space(2);
-    }
-
-    .person .tag {
-        align-items: center;
-        background-color: variables.$color-blue-400;
-        border-radius: variables.space(1);
-        display: flex;
-        font-size: variables.$font-size-md;
-        line-height: 1;
-        min-height: variables.space(8);
-        padding-inline: variables.space(3);
-
-        &.project {
-            background-color: variables.$color-red-400;
-        }
-
-        &.industry, 
-        &.gosim-spotlight {
-            background-color: variables.$color-yellow-400;
-        }
-    }
+  }
 </style>

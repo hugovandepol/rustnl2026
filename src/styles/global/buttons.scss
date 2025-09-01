@@ -25,6 +25,10 @@
     transition-duration: 150ms;
 }
 
+.button:visited {
+    color: white;
+}
+
 .button:hover {
     filter: brightness(90%);
     scale: 1.025;

@@ -15,12 +15,12 @@ import MainSchedule from "src/components/schedule/MainSchedule.astro";
 import Sponsors from "src/components/sponsor/Sponsors.astro";
 import SponsorTier from "src/components/sponsor/sponsor-tier.astro";
 import Sponsor from "src/components/sponsor/sponsor.astro";
-// import { useTalks } from "../components/useTalks";
-//
-//
-// const talks = await Astro.glob('./talks/*.md');
-// const {alice, julius, pietro, alex, niko, miguel, ciara, raph} = useTalks(talks);
-// const featured_talks = [alice, julius, pietro, alex, niko, miguel, ciara, raph];
+import { useTalks } from "../components/useTalks";
+
+
+const talks = await Astro.glob('./talks/*.md');
+const {alice, julius, pietro, alex, niko, miguel, ciara, raph} = useTalks(talks);
+const featured_talks = [alice, julius, pietro, alex, niko, miguel, ciara, raph];
 
 const people = Array.from({ length: 9 }, (_, i) => i + 1);
 ---
@@ -35,41 +35,10 @@ const people = Array.from({ length: 9 }, (_, i) => i + 1);
     </div>
     <MainSchedule />
     <PeopleList title="Last year's speakers" lead="">
-        <Person
-            name="Erik Jonkers"
-            image="erik.jpg"
-            title="Board member of the RustNL foundation and Director of Open Source of software agency Tweede golf."
-            tracks={["organisation"]}
-            smalltile
-        />
-        <Person
-            name="Laura Pircalaboiu"
-            image="laura.png"
-            title="Embedded software engineer at Q*Bird"
-            tracks={["organisation"]}
-            smalltile
-        />
-        <Person
-            name="Jana Dönszelmann"
-            image="jana.png"
-            title="Lecturer in Embedded Systems at Delft University of Technology and founder of Hexcat"
-            tracks={["organisation"]}
-            smalltile
-        />
-        <Person
-            name="Terts Diepraam"
-            image="terts.png"
-            title="Maintainer on Uutils and Software Engineer at NLnet Labs"
-            tracks={["organisation", "mc"]}
-            smalltile
-        />
-        <Person
-            name="Mara Bos"
-            image="mara.jpg"
-            title="Rust leadership council and founder of Hexcat"
-            tracks={["organisation", "mc"]}
-            smalltile
-        />
+        {featured_talks.map((talk) => (
+            // <Person smalltile link={talk.slug} tracks={talk.tracks} {...talk.speakers[0]} />
+            <Person smalltile {...talk.speakers[0]} />
+        ))}
     </PeopleList>
     <Image src="/images/slider/4.jpg" alt="10 year celebration at RustWeek 2026 " />
     <Location />

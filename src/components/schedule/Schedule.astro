@@ -99,17 +99,17 @@ const { logo = false } = Astro.props;
                 "sat-s";
 
             div {
-                font-weight: bold;
                 position: relative;
 
                 text-align: center;
-                font-size: variables.$font-size-sm;
+                font-family: "Alfa Slab One", serif;
+                font-size: variables.$font-size-md;
 
                 margin-left: -1em;
                 margin-right: -1em;
 
                 @include breakpoint.smaller_than(lg) {
-                    margin-top: 0.5em;
+                    margin-top: 3rem;
                 }
 
                 @include breakpoint.wider_than(lg) {
