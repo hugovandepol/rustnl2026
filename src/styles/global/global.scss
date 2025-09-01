@@ -130,3 +130,23 @@ p {
 .lead {
     text-wrap: balance;
 }
+
+.markdown {
+    p {
+        margin-block-end: calc(variables.$font-size-md * variables.$line-height-normal);
+    }
+
+    a {
+        text-decoration: underline;
+        color: inherit;
+    }
+
+    ul {
+        list-style: disc;
+        padding-inline-start: variables.$font-size-lg;
+    }
+
+    .bus-timetable {
+        font-family: monospace;
+    }
+}

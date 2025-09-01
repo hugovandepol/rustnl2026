@@ -146,6 +146,7 @@ const { location }: Props = Astro.props;
     }
 
     &.header {
+      font-size: variables.$font-size-lg;
       > ul {
         align-items: flex-start;
         display: flex;
@@ -156,7 +157,6 @@ const { location }: Props = Astro.props;
         @include breakpoint.wider_than(lg) {
           align-items: stretch;
           flex-direction: row;
-          font-size: variables.$font-size-lg;
           gap: variables.space(6);
         }
       }
@@ -232,6 +232,7 @@ const { location }: Props = Astro.props;
       }
 
       .parent {
+        font-weight: 700;
         justify-content: center;
         display: flex;
         flex-direction: column;
@@ -271,8 +272,8 @@ const { location }: Props = Astro.props;
         border: none;
         font-family: inherit;
         color: inherit;
-        font-size: inherit;
         font-weight: inherit;
+        font-size: inherit;
         padding: 0;
 
         @include breakpoint.wider_than(lg) {

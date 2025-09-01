@@ -10,8 +10,8 @@
     @use "../styles/variables.scss";
 
     .markdown {
-        > * + * {
-            margin-block-start: calc(variables.$font-size-md * variables.$line-height-normal);
+        p {
+            margin-block-end: calc(variables.$font-size-md * variables.$line-height-normal);
         }
 
         a {
