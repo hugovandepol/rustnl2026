@@ -8,7 +8,7 @@ interface Props {
 const { logo = false } = Astro.props;
 ---
 
-<div class:list={["schedule container", logo]}>
+<div id="week-schedule" class:list={["schedule container", logo]}>
     {
         logo && (
             <div class="image-wrapper">

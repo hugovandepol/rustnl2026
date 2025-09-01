@@ -26,8 +26,8 @@ const slides = Array.from({ length: 9 }, (_, i) => i + 1);
         ongoing social events, an unconference.
       </p>
       <div class="button-group cutout cutout-button-group">
-        <a class="button button-primary">Tickets</a>
-        <a class="button button-secondary">Schedule</a>
+        <a target="_blank" href="https://event.onliveevent.nl/rustweek-2026" class="button button-primary">Tickets</a>
+        <a href="#week-schedule" class="button button-secondary">Week schedule</a>
       </div>
     </div>
     <div class="col-7">
@@ -142,6 +142,7 @@ const slides = Array.from({ length: 9 }, (_, i) => i + 1);
   }
 
   .ferris {
+    pointer-events: none;
     aspect-ratio: 1;
     background-image: url("/images/ferris.png");
     background-position: bottom;
@@ -168,6 +169,7 @@ const slides = Array.from({ length: 9 }, (_, i) => i + 1);
     display: none;
 
     @include breakpoint.wider_than(lg) {
+        cursor: pointer;
         align-items: center;
         aspect-ratio: 1;
         background-color: white;

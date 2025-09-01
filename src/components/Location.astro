@@ -3,6 +3,20 @@
 ---
 
 <section class="container space-y-12">
+    <div class="space-y-6">
+        <h2>Location: Utrecht</h2>
+        <p>
+            RustWeek 2025 will take place in Utrecht, one of the largest and most
+            beautiful cities of the Netherlands. Utrecht is known for its medieval
+            city centre and lovely canals, and has excellent public transport and
+            walkability.
+        </p>
+        <p>
+            Utrecht's train station is the biggest and most central train
+            station in the country, making it the central hub for (international) trains
+            in the Netherlands.
+        </p>
+    </div>
     <div class="location">
         <div class="image"></div>
         <div class="image"></div>
@@ -31,18 +45,18 @@
                 "a c";
         }
 
-        // &::before {
-        //     aspect-ratio: 16 / 9;
-        //     background-color: variables.$color-neutral-500;
-        //     clip-path: polygon(0 100%, 100% 0, 100% 100%);
-        //     content: "";
-        //     position: absolute;
-        //     right: 0;
-        //     top: 0;
-        //     translate: 0 -100%;
-        //     width: 50%;
-        //     z-index: -1;
-        // }
+        &::before {
+            aspect-ratio: 16 / 9;
+            background-color: variables.$color-neutral-500;
+            clip-path: polygon(0 100%, 100% 0, 100% 100%);
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 0;
+            translate: 0 -100%;
+            width: 50%;
+            z-index: -1;
+        }
 
         > .ferris {
             display: none;
