@@ -1,7 +1,14 @@
 ---
-interface Props {
+import { library, icon } from "@fortawesome/fontawesome-svg-core";
+import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+
+interface Props {   
   style?: "page" | "home";
 }
+
+library.add(faArrowRight, faArrowLeft);
+const arrowRightIcon = icon({ prefix: "fas", iconName: faArrowRight.iconName });
+const arrowLeftIcon = icon({ prefix: "fas", iconName: faArrowLeft.iconName });
 
 const { style = "page" }: Props = Astro.props;
 const slides = Array.from({ length: 9 }, (_, i) => i + 1);
@@ -35,8 +42,12 @@ const slides = Array.from({ length: 9 }, (_, i) => i + 1);
               ))
             }
           </div>
-          <div class="swiper-navigation-next"></div>
-          <div class="swiper-navigation-prev"></div>
+          <div class="swiper-navigation-next">
+                <Fragment set:html={arrowRightIcon.html} />
+          </div>
+          <div class="swiper-navigation-prev">
+                <Fragment set:html={arrowLeftIcon.html} />
+          </div>
         </div>
       </div>
     </div>
@@ -157,10 +168,12 @@ const slides = Array.from({ length: 9 }, (_, i) => i + 1);
     display: none;
 
     @include breakpoint.wider_than(lg) {
+        align-items: center;
         aspect-ratio: 1;
         background-color: white;
         border-radius: 100%;
         display: flex;
+        justify-content: center;
         position: absolute;
         top: 50%;
         translate: 0 -50%;
