@@ -1,11 +1,12 @@
 ---
-layout: "../layouts/MarkdownLayout.astro"
+layout: "../layouts/TicketLayout.astro"
 title: "Tickets - RustWeek 2026"
 slug: "tickets"
 ---
 
-Tickets available soon! Tickets available soon! Tickets available soon! Tickets available soon! Tickets available soon!
-
-Tickets available soon! Tickets available soon! Tickets available soon! Tickets available soon! Tickets available soon!
-
-Tickets available soon! Tickets available soon! Tickets available soon! Tickets available soon! Tickets available soon!
+<iframe 
+  src="https://event.onliveevent.nl/rustweek-2026/tickets" 
+  style="width: 100%; height: 100vh; border: none;" 
+  frameborder="0" 
+  allowfullscreen>
+</iframe>
