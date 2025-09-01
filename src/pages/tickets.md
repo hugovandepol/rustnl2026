@@ -1,6 +1,6 @@
 ---
 layout: "../layouts/TicketLayout.astro"
-title: "Tickets - RustWeek 2026"
+title: "Tickets"
 slug: "tickets"
 ---
 
