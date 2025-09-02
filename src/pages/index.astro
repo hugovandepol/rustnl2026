@@ -1,10 +1,5 @@
 ---
 import HomeLayout from "../layouts/HomeLayout.astro";
-
-// import Person from "../components/people/Person.astro";
-// import Sponsor from "../components/sponsor/sponsor.astro";
-// import SponsorTier from "../components/sponsor/sponsor-tier.astro";
-
 import Button from "../components/Button.astro";
 import ButtonGroup from "../components/ButtonGroup.astro";
 import Image from "../components/Image.astro";
@@ -153,6 +148,18 @@ const people = Array.from({ length: 9 }, (_, i) => i + 1);
           tier="bronze"
           image="tandemdrive.png"
           link="https://tandemdrive.com/"
+        />
+        <Sponsor
+            name="Tweede golf"
+            tier="organizing-partner"
+            image="tweede-golf-v2.png"
+            link="https://tweedegolf.nl"
+        />
+        <Sponsor
+            name="Hexcat"
+            tier="organizing-partner"
+            image="hexcat.png"
+            link="https://hexcat.nl"
         />
       </SponsorTier>
     </Sponsors>
