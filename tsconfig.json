@@ -4,5 +4,6 @@
         "esModuleInterop": true,
         "allowSyntheticDefaultImports": true,
         "baseUrl": "."
-    }
+    },
+    "exclude": ["src/2025-pages/"]
 }

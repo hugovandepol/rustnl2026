@@ -26,7 +26,7 @@ interface Props {
 
 const {header, ticket, room, track, time, duration, color, talks, striped = false }: Props = Astro.props;
 
-const time_underscore = time.replace(":", "_");
+// const time_underscore = time.replace(":", "_");
 const matches = import.meta.glob("../../pages/talks/*.md", { eager: true });
 const files = Object.values(matches);
 ---

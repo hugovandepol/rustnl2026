@@ -16,8 +16,6 @@ const talks = await Astro.glob("./talks/*.md");
 const { alice, julius, pietro, alex, niko, miguel, ciara, raph } =
   useTalks(talks);
 const featured_talks = [alice, julius, pietro, alex, niko, miguel, ciara, raph];
-
-const people = Array.from({ length: 9 }, (_, i) => i + 1);
 ---
 
 <HomeLayout>

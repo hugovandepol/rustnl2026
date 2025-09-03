@@ -1,11 +1,10 @@
 ---
-import { library, icon } from '@fortawesome/fontawesome-svg-core';
+import { library } from '@fortawesome/fontawesome-svg-core';
 import { faLocationDot, faClock } from '@fortawesome/free-solid-svg-icons';
 
 const {
   title,
   slug,
-  time,
   abstract,
   description,
   full,
@@ -13,8 +12,6 @@ const {
 } = Astro.props;
 
 library.add(faLocationDot, faClock);
-const locationIcon = icon({ prefix: 'fas', iconName: faLocationDot.iconName });
-const clockIcon = icon({ prefix: 'fas', iconName: faClock.iconName });
 ---
 
 <div class="markdown workshop-detail">
