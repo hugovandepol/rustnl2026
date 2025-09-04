@@ -1,0 +1,61 @@
+---
+
+---
+
+<style lang="scss">
+    @use "../styles/variables.scss";
+
+    .person {
+        overflow: clip;
+        border: 1px solid variables.$color-neutral-400;
+        padding: variables.space(6);
+        border-radius: 0 0 3rem 0;
+    }
+    
+    .image {
+        aspect-ratio: 1 / 1;
+        background-color: variables.$color-neutral-400;
+        border-radius: 0 0 50% 0;
+        position: relative;
+        overflow: clip;
+    }
+    
+    .image img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: variables.space(2);
+    }
+    
+    .tag {
+        background-color: variables.$color-red-400;
+        font-size: variables.$font-size-md;
+        padding-inline: variables.space(3);
+        border-radius: variables.space(1);
+        line-height: 1;
+        display: inline-flex;
+        align-items: center;
+        color: white;
+        min-height: variables.space(7);
+    }
+</style>
+
+<article class="person space-y-6">
+    <div class="image">
+        <img src="https://rustweek.org/images/people/alice_cecile.jpg" alt="">
+    </div>
+    <div>
+        <div class="tags">
+            <span class="tag">track</span>
+            <span class="tag">project</span>
+        </div>
+        <h3>Name</h3>
+        <div>Talk</div>
+    </div>
+</article>

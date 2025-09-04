@@ -3,19 +3,7 @@ import Head from "../components/page/head.astro";
 import Header from "../components/page/header.astro";
 import Footer from "../components/page/footer.astro";
 import Hero from "../components/page/Hero.astro";
-
-import ButtonGroup from "../components/ButtonGroup.astro";
-import Button from "../components/Button.astro";
-
-import MainSchedule from "../components/schedule/MainSchedule.astro";
-
-import Sponsors from "../components/sponsor/Sponsors.astro";
-
-import Location from "../components/Location.astro";
-import HeroImage from "../../public/svg/hero-logo-rustweek-by-rustnl.svg?raw";
 import "../styles/index.scss";
-import Divider from "../components/Divider.astro";
-import PeopleList from "../components/people/PeopleList.astro";
 ---
 
 <!doctype html>
@@ -63,35 +51,16 @@ import PeopleList from "../components/people/PeopleList.astro";
     <Head title="RustWeek 2026" />
     <body>
         <Header />
-        <div class="space-y-12">
-            <Hero style="home">
-                <Fragment set:html={HeroImage} />
-
-                <p>May 18–22, 2026<br /> The Netherlands</p>
-
-                <ButtonGroup>
-                    <Button
-                        scale={1.25}
-                        link="https://event.onliveevent.nl/rw26-prereg"
-                        >Get Updates</Button
-                    >
-                </ButtonGroup>
-
-                <a class="down-arrow" href="#explainer"></a>
-            </Hero>
+        <div class="space-y-16 lg:space-y-24">
+            <Hero style="home" />
             <section class="container md:grid md:cols-12">
-                <div
-                    class="explainer md:col-start-3 md:col-end-11 xl:col-start-4 xl:col-end-10"
-                >
+                <div class="explainer md:col-start-3 md:col-end-11 xl:col-start-4 xl:col-end-10">
                     <slot name="explainer" />
                 </div>
-            </section>
- 
-
+            </section> 
+            <slot />
             <section class="container md:grid md:cols-12">
-                <div
-                    class="about md:col-start-3 md:col-end-11 xl:col-start-4 xl:col-end-10"
-                >
+                <div class="about md:col-start-3 md:col-end-11 xl:col-start-4 xl:col-end-10">
                     <slot name="about" id="about" />
                 </div>
             </section>

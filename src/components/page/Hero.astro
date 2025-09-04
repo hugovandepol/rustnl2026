@@ -1,114 +1,192 @@
 ---
-interface Props {
-  style?: 'page' | 'home';
+import { library, icon } from "@fortawesome/fontawesome-svg-core";
+import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+
+interface Props {   
+  style?: "page" | "home";
 }
 
-const { style = 'page' }: Props = Astro.props;
+library.add(faArrowRight, faArrowLeft);
+const arrowRightIcon = icon({ prefix: "fas", iconName: faArrowRight.iconName });
+const arrowLeftIcon = icon({ prefix: "fas", iconName: faArrowLeft.iconName });
+
+const { style = "page" }: Props = Astro.props;
+const slides = Array.from({ length: 4 }, (_, i) => i + 1);
 ---
 
-<section class:list={['hero', style]}>
-  <slot />
+<section class:list={["hero", style]}>
+  <div class="container space-y-12 lg:grid lg:cols-12 lg:space-y-0">
+    <div class="col-5 space-y-6 lg:space-y-8">
+      <div>
+        <h1 class="font-display">RustWeek 2026</h1>
+        <h2>May 18-23 — Utrecht, NL</h2>
+      </div>
+      <p>
+        The world's biggest Rust conference includes one day of workshops, two days of talks, a hackathon, social activities, and more!
+      </p>
+      <div class="button-group cutout cutout-button-group">
+        <a href="https://event.onliveevent.nl/rustweek-2026" class="button button-primary">Tickets</a>
+        <a href="#week-schedule" class="button button-secondary">Week schedule</a>
+      </div>
+    </div>
+    <div class="col-7">
+      <div class="cutout cutout-hero">
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            {
+              slides.map((n) => (
+                <div class="swiper-slide">
+                  <img src={`/images/slider/${n}.jpg`} alt={`Slide ${n}`} />
+                </div>
+              ))
+            }
+          </div>
+          <div class="swiper-navigation-next">
+                <Fragment set:html={arrowRightIcon.html} />
+          </div>
+          <div class="swiper-navigation-prev">
+                <Fragment set:html={arrowLeftIcon.html} />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ferris"></div>
+  </div>
 </section>
 
-<style lang="scss" is:global>
-  @use '../../styles/breakpoint.scss';
-  @use '../../styles/variables.scss';
+<script>
+  import "swiper/css";
+  import Swiper from "swiper";
+  import { Autoplay, Keyboard, Navigation } from "swiper/modules";
+
+  const ferris = document.querySelector(".ferris");
+
+  const swiper = new Swiper(".swiper", {
+    loop: true,
+    modules: [Autoplay, Keyboard, Navigation],
+    navigation: {
+      nextEl: ".swiper-navigation-next",
+      prevEl: ".swiper-navigation-prev",
+    },
+    keyboard: true,
+    autoplay: {
+      delay: 10000,
+    },
+  });
+
+  swiper.on("slideChangeTransitionEnd", () => {
+    if (ferris) {
+      ferris.classList.remove("ferris-animate");
+      ferris.classList.add("ferris-animate");
+    }
+  });
+
+  swiper.on("slideChange", () => {
+    ferris?.classList.remove("peek");
+  });
+</script>
+
+<style lang="scss">
+  @use "../../styles/breakpoint.scss";
+  @use "../../styles/variables.scss";
+
+  @keyframes peek {
+    0% {
+      translate: -50% 40%;
+    }
+
+    50% {
+      translate: -50% 20%;
+    }
+
+    0% {
+      translate: -50% 40%;
+    }
+  }
 
   .hero {
     align-items: center;
-
-    background: variables.$color-yellow-400;
-    box-sizing: border-box;
-    color: white;
+    background-color: variables.$color-yellow-400;
     display: flex;
-    flex-direction: column;
-    font-size: variables.$font-size-lg;
-    font-weight: 600;
-
-    // background:
-    // linear-gradient(rgb(0 0 0 / 50%), rgb(255 255 255 / 30%), rgb(0 0 0 / 50%)),
-    // no-repeat right 30% / cover url("images/backgrounds/background.jpg");
-    // no-repeat right 30% / cover url("images/backgrounds/background-conf-stage.webp");
-    // no-repeat right 30% / cover url("images/backgrounds/background-conf-stage-opening.jpeg");
-    // no-repeat right 30% / cover url("images/backgrounds/background-conf-stage-side.jpg");
-
-    gap: variables.space(10);
-    justify-content: center;
-    line-height: variables.$line-height-tight;
-    min-height: 100svh;
+    overflow: clip;
     padding-block: variables.space(12);
-    padding-inline: variables.space(6);
     position: relative;
-    text-align: center;
-    z-index: 0;
-    margin-block-end: 3rem;
 
-    @include breakpoint.wider_than(sm) {
-      font-size: variables.$font-size-xl;
+    @include breakpoint.wider_than(lg) {
+        padding-block: variables.space(20);
     }
+  }
 
-    @include breakpoint.wider_than(md) {
-      border-width: variables.space(6) variables.space(6) 0 variables.space(6);
-      padding-block: variables.space(12);
-      padding-inline: variables.space(6);
+  .swiper {
+    aspect-ratio: 4 / 3;
+    background-color: black;
+    border-radius: 50% 0 50% 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .swiper-slide {
+    position: relative;
+  }
+
+  .swiper-slide > img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .ferris {
+    pointer-events: none;
+    aspect-ratio: 1;
+    background-image: url("/images/ferris.png");
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    bottom: 0;
+    left: 50%;
+    max-width: 40rem;
+    position: absolute;
+    translate: -50% 40%;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .ferris-animate {
+    animation-delay: 300ms;
+    animation-name: peek;
+    animation-duration: 2500ms;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .swiper-navigation-next,
+  .swiper-navigation-prev {
+    display: none;
+
+    @include breakpoint.wider_than(lg) {
+        cursor: pointer;
+        align-items: center;
+        aspect-ratio: 1;
+        background-color: white;
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        top: 50%;
+        translate: 0 -50%;
+        width: variables.space(12);
+        z-index: 2;
     }
+  }
 
-    @include breakpoint.wider_than(xl) {
-      border-width: variables.space(12) variables.space(12) 0
-        variables.space(12);
-      padding-block: variables.space(24);
-      padding-inline: variables.space(12);
-    }
+  .swiper-navigation-next {
+    right: variables.space(6);
+  }
 
-    &::before {
-      background: variables.$color-yellow-500;
-      clip-path: polygon(0 0, 100% 0, 100% 100%);
-      content: '';
-      inset: 0;
-      position: absolute;
-      z-index: -1;
-    }
-
-    &::after {
-      background-image: url('/images/stripes.svg');
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-size: 100% auto;
-      bottom: 0;
-      content: '';
-      height: variables.space(6);
-      max-width: 44.25rem;
-      position: absolute;
-      width: 100%;
-    }
-
-    svg {
-      height: auto;
-      max-width: 95vw;
-
-      @include breakpoint.wider_than(md) {
-        max-width: 60vw;
-      }
-
-      @include breakpoint.wider_than(xl) {
-        max-width: 40vw;
-      }
-    }
-
-    .nav {
-      display: flex;
-      justify-content: spacebetween;
-      flex: 1;
-      width: 100%;
-      align-items: center;
-    }
-
-    &.page {
-      min-height: 8rem;
-
-      img {
-        max-height: 3rem;
-      }
-    }
+  .swiper-navigation-prev {
+    left: variables.space(6);
   }
 </style>

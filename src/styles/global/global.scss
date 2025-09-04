@@ -20,16 +20,15 @@ body {
     background-color: variables.$color-background;
     color: variables.$color-black;
     font-family: variables.$font-family;
-    font-size: 1.0625rem;
-
     font-weight: 300;
     line-height: variables.$line-height-normal;
 
     @include breakpoint.wider_than(sm) {
-        font-size: variables.$font-size-md;
+        font-size: variables.$font-size-lg;
     }
 }
-s
+
+s,
 h1,
 h2,
 h3,
@@ -42,11 +41,36 @@ b {
 }
 
 h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    // max-width: 35ch;
+}
+
+h1 {
+    font-size: variables.$font-size-xl;
+    line-height: 1.125;
+
+    @include breakpoint.wider_than(lg) {
+        font-size: variables.$font-size-3xl;
+    }
+}
+
 h2 {
-    // note: writing this as text-decoration shorthand does not work on safari
-    text-decoration-line: underline;
-    text-decoration-color: variables.$color-red-400;
-    text-decoration-thickness: 0.3rem;
+    font-size: variables.$font-size-lg;
+    line-height: 1.125;
+
+    @include breakpoint.wider_than(lg) {
+        font-size: variables.$font-size-2xl;
+    }
+}
+
+.font-display {
+    font-family: "Alfa Slab One", serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 [id] {
@@ -72,27 +96,6 @@ blockquote>p {
 
 }
 
-h1 {
-    font-size: variables.$font-size-xl;
-    text-align: center;
-    margin: 0;
-    padding-block: 2rem;
-
-    @include breakpoint.wider_than(sm) {
-        font-size: variables.$font-size-2xl;
-    }
-}
-
-h2 {
-    font-size: variables.$font-size-lg;
-    margin: 0;
-    padding-block: 1rem 0.5rem;
-
-    @include breakpoint.wider_than(sm) {
-        font-size: variables.$font-size-xl;
-    }
-}
-
 .text-center {
     text-align: center;
 }
@@ -104,14 +107,6 @@ a {
     &:hover {
         text-decoration-color: variables.$color-red-400;
     }
-
-    &:visited {
-        color: inherit;
-    }
-}
-
-.schedule a {
-    color: inherit;
 }
 
 
@@ -125,5 +120,33 @@ a {
 }
 
 img {
-  vertical-align: middle;
+    vertical-align: middle;
+}
+
+p {
+    max-width: 65ch;
+}
+
+.lead {
+    text-wrap: balance;
+}
+
+.markdown {
+    p {
+        margin-block-end: calc(variables.$font-size-md * variables.$line-height-normal);
+    }
+
+    a {
+        text-decoration: underline;
+        color: inherit;
+    }
+
+    ul {
+        list-style: disc;
+        padding-inline-start: variables.$font-size-lg;
+    }
+
+    .bus-timetable {
+        font-family: monospace;
+    }
 }

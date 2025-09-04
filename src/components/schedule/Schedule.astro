@@ -1,5 +1,5 @@
 ---
-import HeroImage from "../../../public/svg/hero-logo-rustweek-by-rustnl.svg?raw";
+import HeroImage from "../../../public/svg/logo.svg?raw";
 
 interface Props {
     logo?: boolean;
@@ -8,7 +8,7 @@ interface Props {
 const { logo = false } = Astro.props;
 ---
 
-<div class:list={["schedule", logo]}>
+<div id="week-schedule" class:list={["schedule container", logo]}>
     {
         logo && (
             <div class="image-wrapper">
@@ -17,16 +17,12 @@ const { logo = false } = Astro.props;
         )
     }
     <div class="days">
-        <div class="mon">Monday 12&nbsp;May</div>
-        <div class="tue">Tuesday 13&nbsp;May</div>
-        <div class="wed">Wednesday 14&nbsp;May</div>
-        <div class="thu">
-            Thursday 15&nbsp;May { logo && <span class="birthday"
-                >10 year birthday of&nbsp;Rust&nbsp;1.0!</span
-            > }
-        </div>
-        <div class="fri">Friday 16&nbsp;May</div>
-        <div class="sat">Saturday 17&nbsp;May</div>
+        <div class="mon">Monday May&nbsp;18</div>
+        <div class="tue">Tuesday May&nbsp;19</div>
+        <div class="wed">Wednesday May&nbsp;20</div>
+        <div class="thu">Thursday May&nbsp;21</div>
+        <div class="fri">Friday May&nbsp;22</div>
+        <div class="sat">Saturday May&nbsp;23</div>
         <slot />
     </div>
 
@@ -49,14 +45,12 @@ const { logo = false } = Astro.props;
         align-items: center;
 
         position: relative;
-
-        color: variables.$color-red-500;
         background: variables.$color-yellow-400;
         z-index: 0;
 
 
         @include breakpoint.smaller_than(md) {
-            padding: 1em 2em 4em 1em;
+            padding: 1em 1em 4em 1em;
         }
 
         .extra {
@@ -64,30 +58,6 @@ const { logo = false } = Astro.props;
             a {
                 color: unset;
             }
-        }
-
-
-
-        &::before {
-            background-color: variables.$color-yellow-500;
-            clip-path: polygon(0 0, 100% 0, 100% 100%);
-            content: "";
-            inset: 0;
-            position: absolute;
-            z-index: -1;
-        }
-
-        &::after {
-            background-image: url("/images/stripes.svg");
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: min(40rem, 60%) auto;
-            bottom: 0;
-            content: "";
-            height: variables.space(3);
-            position: absolute;
-            width: 100%;
-            align-self: center;
         }
 
         .birthday {
@@ -129,22 +99,22 @@ const { logo = false } = Astro.props;
                 "sat-s";
 
             div {
-                font-weight: bold;
                 position: relative;
 
                 text-align: center;
-                font-size: variables.$font-size-sm;
+                font-family: "Alfa Slab One", serif;
+                font-size: variables.$font-size-md;
 
                 margin-left: -1em;
                 margin-right: -1em;
 
                 @include breakpoint.smaller_than(lg) {
-                    margin-top: 0.5em;
+                    margin-top: 3rem;
                 }
 
                 @include breakpoint.wider_than(lg) {
                     font-size: calc(1.4 * variables.$font-size-sm);
-                    margin-bottom: 0.1em;
+                    margin-bottom: variables.space(3);
                 }
 
 

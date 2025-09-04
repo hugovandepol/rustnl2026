@@ -1,10 +1,6 @@
 ---
-import TimetableItem from "./Item.astro";
-import TimetableMultiItem from "./MultiItem.astro";
-import TimetableDivider from "./Divider.astro";
 import { parseHTML } from 'linkedom'
 import { in_range, timeGenerator, lt, pad} from "./data.ts";
-import type { HTMLDocument } from "node_modules/linkedom/types/html/document";
 
 interface Props {
     breaks: string[],
@@ -132,10 +128,10 @@ function rows(custom_start: [number, number] | null = null): string {
     return times;
 }
 
-function arraysEqual<T>(arr1: T[], arr2: T[]): boolean {
-  if (arr1.length !== arr2.length) return false;
-  return arr1.every((value, index) => value === arr2[index]);
-}
+// function arraysEqual<T>(arr1: T[], arr2: T[]): boolean {
+//   if (arr1.length !== arr2.length) return false;
+//   return arr1.every((value, index) => value === arr2[index]);
+// }
 
 function removeBefore(document: Document, last_start: Range) {
     document.querySelectorAll(".item,.wide").forEach((e: any) => {

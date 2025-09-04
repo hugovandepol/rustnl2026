@@ -1,0 +1,27 @@
+---
+    interface Props {
+        title?: string,
+        lead?: string
+    }
+
+    const { title, lead }: Props = Astro.props;
+---
+
+<style>
+    .header {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+</style>
+
+<div class="container space-y-12">
+    <div class="header">
+        <h2>{title}</h2>
+        <p class="lead">{lead}</p>
+    </div>
+    <div class="grid cols-4">
+        <slot />
+    </div>
+</div>

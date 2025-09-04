@@ -24,14 +24,15 @@ import BottomNote from "./BottomNote.astro";
             </ScheduleItem>
         </ScheduleSection>
         <ScheduleSection>
-            <span slot="location">Utrecht,&nbsp;NL</span>
+            <span slot="location">TBD, Utrecht, NL</span>
+
             <ScheduleItem>
-                <span slot="header">Social activities</span>
-                <span slot="attendees">in small groups</span>
-                <span slot="time">12:00–22:00</span>
+                <span slot="header">Workshops<br /><br /></span>
+                <span slot="attendees">100 attendees</span>
+                <span slot="time">12:00–17:00</span>
                 <Fragment slot="activities">
-                    <!-- <p>City tour, Ferris sticker hunt, Bouldering, Bowling, Laser tag, Museum visit, …</p> -->
-                    <OrganizeOwnActivity />
+                    <p>7 workshops in total</p>
+                    <p><a href="/events/workshops">See details</a></p>
                 </Fragment>
             </ScheduleItem>
         </ScheduleSection>
@@ -52,17 +53,6 @@ import BottomNote from "./BottomNote.astro";
                 </Fragment>
             </ScheduleItem>
         </ScheduleSection>
-        <ScheduleSection>
-            <span slot="location">Utrecht,&nbsp;NL</span>
-            <ScheduleItem>
-                <span slot="header">Social activities</span>
-                <span slot="attendees">in small groups</span>
-                <span slot="time">18:00–22:00</span>
-                <Fragment slot="activities">
-                    <OrganizeOwnActivity />
-                </Fragment>
-            </ScheduleItem>
-        </ScheduleSection>
     </ScheduleDay>
     <ScheduleDay>
         <ScheduleSection>
@@ -80,51 +70,11 @@ import BottomNote from "./BottomNote.astro";
                 </Fragment>
             </ScheduleItem>
         </ScheduleSection>
-        <ScheduleSection>
-            <span slot="location">Utrecht,&nbsp;NL</span>
-            <ScheduleItem>
-                <span slot="header">Social activities</span>
-                <span slot="attendees">in small groups</span>
-                <span slot="time">18:00–22:00</span>
-                <Fragment slot="activities">
-                    <OrganizeOwnActivity />
-                </Fragment>
-            </ScheduleItem>
-        </ScheduleSection>
     </ScheduleDay>
 
     <ScheduleDay>
         <ScheduleSection>
-            <span slot="location">DUS, Sophialaan&nbsp;1, Utrecht,&nbsp;NL</span>
-
-            <ScheduleItem>
-                <span slot="header">Workshops</span>
-                <span slot="attendees">100 attendees</span>
-                <span slot="time">09:00–13:00</span>
-                <Fragment slot="activities">
-                    <p>7 workshops in total</p>
-                    <p><a href="/events/workshops">See details</a></p>
-                </Fragment>
-            </ScheduleItem>
-        </ScheduleSection>
-        <ScheduleSection>
-            <span slot="location">DUS, Sophialaan&nbsp;1, Utrecht,&nbsp;NL</span>
-
-            <ScheduleItem align_end>
-                <span slot="header">10 Years of Rust Celebration</span>
-                <span slot="attendees">400 attendees</span>
-                <span slot="time">16:00–20:00</span>
-                <Fragment slot="activities">
-                    <p>Live release of Rust&nbsp;1.87!</p>
-                    <p><a href="/celebration">Details & tickets</a></p>
-                </Fragment>
-            </ScheduleItem>
-        </ScheduleSection>
-    </ScheduleDay>
-
-    <ScheduleDay>
-        <ScheduleSection>
-            <span slot="location">Princetonlaan 6, Utrecht, NL</span>
+            <span slot="location">TBD, Utrecht, NL</span>
 
             <ScheduleItem>
                 <span slot="header">Hackathon</span>
@@ -182,8 +132,44 @@ import BottomNote from "./BottomNote.astro";
         </ScheduleSection>
     </ScheduleDay>
 
-    <div slot="extra">
-        <a href="https://discord.gg/9ezhugbhAM">Join our discord to discuss social activities and find others before the event</a>
+    <ScheduleDay>
+        <ScheduleSection>
+            <span slot="location">Utrecht,&nbsp;NL</span>
+
+            <ScheduleItem>
+                <span slot="header">Social activities</span>
+                <span slot="attendees">in small groups</span>
+                <span slot="time">10:00–22:00</span>
+                <Fragment slot="activities">
+                    <p>&nbsp;</p>
+                    <OrganizeOwnActivity />
+                </Fragment>
+            </ScheduleItem>
+        </ScheduleSection>
+        <ScheduleSection>
+            <span slot="location">DUS, Sophialaan&nbsp;1, Utrecht,&nbsp;NL</span>
+
+            <ScheduleItem>
+                <span slot="header">Rust All-Hands & Unconference</span>
+                <span slot="attendees">250 attendees</span>
+                <span slot="time">09:00–18:00</span>
+                <Fragment slot="activities">
+                    <p>&nbsp;</p>
+                    <BottomNote>Invitation only</BottomNote>
+                </Fragment>
+            </ScheduleItem>
+        </ScheduleSection>
+    </ScheduleDay>
+
+    <!--div slot="extra" class="extra">
+        <p>Join our discord to discuss social activities and find others before the event</p>
+        <a href="https://discord.gg/9ezhugbhAM" target="_blank" class="button button-primary">Join Discord</a>
+    </div-->
+    <div slot="extra" class="extra">
+        <p>
+            Grab your <strong>early bird ticket</strong> for the conference now!
+          </p>
+        <a href="https://event.onliveevent.nl/rustweek-2026" class="button button-primary">Get your ticket</a>
     </div>
 </Schedule>
 
@@ -191,4 +177,13 @@ import BottomNote from "./BottomNote.astro";
 .align-end {
     margin-top: auto !important;
 }
+
+.extra {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+}
+
 </style>

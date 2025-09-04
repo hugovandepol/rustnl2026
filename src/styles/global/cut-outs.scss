@@ -1,0 +1,35 @@
+@use '../variables.scss';
+@use '../breakpoint.scss';
+
+.cutout {
+    position: relative;
+    z-index: 0;
+}
+
+.cutout::after {
+    background-size: 100% 100%;
+    content: '';
+    z-index: -2;
+    position: absolute;
+}
+
+.cutout-button::after {
+    background-image: url('/svg/button-cutout.svg');
+    inset: -25%;
+}
+
+.cutout-button-group::after {
+    display: none;
+
+    @include breakpoint.wider_than(lg) {
+        display: block;
+        background-image: url('/svg/button-group-cutout-4.svg');
+        inset: -40%;
+    }
+}
+
+.cutout-hero::after {
+    background-image: url('/svg/hero-cutout-5.svg');
+    inset: -6%;
+    background-size: 100% 100%;
+}

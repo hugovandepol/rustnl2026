@@ -2,7 +2,7 @@
 @use 'breakpoint.scss';
 
 /* $color-background: #fff8f0; */
-$color-background: #fff0e6;
+$color-background: white;
 $color-neutral-300: #fef6f0;
 $color-neutral-400: #FFF0E6;
 $color-neutral-500: #FFE6D6;
@@ -15,12 +15,11 @@ $color-yellow-400: #FFA700;
 $color-yellow-500: #E69601;
 $color-yellow-new: #FFCF99;
 
-$color-black: #1e1e24;
+$color-black: #222;
 
-$font-family: 'Work Sans',
-  sans-serif;
+$font-family: 'Work Sans', sans-serif;
 $font-size-scale: 1.333;
-$font-size-base: 1.3rem;
+$font-size-base: 1rem;
 $font-size-sm: calc($font-size-base / $font-size-scale);
 $font-size-xs: calc($font-size-sm / $font-size-scale);
 $font-size-md: $font-size-base;

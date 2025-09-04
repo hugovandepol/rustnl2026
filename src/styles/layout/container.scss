@@ -3,14 +3,9 @@
 
 .container {
     margin-inline: auto;
-    padding-inline: variables.space(4);
-    width: min(100%, 96rem);
+    width: min(calc(100% - variables.space(12)), 80rem);
 
-    @include breakpoint.wider_than(md) {
-        padding-inline: variables.space(6);
-    }
-
-    @include breakpoint.wider_than(xl) {
-        padding-inline: variables.space(12);
+    @include breakpoint.wider_than(lg) {
+        width: min(calc(100% - variables.space(24)), 80rem);
     }
 }

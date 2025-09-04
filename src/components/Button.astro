@@ -17,7 +17,7 @@ const { link, ty = "primary", inFooter = false, scale = 1 }: Props = Astro.props
     <slot>{link}</slot>
 </a>
 
-<style lang="scss" is:global define:vars={{ scale }}>
+<style lang="scss" define:vars={{ scale }}>
     @use "../styles/variables.scss";
 
     .button {

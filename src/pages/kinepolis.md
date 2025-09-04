@@ -13,7 +13,7 @@ The address of the venue is:
 > 3521 BC Utrecht\
 > Nederland**
 
-Note: please keep in mind that the **workshops** (Thursday 15 May) are **not** held in the conference venue, but in the second venue, called [DUS](/dus).
+<!-- Note: please keep in mind that the **workshops** (Thursday 15 May) are **not** held in the conference venue, but in the second venue, called [DUS](/dus). -->
 
 Check out our  [Getting There](getting-there) page for instructions for getting to the venue.
 
@@ -35,13 +35,13 @@ The catering area, called Speys, is a huge space; perfect for eating and sociali
 
 <img style="width: 100%" src="/images/venues/kinepolis/Speys_03-1920px.jpg">
 
-<span id="mezzanine"><span>
+<!-- <span id="mezzanine"><span>
 
 ### Mezzanine floor
 
 In the catering area, on the mezzanine floor, you can come meet the [GOSIM finalists](/gosim-spotlight-speakers).
 
-<img style="width: 100%" src="/images/venues/kinepolis/Speys_01-1920px.jpg">
+<img style="width: 100%" src="/images/venues/kinepolis/Speys_01-1920px.jpg"> -->
 
 
 ## Getting there
@@ -54,7 +54,7 @@ The address of the venue is:
 > Nederland**
 
 The most convenient method to get there is by train, since it's next to the train station.
-More information on how to get to Utrecht and the conference can be found in the [Where](/#where) section.
+<!-- More information on how to get to Utrecht and the conference can be found in the [Where](/#where) section. -->
 
 <iframe style="width: 100%; aspect-ratio: 16/9;border: 1px solid black;" src="https://www.openstreetmap.org/export/embed.html?bbox=5.0765419006347665%2C52.074283572700224%2C5.133190155029298%2C52.09822788008951&amp;layer=mapnik&amp;marker=52.086263500028004%2C5.104854000000046"></iframe><br/><small><a href="https://www.openstreetmap.org/?mlat=52.08626&amp;mlon=5.10485#map=15/52.08626/5.10485">View Larger Map</a></small>
 
