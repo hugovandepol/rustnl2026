@@ -14,6 +14,7 @@ $color-yellow-300: #fabc4b;
 $color-yellow-400: #FFA700;
 $color-yellow-500: #E69601;
 $color-yellow-new: #FFCF99;
+$color-purple-900: #7B3F8C;
 
 $color-black: #222;
 
@@ -21,6 +22,8 @@ $font-family: 'Work Sans', sans-serif;
 $font-size-scale: 1.333;
 $font-size-base: 1rem;
 $font-size-sm: calc($font-size-base / $font-size-scale);
+// $font-size-weekschedule-address: calc($font-size-base / ($font-size-scale/2));
+$font-size-weekschedule-address: 0.7rem;
 $font-size-xs: calc($font-size-sm / $font-size-scale);
 $font-size-md: $font-size-base;
 $font-size-lg: calc($font-size-md * $font-size-scale);
