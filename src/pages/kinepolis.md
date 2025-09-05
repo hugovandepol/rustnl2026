@@ -4,7 +4,7 @@ title: "Conference Venue: Kinepolis"
 slug: "kinepolis"
 ---
 
-The RustWeek 2025 conference will be held in **Kinepolis Jaarbeurs Utrecht**. This venue is a cinema in the center of Utrecht, right next to the Central Station.
+The RustWeek 2026 conference will be held in **Kinepolis Jaarbeurs Utrecht**. This venue is a cinema in the center of Utrecht, right next to the Central Station.
 
 The address of the venue is:
 
