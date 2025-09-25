@@ -10,7 +10,7 @@ import "../styles/index.scss";
 <CommonLayout title="Industry track" header="Industry track" withLogo>
     <Fragment slot="hero">
         <p class="industry-track-anouncement">
-            May 13, 2025
+            May 19, 2025
             <br /> Utrecht, The Netherlands
         </p>
 
@@ -36,14 +36,17 @@ import "../styles/index.scss";
                 <!--div class="space-y-6 px-3 sm:px-6 md:space-y-12 xl:px-12"-->
                 <div class="markdown schedule-description">
                     <h3 class="schedule-header">Industry track schedule</h3>
-                    <p>The industry track features a mixed program with three inspiring talks and two rounds of Expert Tables.</p>
+                    <p>The industry track features a program consisting of both inspiring <b>talks</b> and two rounds of <b>Expert Tables & Networking sessions</b>.</p>
 
-                    <p>Our speaker lineup includes ecosystem leaders like Niko Matsakis, co-lead of the Rust language design team, and Rust pioneers such as Julius Gustavsson from Volvo Cars.</p>
+                    <p>Last year's speaker lineup included ecosystem leaders like Niko Matsakis, co-lead of the Rust language design team, and Rust pioneers such as Julius Gustavsson from Volvo Cars.</p>
 
-                    <p>The expert table sessions provide an opportunity for insightful discussions with a seasoned Rust expert and your industry peers.</p>
+                    <p>This year, we add the element of networking to the Expert Table sessions, because getting to know your peers who are pursuing the same goals, is as useful - if not - then just learning what to do.</p>
 
                     <p>
-                        Expert table topics:
+                        The talks in the morning will be open to anyone with a valid RustWeek ticket. To attend the Expert Tables and Networking sessions in the afternoon, please make sure to buy the add-on called <b>Industry Track Expert tables participation</b>.
+                    </p>
+                    <p>We expect again some <b>9 different Expert Table topics</b> as below: </p>    
+
                         <ul>
                             <li>Hiring and training</li>
                             <li>Rust adoption first steps</li>
@@ -56,8 +59,6 @@ import "../styles/index.scss";
                             <li>Rust for frontend development</li>
                         </ul>
                     </p>
-
-
                 </div>
                 <slot name="timetable-day" />
             </div>
@@ -81,7 +82,7 @@ import "../styles/index.scss";
             </div>
         </section>
         <section class="py-24 space-y-6 speakers">
-            <h3 class="speakers-header">Speakers and experts</h3>
+            <h3 class="speakers-header">Last year's speakers and experts</h3>
             <div class="grid md:cols-2 xl:cols-4" id="speakers">
                 <slot name="speakers" />
             </div>
@@ -89,7 +90,7 @@ import "../styles/index.scss";
         </section>
 
         <section class="sponsors" id="sponsors">
-            <h3 class="track-partners-header">Track partners</h3>
+            <h3 class="track-partners-header">Last year's track partners</h3>
             <slot name="sponsors" />
         </section>
     </Fragment>
