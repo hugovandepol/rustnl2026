@@ -1,0 +1,256 @@
+---
+import IndustryLayout from "../layouts/IndustryLayout.astro";
+
+import Person from "../components/people/Person.astro";
+
+import Sponsor from "../components/sponsor/sponsor.astro";
+import SponsorTier from "../components/sponsor/sponsor-tier.astro";
+
+import TimetableItem from "../components/timetable/timetable-item.astro";
+import Timetable from "../components/timetable/timetable-old.astro";
+
+import Markdown from "../components/Markdown.astro";
+import Button from "../components/Button.astro";
+import ButtonGroup from "../components/ButtonGroup.astro";
+---
+
+<IndustryLayout>
+    <Markdown slot="about-industry">
+        <p>After two succesfull editions in 2024 and 2025, the industry track is here to stay! The only difference in 2026? The track will be <b>even bigger and better!</b> </p>
+        <p>
+            Its still the <b>must-attend track for decision makers</b> exploring the adoption of Rust in their
+            organisation, but in 2026 the <b>track's talks will be open to all vistors of RustWeek</b> to attend. 
+        </p>
+        <p>
+            Date & time: <strong>Tuesday 19 May, 9:30 - 16:30 CET</strong>.<br>
+            (Exact duration to be communicated)
+        </p>
+        <h3>City & venue</h3>
+        <p>
+            Kinepolis Jaarbeurs Utrecht, <br /> Jaarbeursboulevard 300, <br /> 3521
+            BC Utrecht, <br />The Netherlands
+        </p>
+    </Markdown>
+ <Timetable slot="timetable-day">
+        <TimetableItem time="9.30" title="Registration" />
+        <TimetableItem time="9.55" title="Opening" speaker="Hugo van de Pol" />
+        <TimetableItem
+            time="10.00"
+            title="To be announced"
+            speaker="To be announced"
+        />
+        <TimetableItem
+            time="10.30"
+            title="To be announced"
+            speaker="To be announced"
+        />
+        <TimetableItem
+            time="11.00"
+            title="To be announced"
+            speaker="To be announced"
+        />
+        <TimetableItem time="11.30" title="Break" />
+        <TimetableItem
+            time="11.45"
+            title="To be announced"
+            speaker="To be announced"
+        />
+        <TimetableItem
+            time="12.15"
+            title="To be announced"
+            speaker="To be announced"
+        />
+        <TimetableItem time="12.45" title="Lunch" />
+        <TimetableItem
+            time="14.00"
+            title="Expert Tables & Networking Round 1"
+            speaker="Various industry experts"
+        />
+        <TimetableItem
+            time="15.00"
+            title="Expert Tables & Networking Round 2"
+            speaker="Various industry experts"
+        />
+        <TimetableItem
+            time="16.00"
+            title="Expert Tables & Networking Round 3"
+            speaker="Various industry experts"
+        />
+        <TimetableItem
+            time="16.45"
+            title="Closing"
+            speaker="Hugo van de Pol"
+        />
+        <TimetableItem time="17.00" title="Drinks" />
+    </Timetable>
+    <Markdown slot="tickets">
+        <h2 class="header space-y-6" id="about">Tickets</h2>
+        <p>Tickets to attend the Expert Tables and Networking sessions are<br> EUR 99,- ex vat.</p>
+    
+        <ButtonGroup>
+            <Button
+                link="https://www.eventbrite.nl/e/industry-track-rustweek-2025-tickets-1115250035879"
+                >Get ticket</Button
+            >
+        </ButtonGroup>
+    </Markdown>
+    <Fragment slot="speakers">
+        <Person
+            name="Julius Gustavsson"
+            image="julius.jpeg"
+            title="System Architect at Volvo Cars"
+            tile
+        />
+        <Person
+            name="Niko Matsakis"
+            image="niko.png"
+            title="Senior Principal Engineer at Amazon Web Services"
+            tile
+        />
+        <Person
+            name="Mark Janssen"
+            image="empty.png"
+            title="Software Architect at the Dutch Electoral Council"
+            tile
+        />
+        <Person
+            name="Jeffrey Vander Stoep"
+            image="jeffrey.png"
+            title="Software Engineer - Android Security at Google"
+            tile
+        />
+        <Person
+            name="Rik Arends"
+            image="rik.jpeg"
+            title="Founder at Makepad"
+            tile
+        />
+        <Person
+            name="Tamme Dittrich"
+            image="tamme.jpg"
+            title="Embedded Software Engineer at Tweede golf"
+            tile
+        />
+        <Person
+            name="Matthias Endler"
+            image="matthias.jpg"
+            title="Founder and Rust Consultant at corrode"
+            tile
+        />
+        <Person
+            name="Wouter Geraedts"
+            image="wouter.jpeg"
+            title="Owner and Embedded Engineer at Sarif"
+            tile
+        />
+        <Person
+            name="Olivier Goffart"
+            image="olivier.jpeg"
+            title="Co-founder at Slint"
+            tile
+        />
+        <Person
+            name="Paul Lenz"
+            image="paullenz.jpg"
+            title="Director of Finance and Funding at Rust Foundation"
+            tile
+        />
+        <Person
+            name="Tiago Manczak"
+            image="tiago.jpeg"
+            title="Principal Firmware Engineer at Infineon Technologies"
+            tile
+        />
+        <Person
+            name="James Munns"
+            image="james.png"
+            title="CEO and Embedded Engineer at OneVariable"
+            tile
+        />
+        <Person
+            name="Hugo van de Pol"
+            image="hugo.jpeg"
+            title="Director at Tweede golf"
+            tile
+        />
+        <Person
+            name="Kris van Rens"
+            image="kris.jpeg"
+            title="Software Architect at ViNotion and Rust Trainer"
+            tile
+        />
+    </Fragment>
+
+    <div slot="sponsors">
+        <SponsorTier name="Partners">
+            <Sponsor
+                name="Rust Foundation"
+                tier="industry-partner"
+                image="rustfoundation.png"
+                link="https://foundation.rust-lang.org/"
+            />
+            <Sponsor
+                name="AWS"
+                tier="industry-partner"
+                image="aws.png"
+                link="https://aws.amazon.com/"
+            />
+            <Sponsor
+                name="Infineon"
+                tier="industry-partner"
+                image="infineon.png"
+                link="https://www.infineon.com/"
+            />
+            <Sponsor
+                name="Volvo Cars"
+                tier="industry-partner"
+                image="volvo.png"
+                link="https://www.volvocars.com/"
+            />
+            <Sponsor
+                name="Slint"
+                tier="industry-partner"
+                image="slint.png"
+                link="https://slint.dev/"
+            />
+            <Sponsor
+                name="Makepad"
+                tier="industry-partner"
+                image="makepad.png"
+                link="https://makepad.dev/"
+            />
+            <Sponsor
+                name="OneVariable"
+                tier="industry-partner"
+                image="onevariable.png"
+                link="https://onevariable.com/"
+            />
+            <Sponsor
+                name="Sarif"
+                tier="industry-partner"
+                image="sarif.png"
+                link="https://sarif.nl/"
+            />
+            <Sponsor
+                name="Corrode"
+                tier="industry-partner"
+                image="corrode.svg"
+                link="https://corrode.dev/"
+            />
+        </SponsorTier>
+        <SponsorTier name="Powered by">
+            <Sponsor
+                name="Tweede golf"
+                tier="industry-partner"
+                image="tweede-golf-v2.png"
+                link="https://tweedegolf.nl"
+            />
+            <Sponsor
+                name="RustNL"
+                tier="industry-partner"
+                image="../rustnl-logo-square.svg"
+                link="/about"
+            />
+        </SponsorTier>
+    </div>
+</IndustryLayout>
