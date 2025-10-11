@@ -52,7 +52,7 @@ function convertTrack(i: string): string {
   return i;
 }
 
-const speakers = await Astro.glob("../../pages/talks/*.md");
+const speakers = [];
 let github_of_person = null;
 
 outer: for (const i of speakers) {
