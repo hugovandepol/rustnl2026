@@ -1,3 +1,4 @@
+---
 name: "Emily Albini"
 image: "emily_albini.jpg"
 title: "Rust Project's Infrastructure, Security Response, and Release"
