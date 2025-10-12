@@ -1,9 +1,9 @@
 ---
-name: "Pietro Albini"
-image: "pietro_albini.jpg"
+name: "Emily Albini"
+image: "emily_albini.jpg"
 title: "Rust Project's Infrastructure, Security Response, and Release"
 org: ""
-url: "https://www.pietroalbini.org/"
+url: "https://www.emilyalbini.it/"
 bluesky: "https://bsky.app/profile/pietroalbini.org"
 linkedin: ""
 twitter: ""
