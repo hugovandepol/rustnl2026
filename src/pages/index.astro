@@ -13,10 +13,10 @@ import Sponsor from "src/components/sponsor/sponsor.astro";
 import { useData } from "../components/useData";
 
 const talks = await Astro.glob("../content/people/*.md");
-const { alice, julius, emily, alex, niko, miguel, ciara, raph, greg } =
+const { alice, julius, emily, alex, niko, miguel, ciara, raph, greg, taylor } =
   useData(talks);
 const lastYearsSpeakers = [alice, julius, emily, alex, niko, miguel, ciara, raph];
-const speakers = [greg];
+const speakers = [taylor, greg];
 ---
 
 <HomeLayout>
