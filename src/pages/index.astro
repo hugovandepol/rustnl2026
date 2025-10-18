@@ -13,9 +13,10 @@ import Sponsor from "src/components/sponsor/sponsor.astro";
 import { useData } from "../components/useData";
 
 const talks = await Astro.glob("../content/people/*.md");
-const { alice, julius, emily, alex, niko, miguel, ciara, raph } =
+const { alice, julius, emily, alex, niko, miguel, ciara, raph, greg } =
   useData(talks);
-const lastYearsSpeakers= [alice, julius, emily, alex, niko, miguel, ciara, raph];
+const lastYearsSpeakers = [alice, julius, emily, alex, niko, miguel, ciara, raph];
+const speakers = [greg];
 ---
 
 <HomeLayout>
@@ -31,6 +32,14 @@ const lastYearsSpeakers= [alice, julius, emily, alex, niko, miguel, ciara, raph]
     </p>
   </div>
   <MainSchedule />
+  <PeopleList title="Speakers" id="speakers" lead="">
+    {
+      speakers.map((speaker) => (
+        // <Person smalltile link={talk.slug} tracks={talk.tracks} {...talk.speakers[0]} />
+        <Person smalltile {...speaker} />
+      ))
+    }
+  </PeopleList>
   <PeopleList title="Last year's speakers" lead="">
     {
       lastYearsSpeakers.map((speaker) => (
