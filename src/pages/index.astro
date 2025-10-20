@@ -1,5 +1,5 @@
 ---
-import HomeLayout from "../layouts/HomeLayout.astro";
+import HeroLayout from "../layouts/HeroLayout.astro";
 import Button from "../components/Button.astro";
 import ButtonGroup from "../components/ButtonGroup.astro";
 import Image from "../components/Image.astro";
@@ -15,14 +15,42 @@ import { useData } from "../components/useData";
 const talks = await Astro.glob("../content/people/*.md");
 const { alice, julius, emily, alex, niko, miguel, ciara, raph } =
   useData(talks);
-const lastYearsSpeakers= [alice, julius, emily, alex, niko, miguel, ciara, raph];
+const lastYearsSpeakers = [
+  alice,
+  julius,
+  emily,
+  alex,
+  niko,
+  miguel,
+  ciara,
+  raph,
+];
 ---
 
-<HomeLayout>
+<HeroLayout title="RustWeek 2026">
+  <Fragment slot="hero">
+    <div>
+      <h1 class="font-display">RustWeek 2026</h1>
+      <h2>May 18-23 — Utrecht, NL</h2>
+    </div>
+    <p>
+      The world's biggest Rust conference includes one day of workshops, two days
+      of talks, a hackathon, social activities, and more!
+    </p>
+    <div class="button-group cutout cutout-button-group">
+      <a
+        href="https://event.onliveevent.nl/rustweek-2026"
+        class="button button-primary">Tickets</a
+      >
+      <a href="#week-schedule" class="button button-secondary">Week schedule</a>
+    </div>
+  </Fragment>
   <div slot="explainer" class="markdown">
     <h2 id="explainer">RustWeek 2026</h2>
     <p>
-      The world's biggest Rust conference returns to beautiful Utrecht, welcoming over 900+ community members, professionals and the maintainers of Rust.
+      The world's biggest Rust conference returns to beautiful Utrecht,
+      welcoming over 900+ community members, professionals and the maintainers
+      of Rust.
     </p>
     <p style="margin-block-end: 0;">
       The week includes one day of workshops, two days of talks, a hackathon,
@@ -144,16 +172,16 @@ const lastYearsSpeakers= [alice, julius, emily, alex, niko, miguel, ciara, raph]
           link="https://tandemdrive.com/"
         />
         <Sponsor
-            name="Tweede golf"
-            tier="organizing-partner"
-            image="tweede-golf-v2.png"
-            link="https://tweedegolf.nl"
+          name="Tweede golf"
+          tier="organizing-partner"
+          image="tweede-golf-v2.png"
+          link="https://tweedegolf.nl"
         />
         <Sponsor
-            name="Hexcat"
-            tier="organizing-partner"
-            image="hexcat.png"
-            link="https://hexcat.nl"
+          name="Hexcat"
+          tier="organizing-partner"
+          image="hexcat.png"
+          link="https://hexcat.nl"
         />
       </SponsorTier>
     </Sponsors>
@@ -172,4 +200,4 @@ const lastYearsSpeakers= [alice, julius, emily, alex, niko, miguel, ciara, raph]
       <Button link="/about">More About Us</Button>
     </ButtonGroup>
   </div>
-</HomeLayout>
+</HeroLayout>

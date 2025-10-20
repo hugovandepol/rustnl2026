@@ -1,5 +1,5 @@
 ---
-import IndustryLayout from "../layouts/IndustryLayout.astro";
+import HeroLayout from "../layouts/HeroLayout.astro";
 
 import Person from "../components/people/Person.astro";
 
@@ -9,245 +9,293 @@ import SponsorTier from "../components/sponsor/sponsor-tier.astro";
 import TimetableItem from "../components/timetable/timetable-item.astro";
 import Timetable from "../components/timetable/timetable-old.astro";
 
-import Markdown from "../components/Markdown.astro";
 import Button from "../components/Button.astro";
 import ButtonGroup from "../components/ButtonGroup.astro";
+import OneColumnText from "src/components/OneColumnText.astro";
+import PeopleList from "src/components/people/PeopleList.astro";
+import Sponsors from "src/components/sponsor/Sponsors.astro";
 ---
 
-<IndustryLayout>
-    <Markdown slot="about-industry">
+<HeroLayout title="Industry Track" slidedeck="industry">
+    <Fragment slot="hero">
+        <div>
+            <h1 class="font-display">Industry Track</h1>
+            <h2>May 19 — Utrecht, NL</h2>
+        </div>
         <p>
-            After the succesful 2024 and 2025 editions, the industry track is
-            here to stay!
+            The <b>must-attend track for decision makers</b> exploring the adoption
+            of Rust in their organisation.
         </p>
-        <p>
-            It is the <b>must-attend track for decision makers</b> exploring
-            the adoption of Rust in their organisation.
-        </p>
-        <p>
-            In 2026, the track's <b>talks will be open to all vistors of RustWeek</b> to attend.
-        </p>
+        <div class="button-group cutout cutout-button-group">
+            <a href="#tickets" class="button button-primary">Tickets</a>
+            <a href="#schedule" class="button button-secondary">Schedule</a>
+        </div>
+    </Fragment>
+
+    <div slot="explainer" class="markdown">
+        <h2 id="explainer">Industry Track</h2>
         <p>
             Date & time: <strong>Tuesday 19 May, 9:30 - 17:00 CET</strong>.<br
             />
         </p>
-        <h3>City & venue</h3>
         <p>
-            Kinepolis Jaarbeurs Utrecht, <br /> Jaarbeursboulevard 300, <br /> 3521
-            BC Utrecht, <br />The Netherlands
-        </p>
-    </Markdown>
-    <Timetable slot="timetable-day">
-        <TimetableItem time="9.00" title="Registration" />
-        <TimetableItem time="9.30" title="Opening (Cinema 9)" speaker="Hugo van de Pol" />
-        <TimetableItem time="09.40" title="Opening Keynote (35 min)" speaker="To be announced" />
-        <TimetableItem time="10.25" title="Global State of Rust (35 min)" speaker="To be announced" />
-        <TimetableItem time="11.00" title="Break" />
-        <TimetableItem time="11.20" title="Talk (20 min)" speaker="To be announced"/>
-        <TimetableItem time="11.50" title="Live Podcast Recording (55 min)" speaker="Matthias Endler - Corrode.dev"/>
-        <TimetableItem time="12.45" title="Lunch" />
-        <TimetableItem
-            time="14.00"
-            title="Opening afternoon program (Industry Room)"
-            speaker="Hugo van de Pol"
-        />
-        <TimetableItem
-            time="14.15"
-            title="Expert Tables & Networking Round 1"
-            speaker="Various industry experts"
-        />
-        <TimetableItem
-            time="15.15"
-            title="Break"
-        />
-        <TimetableItem
-            time="15.30"
-            title="Expert Tables & Networking Round 2"
-            speaker="Various industry experts"
-        />
-        <TimetableItem
-            time="16.30"
-            title="Closing"
-            speaker="Hugo van de Pol"
-        />
-        <TimetableItem
-            time="16.45"
-            title="Drinks"
-        />
-    </Timetable>
-    <Markdown slot="tickets">
-        <h2 class="header space-y-6" id="about">Tickets</h2>
-        <p>
-            The morning program of the Industry Track requires a regular RustWeek ticket. 
-        </p>
-        <p>
-            To attend the afternoon program (Expert Tables and Networking) choose the add-on "Industry Track Expert Tables participation" (<b>EUR 99,- ex vat</b>) after choosing your regular ticket type.
+            <b>Morning session: Inspiring Talks</b><br />Last year's speaker lineup
+            included ecosystem leader Niko Matsakis, co-lead of the Rust
+            language design team, and Rust pioneer Julius Gustavsson
+            from Volvo Cars. The 2026 morning program will be open to
+            anyone with a valid <b>RustWeek ticket</b>.
         </p>
 
-        <ButtonGroup>
-            <Button
-                link="https://event.onliveevent.nl/rustweek-2026"
-                >Get ticket</Button
-            >
-        </ButtonGroup>
-    </Markdown>
-    <Fragment slot="speakers">
-        <Person
-            name="Julius Gustavsson"
-            image="julius.jpeg"
-            title="System Architect at Volvo Cars"
-            tile
-        />
-        <Person
-            name="Niko Matsakis"
-            image="niko.png"
-            title="Senior Principal Engineer at Amazon Web Services"
-            tile
-        />
-        <Person
-            name="Mark Janssen"
-            image="empty.png"
-            title="Software Architect at the Dutch Electoral Council"
-            tile
-        />
-        <Person
-            name="Jeffrey Vander Stoep"
-            image="jeffrey.png"
-            title="Software Engineer - Android Security at Google"
-            tile
-        />
-        <Person
-            name="Rik Arends"
-            image="rik.jpeg"
-            title="Founder at Makepad"
-            tile
-        />
-        <Person
-            name="Tamme Dittrich"
-            image="tamme.jpg"
-            title="Embedded Software Engineer at Tweede golf"
-            tile
-        />
-        <Person
-            name="Matthias Endler"
-            image="matthias.jpg"
-            title="Founder and Rust Consultant at corrode"
-            tile
-        />
-        <Person
-            name="Wouter Geraedts"
-            image="wouter.jpeg"
-            title="Owner and Embedded Engineer at Sarif"
-            tile
-        />
-        <Person
-            name="Olivier Goffart"
-            image="olivier.jpeg"
-            title="Co-founder at Slint"
-            tile
-        />
-        <Person
-            name="Paul Lenz"
-            image="paullenz.jpg"
-            title="Director of Finance and Funding at Rust Foundation"
-            tile
-        />
-        <Person
-            name="Tiago Manczak"
-            image="tiago.jpeg"
-            title="Principal Firmware Engineer at Infineon Technologies"
-            tile
-        />
-        <Person
-            name="James Munns"
-            image="james.png"
-            title="CEO and Embedded Engineer at OneVariable"
-            tile
-        />
-        <Person
-            name="Hugo van de Pol"
-            image="hugo.jpeg"
-            title="Director at Tweede golf"
-            tile
-        />
-        <Person
-            name="Kris van Rens"
-            image="kris.jpeg"
-            title="Software Architect at ViNotion and Rust Trainer"
-            tile
-        />
-    </Fragment>
+        <p>
+            <b>Afternoon session: Expert Tables and Networking</b><br />This year adds
+            Facilitated Networking to the Expert Table Sessions, because
+            getting to know your peers who are pursuing the same goals,
+            is at least as useful as learning what to do. To attend the
+            Expert Tables and Networking in the afternoon, please make
+            sure to buy the <b
+                >add-on "Industry Track Expert Tables participation"</b
+            > when you register for RustWeek.
+        </p>
 
-    <div slot="sponsors">
-        <SponsorTier name="Partners">
-            <Sponsor
-                name="Rust Foundation"
-                tier="industry-partner"
-                image="rustfoundation.png"
-                link="https://foundation.rust-lang.org/"
-            />
-            <Sponsor
-                name="AWS"
-                tier="industry-partner"
-                image="aws.png"
-                link="https://aws.amazon.com/"
-            />
-            <Sponsor
-                name="Infineon"
-                tier="industry-partner"
-                image="infineon.png"
-                link="https://www.infineon.com/"
-            />
-            <Sponsor
-                name="Volvo Cars"
-                tier="industry-partner"
-                image="volvo.png"
-                link="https://www.volvocars.com/"
-            />
-            <Sponsor
-                name="Slint"
-                tier="industry-partner"
-                image="slint.png"
-                link="https://slint.dev/"
-            />
-            <Sponsor
-                name="Makepad"
-                tier="industry-partner"
-                image="makepad.png"
-                link="https://makepad.dev/"
-            />
-            <Sponsor
-                name="OneVariable"
-                tier="industry-partner"
-                image="onevariable.png"
-                link="https://onevariable.com/"
-            />
-            <Sponsor
-                name="Sarif"
-                tier="industry-partner"
-                image="sarif.png"
-                link="https://sarif.nl/"
-            />
-            <Sponsor
-                name="Corrode"
-                tier="industry-partner"
-                image="corrode.svg"
-                link="https://corrode.dev/"
-            />
-        </SponsorTier>
-        <SponsorTier name="Powered by">
-            <Sponsor
-                name="Tweede golf"
-                tier="industry-partner"
-                image="tweede-golf-v2.png"
-                link="https://tweedegolf.nl"
-            />
-            <Sponsor
-                name="RustNL"
-                tier="industry-partner"
-                image="../rustnl-logo-square.svg"
-                link="/about"
-            />
-        </SponsorTier>
+        <p>Expert Table topics:</p>
+        <ul>
+            <li>How to plan your Rust migration</li>
+            <li>Hiring and training</li>
+            <li>Using Rust in existing projects</li>
+            <li>Safety Critical Rust</li>
+            <li>Embedded Rust</li>
+        </ul>
     </div>
-</IndustryLayout>
+    <div id="schedule">
+        <section class="main markdown">
+            <h2>Schedule</h2>
+            <Timetable>
+            <TimetableItem time="9.00" title="Registration" />
+            <TimetableItem
+                time="9.30"
+                title="Opening"
+                speaker="Hugo van de Pol"
+            />
+            <TimetableItem
+                time="09.40"
+                title="Opening Keynote (35 min)"
+                speaker="To be announced"
+            />
+            <TimetableItem
+                time="10.25"
+                title="Global State of Rust (35 min)"
+                speaker="To be announced"
+            />
+            <TimetableItem time="11.00" title="Break" />
+            <TimetableItem
+                time="11.20"
+                title="Talk (20 min)"
+                speaker="To be announced"
+            />
+            <TimetableItem
+                time="11.50"
+                title="Live Podcast Recording (55 min)"
+                speaker="Matthias Endler - Corrode.dev"
+            />
+            <TimetableItem time="12.45" title="Lunch" />
+            <TimetableItem
+                time="14.00"
+                title="Opening afternoon program (Industry Room)"
+                speaker="Hugo van de Pol"
+            />
+            <TimetableItem
+                time="14.15"
+                title="Expert Tables & Networking Round 1"
+                speaker="Various industry experts"
+            />
+            <TimetableItem time="15.15" title="Break" />
+            <TimetableItem
+                time="15.30"
+                title="Expert Tables & Networking Round 2"
+                speaker="Various industry experts"
+            />
+            <TimetableItem
+                time="16.30"
+                title="Closing"
+                speaker="Hugo van de Pol"
+            />
+            <TimetableItem time="16.45" title="Drinks" />
+        </Timetable>
+        </section>
+    </div>
+
+    <div class="py-6">
+        <section class="main markdown">
+            <OneColumnText>
+                <h2 class="header space-y-6" id="tickets">Tickets</h2>
+                <p>
+                    The morning program of the Industry Track requires a regular
+                    RustWeek ticket. The track's talks will be open to all vistors of RustWeek to attend, with Industry track ticket holders receiving priority access.
+                </p>
+                <p>
+                    To attend the afternoon program (Expert Tables and
+                    Networking) choose the add-on "Industry Track Expert Tables
+                    participation" (<b>EUR 99,- ex vat</b>) after choosing your
+                    regular ticket type.
+                </p>
+
+                <ButtonGroup>
+                    <Button link="https://event.onliveevent.nl/rustweek-2026"
+                        >Get ticket</Button
+                    >
+                </ButtonGroup>
+            </OneColumnText>
+        </section>
+    </div>
+
+    <div class="py-6">
+        <PeopleList title="Last year's speakers and experts" lead="">
+            <Person
+                name="Julius Gustavsson"
+                image="julius.jpeg"
+                title="System Architect at Volvo Cars"
+                smalltile
+            />
+            <Person
+                name="Niko Matsakis"
+                image="niko.png"
+                title="Senior Principal Engineer at Amazon Web Services"
+                smalltile
+            />
+            <Person
+                name="Jeffrey Vander Stoep"
+                image="jeffrey.png"
+                title="Software Engineer - Android Security at Google"
+                smalltile
+            />
+            <Person
+                name="Matthias Endler"
+                image="matthias.jpg"
+                title="Founder and Rust Consultant at corrode"
+                smalltile
+            />
+            <Person
+                name="Tiago Manczak"
+                image="tiago.jpeg"
+                title="Principal Firmware Engineer at Infineon Technologies"
+                smalltile
+            />
+            <Person
+                name="James Munns"
+                image="james.png"
+                title="CEO and Embedded Engineer at OneVariable"
+                smalltile
+            />
+            <Person
+                name="Hugo van de Pol"
+                image="hugo.jpeg"
+                title="Director at Tweede golf"
+                smalltile
+            />
+        </PeopleList>
+    </div>
+
+    <div class="container">
+        <Sponsors>
+            <div slot="header">
+                <h2>Last year's track partners</h2>
+                <p>
+                    Interested in sponsoring? Download our <a
+                        target="_blank"
+                        href="/resources/sponsorship-prospectus-rustweek-2026.pdf"
+                        >Sponsorship prospectus</a
+                    > or <a href="mailto:industrytrack@tweedegolf.com"
+                        >contact the Industry Track organization</a
+                    >.
+                </p>
+            </div>
+            <SponsorTier name="">
+                <SponsorTier name="Partners">
+                    <Sponsor
+                        name="Rust Foundation"
+                        tier="industry-partner"
+                        image="rustfoundation.png"
+                        link="https://foundation.rust-lang.org/"
+                    />
+                    <Sponsor
+                        name="AWS"
+                        tier="industry-partner"
+                        image="aws.png"
+                        link="https://aws.amazon.com/"
+                    />
+                    <Sponsor
+                        name="Infineon"
+                        tier="industry-partner"
+                        image="infineon.png"
+                        link="https://www.infineon.com/"
+                    />
+                    <Sponsor
+                        name="Volvo Cars"
+                        tier="industry-partner"
+                        image="volvo.png"
+                        link="https://www.volvocars.com/"
+                    />
+                    <Sponsor
+                        name="Slint"
+                        tier="industry-partner"
+                        image="slint.png"
+                        link="https://slint.dev/"
+                    />
+                    <Sponsor
+                        name="Makepad"
+                        tier="industry-partner"
+                        image="makepad.png"
+                        link="https://makepad.dev/"
+                    />
+                    <Sponsor
+                        name="OneVariable"
+                        tier="industry-partner"
+                        image="onevariable.png"
+                        link="https://onevariable.com/"
+                    />
+                    <Sponsor
+                        name="Sarif"
+                        tier="industry-partner"
+                        image="sarif.png"
+                        link="https://sarif.nl/"
+                    />
+                    <Sponsor
+                        name="Corrode"
+                        tier="industry-partner"
+                        image="corrode.svg"
+                        link="https://corrode.dev/"
+                    />
+                </SponsorTier>
+                <br />
+                <SponsorTier name="Powered by">
+                    <Sponsor
+                        name="Tweede golf"
+                        tier="industry-partner"
+                        image="tweede-golf-v2.png"
+                        link="https://tweedegolf.nl"
+                    />
+                    <Sponsor
+                        name="RustNL"
+                        tier="industry-partner"
+                        image="../rustnl-logo-square.svg"
+                        link="/about"
+                    />
+                </SponsorTier>
+            </SponsorTier>
+        </Sponsors>
+
+        <style lang="scss">
+            @use "../styles/variables.scss";
+
+            .main {
+                width: min(96rem, 90%);
+                margin-left: auto;
+                margin-right: auto;
+                max-width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        </style>
+    </div>
+</HeroLayout>
