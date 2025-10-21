@@ -15,7 +15,11 @@ const { location }: Props = Astro.props;
       <button>Schedule</button>
       <ul class="submenu" role="menu">
         <li class="child" role="menuitem">
-          <a href="/#week-schedule">Overview of the week</a>
+          <a
+            href="/#week-schedule"
+            onclick="document.querySelector('[data-menu-toggle]').click()"
+            >Overview of the week</a
+          >
         </li>
         <li class="child" role="menuitem">
           <a href="/industry">Industry Track</a>
