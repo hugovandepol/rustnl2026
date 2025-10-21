@@ -1,7 +1,7 @@
 ---
 name: "Andreea Costea"
 image: "andreea.png"
-title: "Assistant Professor, Computer Science, EEMCS, TU Delft"
+title: "Assistant Professor in Computer Science at Delft\u00A0University of Technology"
 org: "TU Delft"
 url: "https://andrecostea.github.io/"
 bluesky: ""

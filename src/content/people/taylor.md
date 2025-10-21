@@ -1,7 +1,7 @@
 ---
 name: "Taylor Cramer"
 image: "taylor.webp"
-title: "Crubit Development Lead @ Google"
+title: "Crubit Development Lead at Google, former\u00A0member of the Rust lang team"
 org: "Google"
 url: ""
 bluesky: ""
