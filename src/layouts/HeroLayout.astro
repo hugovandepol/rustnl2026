@@ -4,6 +4,14 @@ import Header from "../components/page/header.astro";
 import Footer from "../components/page/footer.astro";
 import Hero from "../components/page/Hero.astro";
 import "../styles/index.scss";
+
+interface Props {   
+  title: string;
+  slidedeck?: "rustweek" | "industry";
+}
+
+const { title, slidedeck = "rustweek" }: Props = Astro.props;
+
 ---
 
 <!doctype html>
@@ -48,11 +56,13 @@ import "../styles/index.scss";
         }
     </style>
 
-    <Head title="RustWeek 2026" />
+    <Head title={title} />
     <body>
         <Header />
         <div class="space-y-16 lg:space-y-24">
-            <Hero style="home" />
+            <Hero style="home" slidedeck={slidedeck}>
+               <slot name="hero" />
+            </Hero>
             <section class="container md:grid md:cols-12">
                 <div class="explainer md:col-start-3 md:col-end-11 xl:col-start-4 xl:col-end-10">
                     <slot name="explainer" />

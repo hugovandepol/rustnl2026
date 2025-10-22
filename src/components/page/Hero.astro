@@ -4,30 +4,21 @@ import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 interface Props {   
   style?: "page" | "home";
+  slidedeck?: "rustweek" | "industry";
 }
 
 library.add(faArrowRight, faArrowLeft);
 const arrowRightIcon = icon({ prefix: "fas", iconName: faArrowRight.iconName });
 const arrowLeftIcon = icon({ prefix: "fas", iconName: faArrowLeft.iconName });
 
-const { style = "page" }: Props = Astro.props;
+const { style = "page", slidedeck = "rustweek"  }: Props = Astro.props;
 const slides = Array.from({ length: 4 }, (_, i) => i + 1);
 ---
 
 <section class:list={["hero", style]}>
   <div class="container space-y-12 lg:grid lg:cols-12 lg:space-y-0">
     <div class="col-5 space-y-6 lg:space-y-8">
-      <div>
-        <h1 class="font-display">RustWeek 2026</h1>
-        <h2>May 18-23 — Utrecht, NL</h2>
-      </div>
-      <p>
-        The world's biggest Rust conference includes one day of workshops, two days of talks, a hackathon, social activities, and more!
-      </p>
-      <div class="button-group cutout cutout-button-group">
-        <a href="https://event.onliveevent.nl/rustweek-2026" class="button button-primary">Tickets</a>
-        <a href="#week-schedule" class="button button-secondary">Week schedule</a>
-      </div>
+      <slot />
     </div>
     <div class="col-7">
       <div class="cutout cutout-hero">
@@ -36,7 +27,7 @@ const slides = Array.from({ length: 4 }, (_, i) => i + 1);
             {
               slides.map((n) => (
                 <div class="swiper-slide">
-                  <img src={`/images/slider/${n}.jpg`} alt={`Slide ${n}`} />
+                  <img src={`/images/slider/${slidedeck}/${n}.jpg`} alt={`Slide ${n}`} />
                 </div>
               ))
             }
