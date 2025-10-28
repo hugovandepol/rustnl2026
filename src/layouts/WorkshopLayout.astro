@@ -39,8 +39,8 @@ const trainers = await Astro.glob('../pages/people/trainers/*.md');
               .map((workshopTrainer) => (
                 <Person
                   {...workshopTrainer.frontmatter}
-                  // description={workshopTrainer.compiledContent()}
-                  description=""
+                  // bio={workshopTrainer.compiledContent()}
+                  bio=""
                 />
               ))
           }

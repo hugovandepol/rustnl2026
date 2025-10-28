@@ -15,7 +15,7 @@ import Person from '../../components/people/Person.astro';
 import Button from 'src/components/Button.astro';
 
 const { talk } = Astro.props;
-const { title, tracks, level, tags, duration, day } = talk.data;
+const { title, level, day } = talk.data;
 const people = await getCollection('people');
 
 const speakers = people.filter( (person)=> person.data.talk == talk.id ).map( (speaker) => speaker );
