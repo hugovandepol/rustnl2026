@@ -11,11 +11,12 @@ import Sponsors from "src/components/sponsor/Sponsors.astro";
 import SponsorTier from "src/components/sponsor/sponsor-tier.astro";
 import Sponsor from "src/components/sponsor/sponsor.astro";
 import { useData } from "../components/useData";
+import { getCollection } from 'astro:content';
 
-const talks = await Astro.glob("../content/people/*.md");
-const { alice, julius, emily, alex, niko, miguel, ciara, raph, greg, taylor, andreea } =
-  useData(talks);
+const people = await getCollection('people')
+const { greg, taylor, andreea } = useData(people);
 const speakers = [taylor, greg, andreea];
+
 ---
 
 <HeroLayout title="RustWeek 2026">
@@ -53,8 +54,8 @@ const speakers = [taylor, greg, andreea];
   <PeopleList title="Speakers" id="speakers" lead="">
     {
       speakers.map((speaker) => (
-        // <Person smalltile link={talk.slug} tracks={talk.tracks} {...talk.speakers[0]} />
-        <Person smalltile {...speaker} />
+        // TODO get talk tracks and add them (or add them inside Person component)
+        <Person link={speaker.talk} smalltile {...speaker} />
       ))
     }
   </PeopleList>

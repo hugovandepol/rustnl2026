@@ -5,7 +5,7 @@ interface Props {
   name?: string;
   image?: string;
   title?: string;
-  description?: string; // bio
+  bio?: string; // bio
   link?: string;
   tracks?: Array<string>;
   url?: string;
@@ -21,7 +21,7 @@ interface Props {
 const {
   name,
   image,
-  description,
+  bio,
   title,
   link,
   tracks,
@@ -95,9 +95,8 @@ const imageFile = image
   <div class="image-container">
     {
       link ? (
-        <div>
           <div class="image">
-            <a href={link}>
+            <a href={`/talks/${link}`}>
               <img
                 src={`${imageFile}`}
                 alt={`Picture of ${name}`}
@@ -105,9 +104,7 @@ const imageFile = image
               />
             </a>
           </div>
-        </div>
       ) : (
-        <div>
           <div class="image">
             <img
               src={`${imageFile}`}
@@ -115,7 +112,6 @@ const imageFile = image
               class={imageFile == empty_path ? "empty" : null}
             />
           </div>
-        </div>
       )
     }
     <div class="tags">
@@ -134,7 +130,7 @@ const imageFile = image
     {title && <div class="title">{title}</div>}
     {
       !(tile || smalltile) && (
-        <div class="socials">
+        <div class="socials pb-6">
           {linkedin && (
             <a href={linkedin}>
               <Icon name="linkedin" />
@@ -169,8 +165,8 @@ const imageFile = image
       )
     }
     {
-      !(tile || smalltile) && description && (
-        <div class="bio" set:html={description} />
+      !(tile || smalltile) && bio && (
+        <div class="bio" set:html={bio} />
       )
     }
     <slot />
@@ -186,8 +182,22 @@ const imageFile = image
     position: relative;
   }
 
+  @media (min-width: 40rem) {
+    .person[data-astro-cid-kyxbqkyz].detail {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        align-items: start;
+        gap: 1em;
+
+        .person-info {
+          margin-block-start: 0rem;
+        }
+    }
+}
+
   .person .image-container {
     position: relative;
+    max-width: 30rem;
   }
 
   .person .image {
@@ -202,10 +212,6 @@ const imageFile = image
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
-
-  .person .title {
-    font-size: variables.$font-size-md;
   }
 
   .person .tags {
