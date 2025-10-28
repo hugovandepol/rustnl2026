@@ -8,7 +8,7 @@ bluesky: ""
 linkedin: "https://www.linkedin.com/in/cramertj/"
 twitter: ""
 mastodon: ""
-talk: "talk_taylor"
+talk: taylor_talk
 github: "https://github.com/cramertj/"
 ---
 

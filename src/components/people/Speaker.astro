@@ -1,0 +1,31 @@
+---
+import { getEntry } from "astro:content";
+import Person from "./Person.astro";
+
+interface Props {
+    name?: string;
+    image?: string;
+    title?: string;
+    bio?: string; // bio
+    talkId?: string;
+    url?: string;
+    linkedin?: string;
+    twitter?: string;
+    mastodon?: string;
+    github?: string;
+    bluesky?: string;
+    tile?: boolean;
+    smalltile?: boolean;
+}
+
+const { talkId = "" } = Astro.props;
+
+let tracks: string[] = [];
+
+if (talkId) {
+    const talk = await getEntry("talks", talkId);
+    tracks = talk ? talk.data.tracks : [];
+}
+---
+
+<Person link={talkId} tracks={tracks} {...Astro.props} />

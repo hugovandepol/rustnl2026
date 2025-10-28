@@ -1,7 +1,7 @@
 ---
 tracks: 
  - main
-title: "Title to be announced"
+title: "Talk title TBA"
 level: ""
 tags: []
 duration: 30 # 15 or 30 min

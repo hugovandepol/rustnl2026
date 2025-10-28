@@ -1,4 +1,4 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection, reference, z } from 'astro:content';
 import { glob } from 'astro/loaders'; // Not available with legacy API
 
 const talks = defineCollection({
@@ -24,7 +24,7 @@ const people = defineCollection({
     linkedin: z.string(),
     twitter: z.string(),
     mastodon: z.string(),
-    talk: z.string(),
+    talk: reference("talks"),
     github: z.string(),
   }),
 });

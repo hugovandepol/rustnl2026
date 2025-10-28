@@ -3,7 +3,7 @@ import HeroLayout from "../layouts/HeroLayout.astro";
 import Button from "../components/Button.astro";
 import ButtonGroup from "../components/ButtonGroup.astro";
 import Image from "../components/Image.astro";
-import Person from "src/components/people/Person.astro";
+import Speaker from "src/components/people/Speaker.astro";
 import PeopleList from "src/components/people/PeopleList.astro";
 import Location from "src/components/Location.astro";
 import MainSchedule from "src/components/schedule/MainSchedule.astro";
@@ -16,7 +16,6 @@ import { getCollection } from 'astro:content';
 const people = await getCollection('people')
 const { greg, taylor, andreea } = useData(people);
 const speakers = [taylor, greg, andreea];
-
 ---
 
 <HeroLayout title="RustWeek 2026">
@@ -54,8 +53,7 @@ const speakers = [taylor, greg, andreea];
   <PeopleList title="Speakers" id="speakers" lead="">
     {
       speakers.map((speaker) => (
-        // TODO get talk tracks and add them (or add them inside Person component)
-        <Person link={speaker.talk} smalltile {...speaker} />
+        <Speaker talkId={speaker.talk.id} smalltile {...speaker} />
       ))
     }
   </PeopleList>

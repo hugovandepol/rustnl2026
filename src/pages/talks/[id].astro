@@ -18,10 +18,10 @@ const { talk } = Astro.props;
 const { title, level, day } = talk.data;
 const people = await getCollection('people');
 
-const speakers = people.filter( (person)=> person.data.talk == talk.id ).map( (speaker) => speaker );
+const speakers = people.filter( (person)=> person.data.talk.id == talk.id ).map( (speaker) => speaker );
 const speaker_names = speakers.map( (speaker) => speaker.data.name ).join(", ");
-// TODO restore ignore functionality
-const ignore = new Object();
+const draft = false;
+const ignore = draft ? {"data-pagefind-ignore": "all"}: {}
 ---
 
 <CommonLayout title={title} withLogo>

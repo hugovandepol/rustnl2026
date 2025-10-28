@@ -23,7 +23,7 @@ const {
   image,
   bio,
   title,
-  link,
+  link = "",
   tracks,
   url,
   linkedin,
@@ -52,38 +52,10 @@ function convertTrack(i: string): string {
   return i;
 }
 
-const speakers: any[] = [];
-let github_of_person = null;
-
-outer: for (const i of speakers) {
-  for (const speaker of i.frontmatter.speakers) {
-    if (speaker.name === name && speaker.github && speaker.github !== "") {
-      if (!speaker.github.includes("https://github.com")) {
-        github_of_person = `https://github.com/${speaker.github}`;
-      } else {
-        github_of_person = speaker.github.replace(/\/$/g, "");
-      }
-      break outer;
-    }
-  }
-}
-
-if (
-  (image === null || typeof image === "undefined") &&
-  github_of_person === null &&
-  typeof github !== "undefined" &&
-  github !== null
-) {
-  github_of_person = github.replace(/\/$/g, "");
-}
-
 const empty_path = "/images/people/empty.png";
-
 const imageFile = image
   ? `/images/people/${image}`
-  : github_of_person
-    ? `${github_of_person}.png`
-    : empty_path;
+  : empty_path;
 ---
 
 <div
@@ -117,7 +89,7 @@ const imageFile = image
     <div class="tags">
       {
         tracks &&
-          tracks.map((track) => (
+        tracks.map((track) => (
             <span class={`tag ${track}`}>
               <span>{convertTrack(track)}</span>
             </span>
