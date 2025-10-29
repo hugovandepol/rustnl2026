@@ -8,6 +8,7 @@ bluesky: ""
 linkedin: "https://www.linkedin.com/in/greg-kroah-hartman/"
 twitter: ""
 mastodon: ""
+talk: greg_talk
 github: "https://github.com/gregkh"
 ---
 
