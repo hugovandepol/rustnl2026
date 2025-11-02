@@ -26,23 +26,20 @@ const {
   <Head title={`${title} - RustWeek 2026`} ogImage={ogImage} />
 
   <body>
+    <Header withLogo={withLogo} withoutMenu={withoutMenu} />
+    <section class="after-heading">
+      {header ? <h1 class="title">{header}</h1> : <slot name="header" />}
+      <section>
+        <section class="main markdown">
+          <slot />
+        </section>
+        <Footer />
+      </section>
+    </section>
+
     <style lang="scss">
       @use "../styles/variables.scss";
-    </style>
-    <Header withLogo={withLogo} withoutMenu={withoutMenu} />
-    <div class="space-y-16 lg:space-y-24 py-24">
-      <section>
-        {header ? <h1 class="title">{header}</h1> : <slot name="header" />}
-        <section>
-          <section class="main markdown">
-            <slot />
-          </section>
-          <Footer />
-        </section>
-      </section>
-    </div>
 
-    <style>
       .header {
         width: min(70rem, 90%);
 
@@ -67,6 +64,17 @@ const {
         display: flex;
         flex-direction: column;
         align-items: center;
+      }
+
+      .after-heading {
+          margin-top: 4rem;
+      }
+
+      body, html, section {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          height: 100%;
       }
     </style>
   </body>
