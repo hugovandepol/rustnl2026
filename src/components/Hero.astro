@@ -1,0 +1,47 @@
+---
+interface Props {
+    kicker?: string;
+    title: string;
+    lead?: string;
+}
+
+const { kicker, title, lead } = Astro.props;
+---
+
+<div class="hero">
+    {kicker && <div class="kicker">{kicker}</div>}
+    <h1>{title}</h1>
+    {lead && <p>{lead}</p>}
+</div>
+
+<style lang="scss">
+  @use "../styles/variables.scss";
+
+  .kicker {
+    text-transform: uppercase;
+    color: variables.$color-purple-200;
+  }
+
+  .hero {
+    background-color: variables.$color-purple-400;
+    border-bottom-right-radius: 6rem;
+    border-top-left-radius: 6rem;
+    color: white;
+    padding: 4.5rem;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5lh;
+  }
+  
+  p {
+    margin-block-end: 0;
+    font-size: variables.$font-size-xl;
+  }
+
+  h1 {
+    font-family: variables.$font-family-display;
+  }
+</style>

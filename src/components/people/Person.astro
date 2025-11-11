@@ -129,7 +129,7 @@ const imageFile = image
       }
     </div>
   </div>
-  <div class="person-info">
+  <div class="person-info space-y-4">
     <h3>{name}</h3>
     {title && <div class="title">{title}</div>}
     {
@@ -217,6 +217,16 @@ const imageFile = image
     left: variables.space(2);
   }
 
+  .person .socials {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .person .socials a {
+    line-height: 1;
+  }
+
   .person .tag {
     align-items: center;
     background-color: variables.$color-blue-400;
@@ -235,5 +245,9 @@ const imageFile = image
     &.gosim-spotlight {
       background-color: variables.$color-yellow-400;
     }
+  }
+
+  .person .bio {
+    font-size: variables.$font-size-base;
   }
 </style>
