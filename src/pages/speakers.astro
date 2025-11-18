@@ -8,33 +8,35 @@ const talks = await Astro.glob("./talks/*.md");
 ---
 
 <CommonLayout title="Speakers" withLogo>
-  <img data-pagefind-meta="image[src]" style="display: none;" />
-  <Hero title="Speakers" lead="This year speakers" color="green" />
-  <PeopleList>
-    {
-      talks
-        .filter((talk: any) => {
-          return (
-            typeof talk.frontmatter.draft === "undefined" ||
-            !talk.frontmatter.draft
-          );
-        })
-        .map((talk: any) => {
-          return talk.frontmatter.speakers.map((speaker: any) => (
-            <Person
-              tile
-              name={speaker.name}
-              image={speaker.image}
-              tracks={talk.frontmatter.tracks}
-              link={talk.url}
-            >
-              <p>
-                <em>Talk</em>:
-                <a href={talk.url}>{talk.frontmatter.talkTitle}</a>
-              </p>
-            </Person>
-          ));
-        })
-    }
-  </PeopleList>
+  <div>
+    <img data-pagefind-meta="image[src]" style="display: none;" />
+    <Hero title="Speakers" lead="This year speakers" color="purple" />
+    <PeopleList>
+      {
+        talks
+          .filter((talk: any) => {
+            return (
+              typeof talk.frontmatter.draft === "undefined" ||
+              !talk.frontmatter.draft
+            );
+          })
+          .map((talk: any) => {
+            return talk.frontmatter.speakers.map((speaker: any) => (
+              <Person
+                tile
+                name={speaker.name}
+                image={speaker.image}
+                tracks={talk.frontmatter.tracks}
+                link={talk.url}
+              >
+                <p>
+                  <em>Talk</em>:
+                  <a href={talk.url}>{talk.frontmatter.talkTitle}</a>
+                </p>
+              </Person>
+            ));
+          })
+      }
+    </PeopleList>
+  </div>
 </CommonLayout>

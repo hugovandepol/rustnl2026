@@ -30,26 +30,26 @@ const color400 = `var(--color-${color}-400)`;
 
 <style lang="scss" define:vars={{ color000, color100, color300, color400 }}>
   .hero {
-    background-color: var(--color400);
+    background-color: var(--color100);
     margin-block-end: 3rem;
-    // padding-block: 3rem;
+    padding-block: 3rem;
   }
 
   .hero > .container {
     align-items: center;
-    background-color: var(--color000);
+    background-color: var(--color400);
     border-bottom-right-radius: 4.5rem;
     border-top-left-radius: 4.5rem;
     display: flex;
     flex-direction: column;
     gap: 1lh;
-    padding-block: 4.5rem;
+    padding-block: 3rem;
     text-align: center;
   }
 
   .kicker {
     text-transform: uppercase;
-    color: var(--color200);
+    color: var(--color100);
   }
 
   p {
