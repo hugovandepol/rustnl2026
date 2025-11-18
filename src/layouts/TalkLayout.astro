@@ -3,9 +3,10 @@ import Markdown from "src/components/Markdown.astro";
 import CommonLayout from "../layouts/CommonLayout.astro";
 import Hero from "src/components/Hero.astro";
 import OneColumn from "src/components/OneColumn.astro";
-import PeopleList from "src/components/people/PeopleList.astro";
 import Person from "src/components/people/Person.astro";
 import Divider from "src/components/Divider.astro";
+import Cta from 'src/components/Cta.astro';
+import Button from "src/components/Button.astro";
 
 const { frontmatter } = Astro.props;
 const {
@@ -66,6 +67,28 @@ const ignore = draft ? { "data-pagefind-ignore": "all" } : {};
       }
     </div>
   </OneColumn>
+  <Cta title="title" lead="lead" color="yellow">
+      <div class="buttons cutout cutout-button-group custom">
+          {
+            !tracks.includes("industry") ? (
+              <Button link="https://www.eventbrite.nl/e/rustweek-2025-tickets-1001676961757?aff=oddtdtcreator">
+                Get your ticket
+              </Button>
+            ) : (
+              <Button link="https://www.eventbrite.nl/e/industry-track-rustweek-2025-tickets-1115250035879">
+                Get your ticket
+              </Button>
+            )
+          }
+          {
+            day && (
+              <Button link=`/schedule/${day}/#${url.split('/').pop()}`>
+                Find in timetable
+              </Button>
+            )
+          }
+        </div>
+  </Cta>
 </CommonLayout>
 
 <style>
@@ -94,4 +117,8 @@ const ignore = draft ? { "data-pagefind-ignore": "all" } : {};
     align-items: center;
     min-height: 2.25rem;
   }
+
+  .cutout.cutout-button-group.custom::after {
+    inset: -55%;
+  }  
 </style>

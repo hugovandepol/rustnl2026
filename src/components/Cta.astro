@@ -1,0 +1,67 @@
+---
+interface Props {
+  kicker?: string;
+  title: string;
+  lead?: string;
+  color?: "yellow" | "purple" | "red" | "blue" | "green";
+}
+
+const { kicker, title, lead, color = "purple" } = Astro.props;
+
+// Map color to shade variables
+const color000 = `var(--color-${color}-000)`;
+const color100 = `var(--color-${color}-100)`;
+const color300 = `var(--color-${color}-300)`;
+const color400 = `var(--color-${color}-400)`;
+---
+
+<div class="cta">
+  <div class="container">
+    <div>
+      {kicker && <div class="kicker">{kicker}</div>}
+      <h1>{title}</h1>
+    </div>
+    {lead && <p>{lead}</p>}
+    <slot />
+  </div>
+</div>
+
+<style lang="scss" define:vars={{ color000, color100, color300, color400 }}>
+  .cta {
+    background-color: var(--color100);
+    padding-block: 3rem;
+    z-index: 0;
+  }
+
+  .cta > .container {
+    position: relative;
+    align-items: center;
+    background-color: var(--color300);
+    border-bottom-right-radius: 4.5rem;
+    border-top-left-radius: 4.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1lh;
+    padding-block: 3rem;
+    text-align: center;
+    justify-content: stretch;
+    overflow: clip;
+    z-index: 0;
+  }
+
+  .kicker {
+    text-transform: uppercase;
+    color: var(--color100);
+    margin-bottom: 0.5lh;
+  }
+
+  p {
+    font-size: var(--font-size-lg);
+  }
+
+  h1 {
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-2xl);
+    text-wrap: balance;
+  }
+</style>
