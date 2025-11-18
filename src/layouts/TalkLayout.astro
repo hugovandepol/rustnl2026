@@ -5,6 +5,7 @@ import Hero from "src/components/Hero.astro";
 import OneColumn from "src/components/OneColumn.astro";
 import PeopleList from "src/components/people/PeopleList.astro";
 import Person from "src/components/people/Person.astro";
+import Divider from "src/components/Divider.astro";
 
 const { frontmatter } = Astro.props;
 const {
@@ -49,18 +50,34 @@ const ignore = draft ? { "data-pagefind-ignore": "all" } : {};
   <OneColumn>
     <Markdown set:html={abstract} />
   </OneColumn>
+  <Divider />
   <OneColumn>
-    <PeopleList>
+    <div class="persons">
       {
         frontmatter.speakers.map((speaker: any) => (
-          <Person description={bio} {...speaker} />
+          <div class="person">
+            <Person
+              description={bio}
+              {...speaker}
+              single={frontmatter.speakers.length == 1}
+            />
+          </div>
         ))
       }
-    </PeopleList>
+    </div>
   </OneColumn>
 </CommonLayout>
 
 <style>
+  .persons {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .persons > .person {
+    flex: 1;
+  }
+
   .talk-level {
     align-items: center;
     display: flex;

@@ -16,6 +16,7 @@ interface Props {
   bluesky?: string;
   tile?: boolean;
   smalltile?: boolean;
+  single?: boolean;
 }
 
 const {
@@ -33,6 +34,7 @@ const {
   bluesky,
   tile = false,
   smalltile = false,
+  single = false,
 } = Astro.props;
 
 function convertTrack(i: string): string {
@@ -90,6 +92,7 @@ const imageFile = image
   class:list={[
     "person",
     tile ? "tile" : smalltile ? "small-tile" : "detail",
+    single ? 'single' : null,
   ]}
 >
   <div class="image-container">
@@ -187,6 +190,11 @@ const imageFile = image
   .person {
     border: 1px solid var(--color-green-100);
     position: relative;
+  }
+
+  .person.single {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 
   .person .image-container {
