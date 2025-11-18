@@ -24,23 +24,36 @@ const {
 <style is:global>
   :root {
     --color-background: white;
-    --color-neutral-300: #fef6f0;
-    --color-neutral-400: #fff0e6;
-    --color-neutral-500: #ffe6d6;
+    
+    --color-yellow-000: #FFEDCC;
+    --color-yellow-100: #FFDC99;
+    --color-yellow-200: #FFCA66;
+    --color-yellow-300: #FFB933;
+    --color-yellow-400: #FFA700;
 
-    --color-red-400: #e74310;
-    --color-red-500: #b33118;
-    --color-blue-400: #729ecb;
-    --color-yellow-300: #fabc4b;
-    --color-yellow-400: #ffa700;
-    --color-yellow-500: #e69601;
-    --color-yellow-new: #ffcf99;
+    --color-purple-000: #E6D9F2;
+    --color-purple-100: #C9A9DC;
+    --color-purple-200: #B28DC9;
+    --color-purple-300: #9966B2;
+    --color-purple-400: #7B3F8C;
 
-    --color-purple-100: #e6d9f2;
-    --color-purple-200: #c9a9dc;
-    --color-purple-300: #b28dc9;
-    --color-purple-400: #9966b2;
-    --color-purple-500: #7b3f8c;
+    --color-green-000: #D5E8DD;
+    --color-green-100: #ABD1BC;
+    --color-green-200: #82B99A;
+    --color-green-300: #58A279;
+    --color-green-400: #2E8B57;
+
+    --color-red-000: #F0D6D1;
+    --color-red-100: #E1ADA3;
+    --color-red-200: #D18374;
+    --color-red-300: #C25A46;
+    --color-red-400: #B33118;
+
+    --color-blue-000: #E3ECF5;
+    --color-blue-100: #C7D9EB;
+    --color-blue-200: #AAC5E0;
+    --color-blue-300: #8EB2D6;
+    --color-blue-400: #729FCC;
 
     --color-black: #222;
 
@@ -55,6 +68,7 @@ const {
     --font-size-xl: calc(var(--font-size-lg) * var(--font-size-scale));
     --font-size-2xl: calc(var(--font-size-xl) * var(--font-size-scale));
     --font-size-3xl: calc(var(--font-size-2xl) * var(--font-size-scale));
+    --font-size-body: 1.125rem;
 
     --font-weight-light: 300;
     --font-weight-bold: 700;
@@ -64,9 +78,14 @@ const {
   }
 
   body {
-    min-height: 100vh;
+    color: var(--color-black);
     display: flex;
     flex-direction: column;
+    font-family: var(--font-family);
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-light);
+    line-height: var(--line-height-normal);
+    min-height: 100vh;
   }
 
   main {

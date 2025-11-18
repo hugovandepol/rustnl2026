@@ -88,7 +88,7 @@ const imageFile = image
 
 <div
   class:list={[
-    "person space-y-6",
+    "person",
     tile ? "tile" : smalltile ? "small-tile" : "detail",
   ]}
 >
@@ -129,7 +129,7 @@ const imageFile = image
       }
     </div>
   </div>
-  <div class="person-info space-y-4">
+  <div class="info">
     <h3>{name}</h3>
     {title && <div class="title">{title}</div>}
     {
@@ -181,12 +181,13 @@ const imageFile = image
   @use "../../styles/variables.scss";
 
   .person {
-    border: 1px solid variables.$color-neutral-400;
-    padding: variables.space(4);
+    border: 1px solid var(--color-green-100);
     position: relative;
   }
 
   .person .image-container {
+    background-color: var(--color-green-000);
+    border-block-end: 1px solid var(--color-green-100);
     position: relative;
   }
 
@@ -213,8 +214,19 @@ const imageFile = image
     flex-wrap: wrap;
     gap: variables.space(2);
     position: absolute;
-    bottom: variables.space(2);
-    left: variables.space(2);
+    bottom: 1rem;
+    left: 1rem;
+    width: calc(100% - 2rem);
+  }
+
+  .person .info {
+    padding-inline: 1rem;
+    padding-block: 1.5rem;
+  }
+
+  .person h3 {
+    font-size: var(--font-size-lg);
+    font-family: var(--font-family-display);
   }
 
   .person .socials {
@@ -229,7 +241,7 @@ const imageFile = image
 
   .person .tag {
     align-items: center;
-    background-color: variables.$color-blue-400;
+    background-color: var(--color-blue-200);
     border-radius: variables.space(1);
     display: flex;
     font-size: variables.$font-size-md;
@@ -238,12 +250,12 @@ const imageFile = image
     padding-inline: variables.space(3);
 
     &.project {
-      background-color: variables.$color-red-400;
+      background-color: var(--color-red-200);
     }
 
     &.industry,
     &.gosim-spotlight {
-      background-color: variables.$color-yellow-400;
+      background-color: var(--color-yellow-200);
     }
   }
 

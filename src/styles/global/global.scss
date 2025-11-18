@@ -16,18 +16,6 @@ html {
     box-sizing: inherit;
 }
 
-body {
-    background-color: variables.$color-background;
-    color: variables.$color-black;
-    font-family: variables.$font-family;
-    font-weight: 300;
-    line-height: variables.$line-height-normal;
-
-    @include breakpoint.wider_than(sm) {
-        font-size: variables.$font-size-lg;
-    }
-}
-
 s,
 h1,
 h2,

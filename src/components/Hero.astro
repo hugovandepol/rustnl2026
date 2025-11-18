@@ -3,9 +3,20 @@ interface Props {
   kicker?: string;
   title: string;
   lead?: string;
+  color?: 'yellow' | 'purple' | 'red' | 'blue' | 'neutral';
 }
 
-const { kicker, title, lead } = Astro.props;
+const { 
+  kicker, 
+  title, 
+  lead,
+  color = 'purple'
+} = Astro.props;
+
+// Map color to shade variables
+const color100 = `var(--color-${color}-100)`;
+const color300 = `var(--color-${color}-300)`;
+const color400 = `var(--color-${color}-400)`;
 ---
 
 <div class="hero">
@@ -16,17 +27,17 @@ const { kicker, title, lead } = Astro.props;
   </div>
 </div>
 
-<style lang="scss">
+<style lang="scss" define:vars={{ color100, color300, color400 }}>
   .hero {
-    background-color: var(--color-purple-300);
+    background-color: var(--color400);
   }
 
   .hero > .container {
     align-items: center;
-    background-color: var(--color-purple-100);
+    background-color: var(--color100);
     border-bottom-right-radius: 4.5rem;
     border-top-left-radius: 4.5rem;
-    color: var(--color-purple-400);
+    color: var(--color400);
     display: flex;
     flex-direction: column;
     gap: 1lh;
@@ -37,7 +48,7 @@ const { kicker, title, lead } = Astro.props;
 
   .kicker {
     text-transform: uppercase;
-    color: var(--color-purple-200);
+    color: var(--color200);
   }
 
   p {
