@@ -3,17 +3,3 @@
     <slot />
   </div>
 </section>
-
-<style>
-  .paragraph :global(> * + *) {
-    margin-block-start: 1lh;
-  }
-
-  .paragraph {
-    font-size: var(--font-size-lg);
-  }
-
-  .paragraph p:empty {
-    display: none;
-  }
-</style>
