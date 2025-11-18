@@ -3,15 +3,10 @@ interface Props {
   kicker?: string;
   title: string;
   lead?: string;
-  color?: 'yellow' | 'purple' | 'red' | 'blue' | 'green';
+  color?: "yellow" | "purple" | "red" | "blue" | "green";
 }
 
-const { 
-  kicker, 
-  title, 
-  lead,
-  color = 'purple'
-} = Astro.props;
+const { kicker, title, lead, color = "purple" } = Astro.props;
 
 // Map color to shade variables
 const color000 = `var(--color-${color}-000)`;
@@ -22,8 +17,10 @@ const color400 = `var(--color-${color}-400)`;
 
 <div class="hero">
   <div class="container">
-    {kicker && <div class="kicker">{kicker}</div>}
-    <h1>{title}</h1>
+    <div>
+      {kicker && <div class="kicker">{kicker}</div>}
+      <h1>{title}</h1>
+    </div>
     {lead && <p>{lead}</p>}
   </div>
 </div>
@@ -33,9 +30,11 @@ const color400 = `var(--color-${color}-400)`;
     background-color: var(--color100);
     margin-block-end: 3rem;
     padding-block: 3rem;
+    z-index: 0;
   }
 
   .hero > .container {
+    position: relative;
     align-items: center;
     background-color: var(--color400);
     border-bottom-right-radius: 4.5rem;
@@ -45,11 +44,15 @@ const color400 = `var(--color-${color}-400)`;
     gap: 1lh;
     padding-block: 3rem;
     text-align: center;
+    justify-content: stretch;
+    overflow: clip;
+    z-index: 0;
   }
 
   .kicker {
     text-transform: uppercase;
     color: var(--color100);
+    margin-bottom: 0.5lh;
   }
 
   p {

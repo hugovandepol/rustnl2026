@@ -24,9 +24,7 @@ const ignore = draft? {"data-pagefind-ignore": "all"}: {}
 
 <CommonLayout title={talkTitle} withLogo>
     <Hero kicker="Talk" title={talkTitle} lead={`by ${speaker_names}`} color="green" />
-    <Paragraph>
-      <div set:html={abstract} />
-    </Paragraph>
+    <Paragraph set:html={abstract}>
 </CommonLayout>
 
 <style>

@@ -1,5 +1,15 @@
 <section class="container md:grid md:cols-12">
-  <div class="md:col-start-3 md:col-end-11 xl:col-start-4 xl:col-end-10">
+  <div class="md:col-start-3 md:col-end-11 xl:col-start-4 xl:col-end-10 paragraph">
     <slot />
   </div>
 </section>
+
+<style>
+  .paragraph :global(> * + *) {
+    margin-block-start: 1lh;
+  }
+
+  .paragraph {
+    font-size: var(--font-size-lg);
+  }
+</style>
