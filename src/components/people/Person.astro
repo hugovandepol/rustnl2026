@@ -170,7 +170,11 @@ const imageFile = image
     }
     {
       !(tile || smalltile) && description && (
-        <div class="bio" set:html={description} />
+        <button popovertarget={name}>Read bio</button>
+        <div popover class="bio popover" id={name}>
+          <h3>{name}</h3>
+          <div set:html={description} />
+        </div>
       )
     }
     <slot />
@@ -226,6 +230,32 @@ const imageFile = image
 
   .person .info > * + * {
     margin-block-start: 0.75rem;
+  }
+
+  .person .info button {
+    background-color: transparent;
+    border: 0;
+    font-size: var(--font-size-body);
+    font-family: inherit;
+    border: 1px solid var(--color-green-000);
+    font-weight: 700;
+    padding: 0.5rem;
+  }
+
+  .person .info .popover {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    padding: 1.5rem;
+    border: 1px solid var(--color-green-100);
+    width: 100%;
+    max-width: 64rem;
+    font-size: var(--font-size-lg);
+  }
+
+  .person .info .popover::backdrop {
+    background-color: rgba(0,0,0,0.25);
   }
 
   .person h3 {
