@@ -14,6 +14,7 @@ const {
 } = Astro.props;
 
 // Map color to shade variables
+const color000 = `var(--color-${color}-000)`;
 const color100 = `var(--color-${color}-100)`;
 const color300 = `var(--color-${color}-300)`;
 const color400 = `var(--color-${color}-400)`;
@@ -27,23 +28,23 @@ const color400 = `var(--color-${color}-400)`;
   </div>
 </div>
 
-<style lang="scss" define:vars={{ color100, color300, color400 }}>
+<style lang="scss" define:vars={{ color000, color100, color300, color400 }}>
   .hero {
     background-color: var(--color400);
+    margin-block-end: 3rem;
+    // padding-block: 3rem;
   }
 
   .hero > .container {
     align-items: center;
-    background-color: var(--color100);
+    background-color: var(--color000);
     border-bottom-right-radius: 4.5rem;
     border-top-left-radius: 4.5rem;
-    color: var(--color400);
     display: flex;
     flex-direction: column;
     gap: 1lh;
-    padding-block: 5.25rem;
+    padding-block: 4.5rem;
     text-align: center;
-    margin-block-end: 3rem;
   }
 
   .kicker {
@@ -52,10 +53,12 @@ const color400 = `var(--color-${color}-400)`;
   }
 
   p {
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-lg);
   }
 
   h1 {
     font-family: var(--font-family-display);
+    font-size: var(--font-size-2xl);
+    text-wrap: balance;
   }
 </style>
