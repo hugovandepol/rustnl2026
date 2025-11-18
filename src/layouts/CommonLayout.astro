@@ -21,45 +21,72 @@ const {
 } = Astro.props;
 ---
 
-<!doctype html>
+<style is:global>
+  :root {
+    --color-background: white;
+    --color-neutral-300: #fef6f0;
+    --color-neutral-400: #fff0e6;
+    --color-neutral-500: #ffe6d6;
+
+    --color-red-400: #e74310;
+    --color-red-500: #b33118;
+    --color-blue-400: #729ecb;
+    --color-yellow-300: #fabc4b;
+    --color-yellow-400: #ffa700;
+    --color-yellow-500: #e69601;
+    --color-yellow-new: #ffcf99;
+
+    --color-purple-100: #e6d9f2;
+    --color-purple-200: #c9a9dc;
+    --color-purple-300: #b28dc9;
+    --color-purple-400: #9966b2;
+    --color-purple-500: #7b3f8c;
+
+    --color-black: #222;
+
+    --font-family: "Work Sans", sans-serif;
+    --font-family-display: "Alfa Slab One", serif;
+    --font-size-scale: 1.333;
+    --font-size-base: 1rem;
+    --font-size-sm: calc(var(--font-size-base) / var(--font-size-scale));
+    --font-size-xs: calc(var(--font-size-sm) / var(--font-size-scale));
+    --font-size-md: var(--font-size-base);
+    --font-size-lg: calc(var(--font-size-md) * var(--font-size-scale));
+    --font-size-xl: calc(var(--font-size-lg) * var(--font-size-scale));
+    --font-size-2xl: calc(var(--font-size-xl) * var(--font-size-scale));
+    --font-size-3xl: calc(var(--font-size-2xl) * var(--font-size-scale));
+
+    --font-weight-light: 300;
+    --font-weight-bold: 700;
+
+    --line-height-normal: 1.5;
+    --line-height-tight: 1.125;
+  }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  main {
+    margin-block: 3rem;
+    flex: 1;
+  }
+
+  .container {
+    width: min(100% - 6rem, 88.5rem);
+    margin-inline: auto;
+  }
+</style>
+
 <html lang="en">
   <Head title={`${title} - RustWeek 2025`} ogImage={ogImage} />
-
   <body>
-    <style lang="scss">
-      @use "../styles/variables.scss";
-    </style>
     <Header withLogo={withLogo} withoutMenu={withoutMenu} />
-    <div class="container space-y-16 lg:space-y-24 py-18">
-      <section>
-        {header ? <h1 class="title">{header}</h1> : <slot name="header" />}
-        <section>
-          <section class="main markdown">
-            <slot />
-          </section>
-          <Footer />
-        </section>
-      </section>
-    </div>
-
-    <style>
-      .header {
-        width: min(70rem, 90%);
-
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      h1.title {
-        text-align: center;
-        margin-bottom: 3rem;
-      }
-
-      .main {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-    </style>
+    <main>
+      <slot />
+    </main>
+    <Footer />
   </body>
 </html>
