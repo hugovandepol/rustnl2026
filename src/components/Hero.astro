@@ -22,13 +22,13 @@ const color400 = `var(--color-${color}-400)`;
       <h1>{title}</h1>
     </div>
     {lead && <p>{lead}</p>}
+    <slot />
   </div>
 </div>
 
 <style lang="scss" define:vars={{ color000, color100, color300, color400 }}>
   .hero {
     background-color: var(--color100);
-    margin-block-end: 3rem;
     padding-block: 3rem;
     z-index: 0;
   }
