@@ -68,7 +68,7 @@ const ignore = draft ? { "data-pagefind-ignore": "all" } : {};
     </div>
   </OneColumn>
   <Cta title="title" lead="lead" color="yellow">
-      <div class="buttons cutout cutout-button-group custom">
+      <div class="buttons">
           {
             !tracks.includes("industry") ? (
               <Button link="https://www.eventbrite.nl/e/rustweek-2025-tickets-1001676961757?aff=oddtdtcreator">
@@ -82,7 +82,7 @@ const ignore = draft ? { "data-pagefind-ignore": "all" } : {};
           }
           {
             day && (
-              <Button link=`/schedule/${day}/#${url.split('/').pop()}`>
+              <Button link={`/schedule/${day}/#${url.split('/').pop()}`}>
                 Find in timetable
               </Button>
             )

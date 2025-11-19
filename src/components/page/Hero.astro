@@ -90,20 +90,6 @@ const slides = Array.from({ length: 4 }, (_, i) => i + 1);
   @use "../../styles/breakpoint.scss";
   @use "../../styles/variables.scss";
 
-  @keyframes peek {
-    0% {
-      translate: -50% 40%;
-    }
-
-    50% {
-      translate: -50% 20%;
-    }
-
-    0% {
-      translate: -50% 40%;
-    }
-  }
-
   .hero {
     align-items: center;
     background-color: variables.$color-yellow-400;
@@ -115,6 +101,10 @@ const slides = Array.from({ length: 4 }, (_, i) => i + 1);
     @include breakpoint.wider_than(lg) {
         padding-block: variables.space(20);
     }
+  }
+
+  .hero:has(.button:hover) .ferris {
+    translate: -50% 25%;
   }
 
   .swiper {
@@ -140,7 +130,6 @@ const slides = Array.from({ length: 4 }, (_, i) => i + 1);
   }
 
   .ferris {
-    pointer-events: none;
     aspect-ratio: 1;
     background-image: url("/images/ferris.png");
     background-position: bottom;
@@ -149,17 +138,13 @@ const slides = Array.from({ length: 4 }, (_, i) => i + 1);
     bottom: 0;
     left: 50%;
     max-width: 40rem;
+    pointer-events: none;
     position: absolute;
+    transition-duration: 150ms;
+    transition-property: translate;
     translate: -50% 40%;
     width: 100%;
     z-index: 1;
-  }
-
-  .ferris-animate {
-    animation-delay: 300ms;
-    animation-name: peek;
-    animation-duration: 2500ms;
-    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .swiper-navigation-next,

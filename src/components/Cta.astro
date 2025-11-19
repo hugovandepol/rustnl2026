@@ -16,6 +16,7 @@ const color400 = `var(--color-${color}-400)`;
 ---
 
 <div class="cta">
+  <div class="ferris"></div>
   <div class="container">
     <div>
       {kicker && <div class="kicker">{kicker}</div>}
@@ -31,9 +32,27 @@ const color400 = `var(--color-${color}-400)`;
     background-color: var(--color100);
     padding-block: 3rem;
     z-index: 0;
+    position: relative;
   }
 
-  .cta > .container {
+  .cta .ferris {
+    aspect-ratio: 2677/1764;
+    background-image: url("/images/ferris.png");
+    background-size: cover;
+    left: 50%;
+    position: absolute;
+    top: 0;
+    translate: -50% 0;
+    width: 12rem;
+    transition-property: translate;
+    transition-duration: 150ms;
+  }
+
+  .cta:has(.button:hover) .ferris {
+    translate: -50% -25%;
+  }
+
+  .cta .container {
     position: relative;
     align-items: center;
     background-color: var(--color300);
