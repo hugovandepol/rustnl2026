@@ -1,0 +1,54 @@
+---
+import Hero from "src/components/Hero.astro";
+import CommonLayout from "../layouts/CommonLayout.astro";
+import OneColumn from "src/components/OneColumn.astro";
+
+const unconfIntro = await Astro.glob("./unconf-intro.md");
+---
+
+<style>
+  .anchors {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid var(--color-red-200);
+  }
+
+  .anchors a {
+    min-height: 3rem;
+    padding-inline: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-red-000);
+  }
+
+  .anchors a:not(:last-child) {
+    border-inline-end: inherit;
+  }
+</style>
+
+<CommonLayout title="Unconf participants guide">
+  <Hero title="Unconf participants guide" color="red">
+    <div class="anchors">
+      <a href="#venue">Venue</a>
+      <a href="#unconf-details">Unconf schedule</a>
+      <a href="#rooms">Rooms</a>
+      <a href="#all-hands">All-Hands</a>
+      <a href="#sponsors">Sponsors</a>
+      <a href="#group-leaders">Group leaders</a>
+      <a href="#travel">Travel</a>
+    </div>
+  </Hero>
+  <OneColumn>
+    <div class="markdown">
+        <p>
+          The RustWeek unconference is an invite-only event for Rust maintainers, on
+          Fri May 16 & Sat May 17. The goal of the unconference is to facilitate
+          maintainers to work together in-person, including cross-collaboration with
+          other maintainer groups and with members of Rust project teams. The unconf
+          is part of RustWeek 2025, held in Utrecht, The Netherlands from May 12 -
+          17.
+        </p>
+    </div>
+  </OneColumn>
+</CommonLayout>
