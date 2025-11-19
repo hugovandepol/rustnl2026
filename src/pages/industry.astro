@@ -60,6 +60,7 @@ import Sponsors from "src/components/sponsor/Sponsors.astro";
         <p>Expert Table topics:</p>
         <ul>
             <li>How to plan your Rust migration</li>
+            <li>Software life cycle costs</li>
             <li>Hiring and training</li>
             <li>Using Rust in existing projects</li>
             <li>Safety Critical Rust</li>
@@ -149,6 +150,29 @@ import Sponsors from "src/components/sponsor/Sponsors.astro";
         </section>
     </div>
 
+        <div class="py-6">
+        <PeopleList title="Already confirmed for 2026" lead="">
+            <Person
+                name="Hugo van de Pol"
+                image="hugo.jpeg"
+                title="Director at Tweede golf and Trifecta Tech Foundation"
+                smalltile
+            />
+            <Person
+                name="Matthias Endler"
+                image="matthias.jpg"
+                title="Founder and Rust Consultant at Corrode"
+                smalltile
+            />
+            <Person
+                name="Martin Kooij"
+                image="martin.jpg"
+                title="Engineering team Embedded Software at ROCSYS"
+                smalltile
+            />
+        </PeopleList>
+    </div>
+    
     <div class="py-6">
         <PeopleList title="Last year's speakers and experts" lead="">
             <Person
@@ -199,7 +223,7 @@ import Sponsors from "src/components/sponsor/Sponsors.astro";
     <div class="container">
         <Sponsors>
             <div slot="header">
-                <h2>Last year's track partners</h2>
+                <h2>Industry Track partners</h2>
                 <p>
                     Interested in sponsoring? Download our <a
                         target="_blank"
@@ -210,8 +234,24 @@ import Sponsors from "src/components/sponsor/Sponsors.astro";
                     >.
                 </p>
             </div>
-            <SponsorTier name="">
-                <SponsorTier name="Partners">
+            <SponsorTier name="Expert partners">
+                <SponsorTier>
+                    <Sponsor
+                        name="Rocsys"
+                        tier="expert-partner"
+                        image="rocsys2025.png"
+                        link="https://rocsys.com/"
+                    />
+                    <Sponsor
+                        name="Corrode"
+                        tier="expert-partner"
+                        image="corrode.svg"
+                        link="https://corrode.dev/"
+                    />
+                </SponsorTier>
+            </SponsorTier> 
+            <SponsorTier name="Industry partners">
+                <SponsorTier>
                     <Sponsor
                         name="Rust Foundation"
                         tier="industry-partner"
@@ -224,51 +264,10 @@ import Sponsors from "src/components/sponsor/Sponsors.astro";
                         image="aws.png"
                         link="https://aws.amazon.com/"
                     />
-                    <Sponsor
-                        name="Infineon"
-                        tier="industry-partner"
-                        image="infineon.png"
-                        link="https://www.infineon.com/"
-                    />
-                    <Sponsor
-                        name="Volvo Cars"
-                        tier="industry-partner"
-                        image="volvo.png"
-                        link="https://www.volvocars.com/"
-                    />
-                    <Sponsor
-                        name="Slint"
-                        tier="industry-partner"
-                        image="slint.png"
-                        link="https://slint.dev/"
-                    />
-                    <Sponsor
-                        name="Makepad"
-                        tier="industry-partner"
-                        image="makepad.png"
-                        link="https://makepad.dev/"
-                    />
-                    <Sponsor
-                        name="OneVariable"
-                        tier="industry-partner"
-                        image="onevariable.png"
-                        link="https://onevariable.com/"
-                    />
-                    <Sponsor
-                        name="Sarif"
-                        tier="industry-partner"
-                        image="sarif.png"
-                        link="https://sarif.nl/"
-                    />
-                    <Sponsor
-                        name="Corrode"
-                        tier="industry-partner"
-                        image="corrode.svg"
-                        link="https://corrode.dev/"
-                    />
                 </SponsorTier>
-                <br />
-                <SponsorTier name="Powered by">
+            </SponsorTier>    
+            <SponsorTier name="Powered by">
+                <SponsorTier>
                     <Sponsor
                         name="Tweede golf"
                         tier="industry-partner"
