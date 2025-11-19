@@ -203,6 +203,26 @@ const imageFile = image
     position: relative;
   }
 
+  .person:nth-child(1n + 1) .image-container {
+    background-color: var(--color-blue-000);
+  }
+
+  .person:nth-child(2n + 2) .image-container {
+    background-color: var(--color-purple-000);
+  }
+
+  .person:nth-child(3n + 3) .image-container {
+    background-color: var(--color-green-000);
+  }
+
+  .person:nth-child(4n + 4) .image-container {
+    background-color: var(--color-red-000);
+  }
+
+  .person:nth-child(5n + 5) .image-container {
+    background-color: var(--color-yellow-000);
+  }
+
   .person .image {
     aspect-ratio: 1;
     border-radius: 50% 0 50% 0;
