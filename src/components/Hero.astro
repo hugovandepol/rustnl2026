@@ -20,7 +20,7 @@ const color400 = `var(--color-${color}-400)`;
   <div class="container">
     <div>
       {kicker && <div class="kicker">{kicker}</div>}
-      <h1>{title}</h1>
+      <h1 class="font-display">{title}</h1>
     </div>
     {lead && <p>{lead}</p>}
     <slot />
@@ -64,7 +64,6 @@ const color400 = `var(--color-${color}-400)`;
   }
 
   h1 {
-    font-family: var(--font-family-display);
     font-size: var(--font-size-3xl);
     text-wrap: balance;
   }

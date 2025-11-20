@@ -11,9 +11,11 @@ import Sponsors from "src/components/sponsor/Sponsors.astro";
 import SponsorTier from "src/components/sponsor/sponsor-tier.astro";
 import Sponsor from "src/components/sponsor/sponsor.astro";
 import { useData } from "../components/useData";
-import { getCollection } from 'astro:content';
+import { getCollection } from "astro:content";
+import OneColumn from "src/components/OneColumn.astro";
+import Cta from "src/components/Cta.astro";
 
-const people = await getCollection('people')
+const people = await getCollection("people");
 const { greg, taylor, andreea } = useData(people);
 const speakers = [taylor, greg, andreea];
 ---
@@ -25,8 +27,8 @@ const speakers = [taylor, greg, andreea];
       <h2>May 18-23 — Utrecht, NL</h2>
     </div>
     <p>
-      The world's biggest Rust conference includes one day of workshops, two days
-      of talks, a hackathon, social activities, and more!
+      The world's biggest Rust conference includes one day of workshops, two
+      days of talks, a hackathon, social activities, and more!
     </p>
     <div class="button-group cutout cutout-button-group">
       <a
@@ -36,19 +38,21 @@ const speakers = [taylor, greg, andreea];
       <a href="#week-schedule" class="button button-secondary">Week schedule</a>
     </div>
   </Fragment>
-  <div slot="explainer" class="markdown">
-    <h2 id="explainer">RustWeek 2026</h2>
-    <p>
-      The world's biggest Rust conference returns to beautiful Utrecht,
-      welcoming over 900+ community members, professionals and the maintainers
-      of Rust.
-    </p>
-    <p style="margin-block-end: 0;">
-      The week includes one day of workshops, two days of talks, a hackathon,
-      and social activities. Additionally, we're hosting an unconference, and
-      our second Rust Project All Hands!
-    </p>
-  </div>
+  <OneColumn>
+    <div class="markdown">
+      <h2 id="explainer">RustWeek 2026</h2>
+      <p>
+        The world's biggest Rust conference returns to beautiful Utrecht,
+        welcoming over 900+ community members, professionals and the maintainers
+        of Rust.
+      </p>
+      <p style="margin-block-end: 0;">
+        The week includes one day of workshops, two days of talks, a hackathon,
+        and social activities. Additionally, we're hosting an unconference, and
+        our second Rust Project All Hands!
+      </p>
+    </div>
+  </OneColumn>
   <MainSchedule />
   <!-- <PeopleList title="Speakers" id="speakers" lead="We'll announce our invited speakers here. Do you also want to speak at RustWeek? <a href='/cfp/'>Our CFP</a> opens November 3rd!">
     {
@@ -177,18 +181,12 @@ const speakers = [taylor, greg, andreea];
     </Sponsors>
   </div>
   <Image src="/images/rustweek2025/flags.jpg" alt="Flags at RustWeek 2025" />
-
-  <div slot="about">
-    <div class="markdown">
-      <h2 id="about">About RustWeek</h2>
-      <p>
-        RustWeek is organised by Stichting Rust Nederland, RustNL for short, a
-        non-profit that strives to promote the implementation of the Rust
-        programming language.
-      </p>
-      <ButtonGroup>
-        <Button link="/about">More About Us</Button>
-      </ButtonGroup>
-    </div>
-  </div>
+  <Cta
+    title="About RustWeek"
+    lead="RustWeek is organised by Stichting Rust Nederland, RustNL for short, a non-profit that strives to promote the implementation of the Rust programming language."
+  >
+    <ButtonGroup>
+      <Button link="/about">More About Us</Button>
+    </ButtonGroup>
+  </Cta>
 </HeroLayout>

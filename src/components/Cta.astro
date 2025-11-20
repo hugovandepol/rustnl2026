@@ -8,11 +8,6 @@ interface Props {
 
 const { kicker, title, lead, color = "purple" } = Astro.props;
 
-// Map color to shade variables
-const color000 = `var(--color-${color}-000)`;
-const color100 = `var(--color-${color}-100)`;
-const color300 = `var(--color-${color}-300)`;
-const color400 = `var(--color-${color}-400)`;
 ---
 
 <div class="cta">
@@ -27,9 +22,9 @@ const color400 = `var(--color-${color}-400)`;
   </div>
 </div>
 
-<style lang="scss" define:vars={{ color000, color100, color300, color400 }}>
+<style lang="scss">
   .cta {
-    background-color: var(--color100);
+    background-color: var(--color-yellow-400);
     padding-block: 3rem;
     z-index: 0;
     position: relative;
@@ -55,7 +50,8 @@ const color400 = `var(--color-${color}-400)`;
   .cta .container {
     position: relative;
     align-items: center;
-    background-color: var(--color300);
+    background-color: white;
+    border: 4px solid var(--color-black);
     border-bottom-right-radius: 4.5rem;
     border-top-left-radius: 4.5rem;
     display: flex;

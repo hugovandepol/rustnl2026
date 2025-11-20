@@ -166,30 +166,9 @@ const imageFile = image
   }
 
   .person .image-container {
-    background-color: var(--color-green-000);
     border-block-end: 1px solid var(--color-green-100);
     position: relative;
     max-width: 30rem;
-  }
-
-  .person:nth-child(1n + 1) .image-container {
-    background-color: var(--color-blue-000);
-  }
-
-  .person:nth-child(2n + 2) .image-container {
-    background-color: var(--color-purple-000);
-  }
-
-  .person:nth-child(3n + 3) .image-container {
-    background-color: var(--color-green-000);
-  }
-
-  .person:nth-child(4n + 4) .image-container {
-    background-color: var(--color-red-000);
-  }
-
-  .person:nth-child(5n + 5) .image-container {
-    background-color: var(--color-yellow-000);
   }
 
   .person .image {
@@ -268,7 +247,7 @@ const imageFile = image
 
   .person .tag {
     align-items: center;
-    background-color: var(--color-blue-200);
+    background-color: var(--color-blue-100);
     border-radius: variables.space(1);
     display: flex;
     font-size: variables.$font-size-md;
@@ -277,12 +256,12 @@ const imageFile = image
     padding-inline: variables.space(3);
 
     &.project {
-      background-color: var(--color-red-200);
+      background-color: var(--color-red-100);
     }
 
     &.industry,
     &.gosim-spotlight {
-      background-color: var(--color-yellow-200);
+      background-color: var(--color-yellow-100);
     }
   }
 
