@@ -2,6 +2,7 @@
 layout: "../layouts/UnconfIntroLayout.astro"
 title: "RustWeek Unconference"
 slug: "unconf-intro"
+published: false
 ---
 
 The RustWeek unconference is an invite-only event for Rust maintainers, on Fri May 16 & Sat May 17.
