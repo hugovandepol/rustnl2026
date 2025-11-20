@@ -1,5 +1,5 @@
 ---
-layout: "../../../layouts/MarkdownLayout.astro"
+layout: "../../../layouts/PageLayout.astro"
 name: "Rik Arends"
 image: "rik.jpeg" # images go in public/images/people
 title: "Founder Makepad"

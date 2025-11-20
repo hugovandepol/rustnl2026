@@ -1,5 +1,5 @@
 ---
-layout: "../../../layouts/MarkdownLayout.astro"
+layout: "../../../layouts/PageLayout.astro"
 name: "Tamme Dittrich"
 image: "tamme.jpg" # images go in public/images/people
 title: "Embedded Rust engineer @ Tweede golf"

@@ -3,15 +3,17 @@ import CommonLayout from "./CommonLayout.astro";
 import Markdown from "../components/Markdown.astro";
 import OneColumnText from "../components/OneColumnText.astro";
 import OneColumn from "src/components/OneColumn.astro";
+import Hero from "src/components/Hero.astro";
 
 const { frontmatter } = Astro.props;
 const { title } = frontmatter;
 ---
 
 <CommonLayout title={title} header={title} withLogo>
+    <Hero title={title} color="yellow" />
     <OneColumn>
-        <Markdown>
+        <div class="markdown">
             <slot />
-        </Markdown>
+        </div>
     </OneColumn>
 </CommonLayout>

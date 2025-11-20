@@ -1,5 +1,5 @@
 ---
-layout: "../../../layouts/MarkdownLayout.astro"
+layout: "../../../layouts/PageLayout.astro"
 name: "Georg Semmler"
 image: "georg.jpeg" # images go in public/images/people
 title: "Diesel Maintainer"
