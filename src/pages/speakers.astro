@@ -1,41 +1,30 @@
 ---
 import Hero from "src/components/Hero.astro";
 import PeopleList from "../components/people/PeopleList.astro";
-import Person from "../components/people/Person.astro";
 import CommonLayout from "../layouts/CommonLayout.astro";
+import { useData } from "../components/useData";
+import { getCollection } from "astro:content";
+import Speaker from "src/components/people/Speaker.astro";
 
-const talks = await Astro.glob("./talks/*.md");
+const people = await getCollection('people')
+const { greg, taylor, andreea, andreea2 } = useData(people);
+const speakers = [taylor, greg, andreea, andreea2];
 ---
 
 <CommonLayout title="Speakers" withLogo>
   <div>
     <img data-pagefind-meta="image[src]" style="display: none;" />
-    <Hero title="Speakers" lead="This year speakers" color="purple" />
+    <Hero title="Speakers" lead="This year speakers" color="yellow" />
     <PeopleList>
       {
-        talks
-          .filter((talk: any) => {
-            return (
-              typeof talk.frontmatter.draft === "undefined" ||
-              !talk.frontmatter.draft
-            );
-          })
-          .map((talk: any) => {
-            return talk.frontmatter.speakers.map((speaker: any) => (
-              <Person
-                tile
-                name={speaker.name}
-                image={speaker.image}
-                tracks={talk.frontmatter.tracks}
-                link={talk.url}
-              >
-                <p>
+        speakers.map((speaker) => (
+          <Speaker talkId={speaker.talk.id} smalltile {...speaker}>
+            {/* <p>
                   <em>Talk</em>:
                   <a href={talk.url}>{talk.frontmatter.talkTitle}</a>
-                </p>
-              </Person>
-            ));
-          })
+                </p> */}
+          </Speaker>
+        ))
       }
     </PeopleList>
   </div>

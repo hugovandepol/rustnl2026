@@ -1,6 +1,7 @@
 ---
 tracks: 
  - main
+ - project
 title: "Talk title TBA"
 level: ""
 tags: []
