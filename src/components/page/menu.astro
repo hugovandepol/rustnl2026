@@ -261,7 +261,7 @@ const { location }: Props = Astro.props;
 
         &:hover span::after {
           @include breakpoint.wider_than(lg) {
-            rotate: 180deg;
+            rotate: var(--submenu-rotate, 180deg);
           }
         }
       }
@@ -279,6 +279,10 @@ const { location }: Props = Astro.props;
           display: flex;
           align-items: center;
           gap: variables.space(2);
+        }
+
+        &:hover::after {
+          rotate: 180deg;
         }
 
         &::after {
