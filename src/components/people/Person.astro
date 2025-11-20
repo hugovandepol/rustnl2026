@@ -5,7 +5,7 @@ interface Props {
   name?: string;
   image?: string;
   title?: string;
-  description?: string; // bio
+  bio?: string; // bio
   link?: string;
   tracks?: Array<string>;
   url?: string;
@@ -22,9 +22,9 @@ interface Props {
 const {
   name,
   image,
-  description,
+  bio,
   title,
-  link,
+  link = "",
   tracks,
   url,
   linkedin,
@@ -54,38 +54,10 @@ function convertTrack(i: string): string {
   return i;
 }
 
-const speakers = await Astro.glob("../../pages/talks/*.md");
-let github_of_person = null;
-
-outer: for (const i of speakers) {
-  for (const speaker of i.frontmatter.speakers) {
-    if (speaker.name === name && speaker.github && speaker.github !== "") {
-      if (!speaker.github.includes("https://github.com")) {
-        github_of_person = `https://github.com/${speaker.github}`;
-      } else {
-        github_of_person = speaker.github.replace(/\/$/g, "");
-      }
-      break outer;
-    }
-  }
-}
-
-if (
-  (image === null || typeof image === "undefined") &&
-  github_of_person === null &&
-  typeof github !== "undefined" &&
-  github !== null
-) {
-  github_of_person = github.replace(/\/$/g, "");
-}
-
 const empty_path = "/images/people/empty.png";
-
 const imageFile = image
   ? `/images/people/${image}`
-  : github_of_person
-    ? `${github_of_person}.png`
-    : empty_path;
+  : empty_path;
 ---
 
 <div
@@ -98,7 +70,6 @@ const imageFile = image
   <div class="image-container">
     {
       link ? (
-        <div>
           <div class="image">
             <a href={link}>
               <img
@@ -108,9 +79,7 @@ const imageFile = image
               />
             </a>
           </div>
-        </div>
       ) : (
-        <div>
           <div class="image">
             <img
               src={`${imageFile}`}
@@ -118,13 +87,12 @@ const imageFile = image
               class={imageFile == empty_path ? "empty" : null}
             />
           </div>
-        </div>
       )
     }
     <div class="tags">
       {
         tracks &&
-          tracks.map((track) => (
+        tracks.map((track) => (
             <span class={`tag ${track}`}>
               <span>{convertTrack(track)}</span>
             </span>
@@ -137,7 +105,7 @@ const imageFile = image
     {title && <div class="title">{title}</div>}
     {
       !(tile || smalltile) && (
-        <div class="socials">
+        <div class="socials pb-6">
           {linkedin && (
             <a href={linkedin}>
               <Icon name="linkedin" />
@@ -172,11 +140,11 @@ const imageFile = image
       )
     }
     {
-      !(tile || smalltile) && description && (
+      !(tile || smalltile) && bio && (
         <button popovertarget={name}>Read bio</button>
         <div popover class="bio popover" id={name}>
           <h3>{name}</h3>
-          <div set:html={description} />
+          <div set:html={bio} />
         </div>
       )
     }
@@ -201,6 +169,7 @@ const imageFile = image
     background-color: var(--color-green-000);
     border-block-end: 1px solid var(--color-green-100);
     position: relative;
+    max-width: 30rem;
   }
 
   .person:nth-child(1n + 1) .image-container {
@@ -235,10 +204,6 @@ const imageFile = image
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
-
-  .person .title {
-    font-size: variables.$font-size-md;
   }
 
   .person .tags {

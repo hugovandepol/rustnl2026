@@ -1,0 +1,103 @@
+---
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const talks = await getCollection("talks");
+  return talks.map((talk) => ({
+    params: { id: talk.id },
+    props: { talk },
+  }));
+}
+
+import CommonLayout from "../../layouts/CommonLayout.astro";
+import "../../styles/index.scss";
+import Person from "../../components/people/Person.astro";
+import Button from "src/components/Button.astro";
+import Cta from "src/components/Cta.astro";
+import Divider from "src/components/Divider.astro";
+import Hero from "src/components/Hero.astro";
+import Markdown from "src/components/Markdown.astro";
+import OneColumn from "src/components/OneColumn.astro";
+
+const { talk } = Astro.props;
+const { title, level, day } = talk.data;
+const people = await getCollection("people");
+
+const speakers = people
+  .filter((person) => person.data.talk.id == talk.id)
+  .map((speaker) => speaker);
+const speaker_names = speakers.map((speaker) => speaker.data.name).join(", ");
+const draft = false;
+const ignore = draft ? { "data-pagefind-ignore": "all" } : {};
+---
+
+<CommonLayout title={title} withLogo {...ignore}>
+  <Hero kicker="Talk" title={title} lead={`by ${speaker_names}`} color="green">
+    {
+      level && (
+        <div class="talk-level">
+          <strong>Audience:</strong> <span class="tag">{level}</span>
+        </div>
+      )
+    }
+  </Hero>
+  <OneColumn>
+    <div set:html={talk.rendered?.html} />
+  </OneColumn>
+  <Divider />
+  <OneColumn>
+    <div class="persons">
+      {
+        speakers.map((speaker: any) => (
+          <Person bio={speaker.rendered?.html} {...speaker.data} />
+        ))
+      }
+    </div>
+  </OneColumn>
+  <Cta title="title" lead="lead" color="yellow">
+    <div class="buttons">
+      <Button link="https://event.onliveevent.nl/rustweek-2026">
+        Get your ticket
+      </Button>
+      {
+        day && (
+          <Button link={`/schedule/${day}/#${talk.id.split("/").pop()}`}>
+            Find in timetable
+          </Button>
+        )
+      }
+    </div>
+  </Cta>
+</CommonLayout>
+
+<style>
+  .persons {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .persons > .person {
+    flex: 1;
+  }
+
+  .talk-level {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .talk-level .tag {
+    background-color: var(--color-yellow-400);
+    padding-inline: 0.75rem;
+    border-radius: 0.25rem;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.25rem;
+  }
+
+  .cutout.cutout-button-group.custom::after {
+    inset: -55%;
+  }
+</style>
