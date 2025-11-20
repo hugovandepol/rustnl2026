@@ -50,13 +50,13 @@ const speakers = [taylor, greg, andreea];
     </p>
   </div>
   <MainSchedule />
-  <PeopleList title="Speakers" id="speakers" lead="We'll announce our invited speakers here. Do you also want to speak at RustWeek? <a href='/cfp/'>Our CFP</a> opens November 3rd!">
+  <!-- <PeopleList title="Speakers" id="speakers" lead="We'll announce our invited speakers here. Do you also want to speak at RustWeek? <a href='/cfp/'>Our CFP</a> opens November 3rd!">
     {
       speakers.map((speaker) => (
         <Speaker talkId={speaker.talk.id} smalltile {...speaker} />
       ))
     }
-  </PeopleList>
+  </PeopleList> -->
   <Image
     src="/images/rustweek2025/celebration.jpg"
     alt="10 year celebration at RustWeek 2025"
@@ -177,17 +177,18 @@ const speakers = [taylor, greg, andreea];
     </Sponsors>
   </div>
   <Image src="/images/rustweek2025/flags.jpg" alt="Flags at RustWeek 2025" />
-  <div slot="about" class="space-y-12">
-    <div>
+
+  <div slot="about">
+    <div class="markdown">
       <h2 id="about">About RustWeek</h2>
       <p>
         RustWeek is organised by Stichting Rust Nederland, RustNL for short, a
         non-profit that strives to promote the implementation of the Rust
         programming language.
       </p>
+      <ButtonGroup>
+        <Button link="/about">More About Us</Button>
+      </ButtonGroup>
     </div>
-    <ButtonGroup>
-      <Button link="/about">More About Us</Button>
-    </ButtonGroup>
   </div>
 </HeroLayout>
