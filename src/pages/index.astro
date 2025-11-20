@@ -59,7 +59,7 @@ const speakers = await getCollection("people");
   >
     {
       speakers.map((speaker: any) => (
-        <Speaker talkId={speaker.data.talk.id} tile {...speaker.data} />
+        <Speaker talkId={speaker.data.talk.id} smalltile {...speaker.data} />
       ))
     }
   </PeopleList>
