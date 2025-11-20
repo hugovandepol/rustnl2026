@@ -35,6 +35,8 @@ const {
   smalltile = false,
 } = Astro.props;
 
+let github_link = github? (github.includes("github.com")?github:`https://github.com/${github}`): null
+
 function convertTrack(i: string): string {
   switch (i) {
     case "deep_dive":
@@ -118,8 +120,8 @@ const imageFile = image
               <Icon name="mastodon" />
             </a>
           )}
-          {github && (
-            <a href={github}>
+          {github_link && (
+            <a href={github_link}>
               <Icon name="github" />
             </a>
           )}
