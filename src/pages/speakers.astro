@@ -6,7 +6,7 @@ import { useData } from "../components/useData";
 import { getCollection } from "astro:content";
 import Speaker from "src/components/people/Speaker.astro";
 
-const people = await getCollection('people')
+const people = await getCollection("people");
 const { greg, taylor, andreea, andreea2 } = useData(people);
 const speakers = [taylor, greg, andreea, andreea2];
 ---
@@ -17,12 +17,11 @@ const speakers = [taylor, greg, andreea, andreea2];
     <Hero title="Speakers" lead="This year speakers" color="yellow" />
     <PeopleList>
       {
-        speakers.map((speaker) => (
-          <Speaker talkId={speaker.talk.id} smalltile {...speaker}>
+        speakers.map((speaker, idx) => (
+          <Speaker talkId={idx} smalltile {...speaker}>
             {/* <p>
-                  <em>Talk</em>:
-                  <a href={talk.url}>{talk.frontmatter.talkTitle}</a>
-                </p> */}
+              <em>Talk</em>:<a href={talk.url}>{talk.frontmatter.talkTitle}</a>
+            </p> */}
           </Speaker>
         ))
       }

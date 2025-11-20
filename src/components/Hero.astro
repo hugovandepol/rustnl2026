@@ -16,8 +16,8 @@ const color400 = `var(--color-${color}-400)`;
 ---
 
 <div class="hero">
-  <div class="ferris"></div>
   <div class="container">
+    <div class="ferris"></div>
     <div>
       {kicker && <div class="kicker">{kicker}</div>}
       <h1 class="font-display">{title}</h1>
@@ -51,6 +51,15 @@ const color400 = `var(--color-${color}-400)`;
     justify-content: stretch;
     overflow: clip;
     z-index: 0;
+  }
+
+  .hero .ferris {
+    position: absolute;
+    width: 12rem;
+    aspect-ratio: 1.5;
+    background-image: url('/images/ferris.png');
+    right: 0;
+    bottom: 0;
   }
 
   .kicker {
