@@ -1,83 +1,77 @@
 ---
-
 interface Props {
-    name: string;
-    link: string;
-    image: string;
-    distance_kinepolis: string;
-    price_range: string;
-    description: string;
+  name: string;
+  link: string;
+  image: string;
+  distance_kinepolis: string;
+  price_range: string;
+  description: string;
 }
 
-const { name, link, image, description, distance_kinepolis, price_range } = Astro.props;
-
+const { name, link, image, description, distance_kinepolis, price_range } =
+  Astro.props;
 ---
 
 <div class="hotel">
-    <div class="image-container">
-        <a href={link}><img src={`/images/hotels/${image}`} alt={`Picture of ${name} hotel`} /></a>
-    </div>
-    <div>
-        <a href={link}><h4>{name}</h4></a>
-        <ul>
-            <li>{price_range} / night</li>
-            <li>{distance_kinepolis} from venue</li>
-        </ul>
-        <p class="description">{description}</p>
-    </div>
+  <div class="image-container">
+    <a class="image" href={link}
+      ><img
+        src={`/images/hotels/${image}`}
+        alt={`Picture of ${name} hotel`}
+      /></a
+    >
+  </div>
+  <div class="info">
+    <a href={link}><h4 class="font-display">{name}</h4></a>
+    <ul>
+      <li>{price_range} / night</li>
+      <li>{distance_kinepolis} from venue</li>
+    </ul>
+    <p class="description">{description}</p>
+  </div>
 </div>
 
 <style lang="scss">
-    @use "../../../styles/breakpoint.scss";
-    @use "../../../styles/variables.scss";
+  .hotel {
+    border: 1px solid var(--color-red-100);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
 
-    .hotel {
-        display: flex;
-        flex-direction: column;
-        gap: 1em;
+  .hotel a {
+    text-decoration: none;
+  }
 
-        a {
-            color: inherit;
-            text-decoration: underline;
-            display: inline-block;
-        }
+  .hotel .image-container {
+    border-block-end: inherit;
+    position: relative;
+  }
 
-        h4 {
-            font-size: variables.$font-size-md;
-            font-weight: variables.$font-weight-light;
-            line-height: variables.$line-height-tight;
+  .hotel .image {
+    aspect-ratio: 1;
+    position: relative;
+    border-radius: 0 50% 0 50%;
+    overflow: clip;
+    display: block;
+  }
 
-            margin-bottom: 0;
-            margin-top: 0.2em;
+  .hotel .image img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
 
-            min-height: 3rem;
-        }
+  .hotel .info {
+    font-size: var(--font-size-md);
+    padding-inline: 1rem;
+    padding-block: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
 
-        ul {
-            padding-left: 1rem;
-            font-size: variables.$font-size-sm;
-            font-weight: bold;
-        }
-
-        .description {
-            margin-top: 0.5em;
-            font-size: variables.$font-size-sm;
-        }
-
-        .image-container {
-            position: relative;
-
-            img {
-                align-self: center;
-                border-radius: 0.3em;
-                height: auto;
-                vertical-align: middle;
-                object-fit: cover;
-                width: 100%;
-                background: variables.$color-yellow-400;
-    
-                aspect-ratio: 1/1;
-            }
-        }
-    }
+  .hotel .info h4 {
+    font-size: var(--font-size-lg);
+  }
 </style>
