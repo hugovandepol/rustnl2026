@@ -18,7 +18,7 @@ const speakers = [taylor, greg, andreea, andreea2];
     <PeopleList>
       {
         speakers.map((speaker) => (
-          <Speaker talkId={speaker.talk.id} smalltile {...speaker} />
+          <Speaker talkId={speaker.talk.id} tile {...speaker} />
         ))
       }
     </PeopleList>

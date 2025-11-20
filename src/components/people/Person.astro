@@ -150,7 +150,9 @@ const imageFile = image
         </div>
       )
     }
-    <slot />
+    { !smalltile &&
+      <slot />
+    }
   </div>
 </div>
 
