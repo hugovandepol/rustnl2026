@@ -2,8 +2,16 @@
 import Sponsor from "../sponsor/sponsor.astro";
 import SponsorTier from "../sponsor/sponsor-tier.astro";
 ---
+
 <section class="text-center py-12" id="sponsors">
     <h2>Unconf Sponsors</h2>
+    <p>
+        Interested in sponsoring the unconf?<br />Download our <a
+            target="_blank"
+            href="/resources/sponsorship-prospectus-rustweek-2025.pdf"
+            >Sponsorship prospectus</a
+        >, or <a href="mailto:sponsors@rustnl.org">contact us</a>,
+    </p>
     <SponsorTier name="Room sponsors">
         <Sponsor
             name="Google"
@@ -44,11 +52,4 @@ import SponsorTier from "../sponsor/sponsor-tier.astro";
             link="https:///christian-meusel.de/"
         />
     </SponsorTier>
-    <p>
-        Interested in sponsoring the unconf?<br />Download our <a
-            target="_blank"
-            href="/resources/sponsorship-prospectus-rustweek-2025.pdf"
-            >Sponsorship prospectus</a
-        >, or <a href="mailto:sponsors@rustnl.org">contact us</a>,
-    </p>
 </section>

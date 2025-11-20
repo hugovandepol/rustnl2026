@@ -1,33 +1,33 @@
 ---
 import CommonLayout from "./CommonLayout.astro";
-import OneColumnText from "../components/OneColumnText.astro";
+import OneColumn from "../components/OneColumn.astro";
 import Button from "../components/Button.astro";
 import Divider from "../components/Divider.astro";
 import "../styles/index.scss";
-
 import UnconfSponsors from "../components/unconf/UnconfSponsors.astro";
 import UnconfLeaders from "../components/unconf/UnconfLeaders.astro";
+import Hero from "src/components/Hero.astro";
 
 const { frontmatter } = Astro.props;
 const { title } = frontmatter;
 ---
 
 <CommonLayout title={title} header={title} withLogo>
-    <OneColumnText>
-        <slot />
-    </OneColumnText>
-    <div class="py-12">
-        <Button link="/unconf">Guide for participants</Button>
-    </div>
-    <OneColumnText class="space-y-12">
+    <Hero title={title} color="yellow" />    
+    <OneColumn>
+        <div class="markdown">
+            <slot />
+        </div>
+        <div class="py-12">
+            <Button link="/unconf">Guide for participants</Button>
+        </div>
+    </OneColumn>
+    <OneColumn class="space-y-12">
         <Divider />
-    </OneColumnText>
+    </OneColumn>
     <UnconfSponsors />
-    <OneColumnText class="space-y-12">
+    <OneColumn class="space-y-12">
         <Divider />
-    </OneColumnText>
+    </OneColumn>
     <UnconfLeaders />
-    <div class="py-12">
-        <Button link="/unconf">Guide for participants</Button>
-    </div>
 </CommonLayout>
