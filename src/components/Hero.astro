@@ -16,6 +16,7 @@ const color400 = `var(--color-${color}-400)`;
 ---
 
 <div class="hero">
+  <div class="ferris"></div>
   <div class="container">
     <div>
       {kicker && <div class="kicker">{kicker}</div>}
@@ -30,11 +31,12 @@ const color400 = `var(--color-${color}-400)`;
   .hero {
     background-color: var(--color100);
     margin-block-end: 3rem;
+    position: relative;
     padding-block: 3rem;
     z-index: 0;
   }
 
-  .hero > .container {
+  .hero .container {
     position: relative;
     align-items: center;
     background-color: var(--color300);

@@ -123,8 +123,8 @@ p {
     font-size: var(--font-size-lg);
 
     > * + * {
-        margin-block-end: calc(variables.$font-size-md * variables.$line-height-normal);
-    }
+        margin-block-start: 1lh;
+    }xs
 
     a {
         text-decoration: underline;
