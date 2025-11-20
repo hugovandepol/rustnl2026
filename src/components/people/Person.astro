@@ -37,7 +37,11 @@ const {
   single = false,
 } = Astro.props;
 
-let github_link = github? (github.includes("github.com")?github:`https://github.com/${github}`): null
+let github_link = github
+  ? github.includes("github.com")
+    ? github
+    : `https://github.com/${github}`
+  : null;
 
 function convertTrack(i: string): string {
   switch (i) {
@@ -57,38 +61,36 @@ function convertTrack(i: string): string {
 }
 
 const empty_path = "/images/people/empty.png";
-const imageFile = image
-  ? `/images/people/${image}`
-  : empty_path;
+const imageFile = image ? `/images/people/${image}` : empty_path;
 ---
 
 <div
   class:list={[
     "person",
     tile ? "tile" : smalltile ? "small-tile" : "detail",
-    single ? 'single' : null,
+    single ? "single" : null,
   ]}
 >
   <div class="image-container">
     {
       link ? (
-          <div class="image">
-            <a href={link}>
-              <img
-                src={`${imageFile}`}
-                alt={`Picture of ${name}`}
-                class={imageFile == empty_path ? "empty" : null}
-              />
-            </a>
-          </div>
-      ) : (
-          <div class="image">
+        <div class="image">
+          <a href={link}>
             <img
               src={`${imageFile}`}
               alt={`Picture of ${name}`}
               class={imageFile == empty_path ? "empty" : null}
             />
-          </div>
+          </a>
+        </div>
+      ) : (
+        <div class="image">
+          <img
+            src={`${imageFile}`}
+            alt={`Picture of ${name}`}
+            class={imageFile == empty_path ? "empty" : null}
+          />
+        </div>
       )
     }
   </div>
@@ -97,7 +99,7 @@ const imageFile = image
     {title && <div class="title">{title}</div>}
     {
       !(tile || smalltile) && (
-        <div class="socials pb-6">
+        <div class="socials">
           {linkedin && (
             <a href={linkedin}>
               <Icon name="linkedin" />
@@ -131,29 +133,18 @@ const imageFile = image
         </div>
       )
     }
-    {
-      !(tile || smalltile) && bio && (
-        <button popovertarget={name}>Read bio</button>
-        <div popover class="bio popover" id={name}>
-          <h3>{name}</h3>
-          <div set:html={bio} />
-        </div>
-      )
-    }
-    { !smalltile &&
-      <slot />
-    }
-        <div class="tags">
+    {!(tile || smalltile) && bio && <div set:html={bio} />}
+    {!smalltile && <slot />}
+    <div class="tags">
       {
         tracks &&
-        tracks.map((track) => (
+          tracks.map((track) => (
             <span class={`tag ${track}`}>
               <span>{convertTrack(track)}</span>
             </span>
           ))
       }
     </div>
-
   </div>
 </div>
 
@@ -172,19 +163,26 @@ const imageFile = image
     grid-template-columns: 1fr 1fr;
   }
 
-  .socials {
-      display: flex;
-      align-items: start;
-      justify-content: left;
-      flex-direction: row;
-      gap: 0.25em;
+  .person.single .image-container {
+    border-block-end: 0;
+    border-inline-end: inherit;
+    background-color: var(--color-green-000);
+  }
 
-      a {
-          width: fit-content;
-          height: fit-content;
-          display: flex;
-          align-items: center;
-      }
+  .socials {
+    display: flex;
+    align-items: start;
+    justify-content: left;
+    flex-direction: row;
+    gap: 0.5em;
+
+    a {
+      width: fit-content;
+      height: fit-content;
+      display: flex;
+      align-items: center;
+      font-size: var(--font-size-lg);
+    }
   }
 
   .person .image-container {
@@ -251,7 +249,7 @@ const imageFile = image
   }
 
   .person .info .popover::backdrop {
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
   }
 
   .person h3 {

@@ -32,7 +32,7 @@ const ignore = draft ? { "data-pagefind-ignore": "all" } : {};
 ---
 
 <CommonLayout title={title} withLogo {...ignore}>
-  <Hero kicker="Talk" title={title} lead={`by ${speaker_names}`} color="green">
+  <Hero kicker="Talk" title={title} lead={`by ${speaker_names}`} color="yellow">
     {
       level && (
         <div class="talk-level">
@@ -44,20 +44,19 @@ const ignore = draft ? { "data-pagefind-ignore": "all" } : {};
   <OneColumn>
     <div set:html={talk.rendered?.html} />
   </OneColumn>
-  <Divider />
-  <OneColumn>
-    <div class="persons">
+  <div class="grid cols-12 container">
+    <div class="col-start-3 col-end-11 persons">
       {
         speakers.map((speaker: any) => (
-          <Person bio={speaker.rendered?.html} {...speaker.data} />
+          <Person bio={speaker.rendered?.html} {...speaker.data} single />
         ))
       }
     </div>
-  </OneColumn>
-  <Cta title="title" lead="lead" color="yellow">
+  </div>
+  <Cta title="Get your ticket" color="yellow">
     <div class="buttons">
       <Button link="https://event.onliveevent.nl/rustweek-2026">
-        Get your ticket
+        tickets
       </Button>
       {
         day && (
@@ -73,11 +72,8 @@ const ignore = draft ? { "data-pagefind-ignore": "all" } : {};
 <style>
   .persons {
     display: flex;
+    flex-direction: column;
     gap: 2rem;
-  }
-
-  .persons > .person {
-    flex: 1;
   }
 
   .talk-level {
@@ -95,9 +91,5 @@ const ignore = draft ? { "data-pagefind-ignore": "all" } : {};
     display: inline-flex;
     align-items: center;
     min-height: 2.25rem;
-  }
-
-  .cutout.cutout-button-group.custom::after {
-    inset: -55%;
   }
 </style>
