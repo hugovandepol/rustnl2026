@@ -122,13 +122,15 @@ p {
 .markdown {
     font-size: var(--font-size-lg);
 
-    > *:not(h1,h2,h3,h4,h5,h6) + * {
+
+    >*:not(h1, h2, h3, h4, h5, h6)+* {
         margin-block-start: 1lh;
-    }xs
+    }
 
     a {
         text-decoration: underline;
-        color: inherit;
+        text-decoration-color: var(--color-black);
+        color: var(--color-red-400);
     }
 
     ul {
