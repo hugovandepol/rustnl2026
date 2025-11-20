@@ -29,7 +29,7 @@ const color400 = `var(--color-${color}-400)`;
 
 <style lang="scss" define:vars={{ color000, color100, color300, color400 }}>
   .hero {
-    background-color: var(--color100);
+    background-color: var(--color400);
     margin-block-end: 3rem;
     position: relative;
     padding-block: 3rem;
@@ -39,7 +39,8 @@ const color400 = `var(--color-${color}-400)`;
   .hero .container {
     position: relative;
     align-items: center;
-    background-color: var(--color300);
+    background-color: white;
+    border: 4px solid black;
     border-bottom-right-radius: 4.5rem;
     border-top-left-radius: 4.5rem;
     display: flex;
