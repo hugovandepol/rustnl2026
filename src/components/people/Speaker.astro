@@ -21,11 +21,17 @@ interface Props {
 const { talkId = "" } = Astro.props;
 
 let tracks: string[] = [];
+let talkTitle: string = "";
 
 if (talkId) {
     const talk = await getEntry("talks", talkId);
     tracks = talk ? talk.data.tracks : [];
+    talkTitle = talk ? talk.data.title : "";
 }
 ---
 
-<Person link={`/talks/${talkId}`} tracks={tracks} {...Astro.props} />
+<Person link={`/talks/${talkId}`} tracks={tracks} {...Astro.props}>
+    <p>
+        <em>Talk</em>: {talkTitle}
+    </p>
+</Person>
