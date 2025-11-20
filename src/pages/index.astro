@@ -15,9 +15,9 @@ import { getCollection } from "astro:content";
 import OneColumn from "src/components/OneColumn.astro";
 import Cta from "src/components/Cta.astro";
 
-const people = await getCollection("people");
-const { greg, taylor, andreea } = useData(people);
-const speakers = [taylor, greg, andreea];
+const people = await getCollection('people')
+const { greg, taylor, andreea, alice } = useData(people);
+const speakers = [taylor, greg, andreea, alice];
 ---
 
 <HeroLayout title="RustWeek 2026">
@@ -54,13 +54,13 @@ const speakers = [taylor, greg, andreea];
     </div>
   </OneColumn>
   <MainSchedule />
-  <!-- <PeopleList title="Speakers" id="speakers" lead="We'll announce our invited speakers here. Do you also want to speak at RustWeek? <a href='/cfp/'>Our CFP</a> opens November 3rd!">
+  <PeopleList title="Speakers" id="speakers" lead="We'll announce our invited speakers here. Do you also want to speak at RustWeek? <a href='/cfp/'>Our CFP</a> opens November 3rd!">
     {
       speakers.map((speaker) => (
         <Speaker talkId={speaker.talk.id} smalltile {...speaker} />
       ))
     }
-  </PeopleList> -->
+  </PeopleList>
   <Image
     src="/images/rustweek2025/celebration.jpg"
     alt="10 year celebration at RustWeek 2025"

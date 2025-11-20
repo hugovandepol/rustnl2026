@@ -37,6 +37,8 @@ const {
   single = false,
 } = Astro.props;
 
+let github_link = github? (github.includes("github.com")?github:`https://github.com/${github}`): null
+
 function convertTrack(i: string): string {
   switch (i) {
     case "deep_dive":
@@ -121,8 +123,8 @@ const imageFile = image
               <Icon name="mastodon" />
             </a>
           )}
-          {github && (
-            <a href={github}>
+          {github_link && (
+            <a href={github_link}>
               <Icon name="github" />
             </a>
           )}
@@ -163,6 +165,21 @@ const imageFile = image
   .person.single {
     display: grid;
     grid-template-columns: 1fr 1fr;
+  }
+
+  .socials {
+      display: flex;
+      align-items: start;
+      justify-content: left;
+      flex-direction: row;
+      gap: 0.25em;
+
+      a {
+          width: fit-content;
+          height: fit-content;
+          display: flex;
+          align-items: center;
+      }
   }
 
   .person .image-container {
