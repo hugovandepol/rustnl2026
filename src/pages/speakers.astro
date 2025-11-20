@@ -6,9 +6,7 @@ import { useData } from "../components/useData";
 import { getCollection } from "astro:content";
 import Speaker from "src/components/people/Speaker.astro";
 
-const people = await getCollection("people");
-const { greg, taylor, andreea, andreea2 } = useData(people);
-const speakers = [taylor, greg, andreea, andreea2];
+const speakers = await getCollection("people");
 ---
 
 <CommonLayout title="Speakers" withLogo>
@@ -17,8 +15,8 @@ const speakers = [taylor, greg, andreea, andreea2];
     <Hero title="Speakers" lead="This year speakers" color="yellow" />
     <PeopleList>
       {
-        speakers.map((speaker) => (
-          <Speaker talkId={speaker.talk.id} tile {...speaker} />
+        speakers.map((speaker: any) => (
+          <Speaker talkId={speaker.data.talk.id} tile {...speaker.data} />
         ))
       }
     </PeopleList>
