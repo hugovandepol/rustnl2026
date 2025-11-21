@@ -1,17 +1,22 @@
 ---
 import Sponsor from "../sponsor/sponsor.astro";
 import SponsorTier from "../sponsor/sponsor-tier.astro";
+import OneColumn from "../OneColumn.astro";
 ---
 
-<section class="text-center py-12" id="sponsors">
-    <h2>Unconf Sponsors</h2>
-    <p>
-        Interested in sponsoring the unconf?<br />Download our <a
-            target="_blank"
-            href="/resources/sponsorship-prospectus-rustweek-2025.pdf"
-            >Sponsorship prospectus</a
-        >, or <a href="mailto:sponsors@rustnl.org">contact us</a>,
-    </p>
+<section class="text-center space-y-12" id="sponsors">
+    <OneColumn>
+        <div class="markdown">
+            <h2>Unconf Sponsors</h2>
+            <p>
+                Interested in sponsoring the unconf?<br />Download our <a
+                    target="_blank"
+                    href="/resources/sponsorship-prospectus-rustweek-2025.pdf"
+                    >Sponsorship prospectus</a
+                >, or <a href="mailto:sponsors@rustnl.org">contact us</a>,
+            </p>
+        </div>
+    </OneColumn>
     <SponsorTier name="Room sponsors">
         <Sponsor
             name="Google"

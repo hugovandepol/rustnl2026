@@ -5,6 +5,8 @@ import OneColumn from "src/components/OneColumn.astro";
 import Note from "src/components/Note.astro";
 import LocationDusVenue from "src/components/LocationDusVenue.astro";
 import UnconfSchedule from "src/components/schedule/UnconfSchedule.astro";
+import UnconfSponsors from "src/components/unconf/UnconfSponsors.astro";
+import UnconfLeaders from "src/components/unconf/UnconfLeaders.astro";
 
 const unconfIntro = await Astro.glob("./unconf-intro.md");
 ---
@@ -77,6 +79,8 @@ const unconfIntro = await Astro.glob("./unconf-intro.md");
     </div>
   </OneColumn>
   <LocationDusVenue />
+  <UnconfSponsors />
+  <UnconfLeaders />
   <div class="space-y-12">
     <OneColumn>
       <h2 id="weekschedule">Schedule for the week</h2>
