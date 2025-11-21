@@ -12,7 +12,7 @@ const speakers = await getCollection("people");
 <CommonLayout title="Speakers" withLogo>
   <div>
     <img data-pagefind-meta="image[src]" style="display: none;" />
-    <Hero title="Speakers" lead="This year speakers" color="yellow" />
+    <Hero title="Speakers" color="yellow" />
     <PeopleList>
       {
         speakers.map((speaker: any) => (

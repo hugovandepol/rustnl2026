@@ -15,7 +15,7 @@ const { kicker, title, lead, color = "purple" } = Astro.props;
   <div class="container">
     <div>
       {kicker && <div class="kicker">{kicker}</div>}
-      <h1>{title}</h1>
+      <h2 class="font-display">{title}</h2>
     </div>
     {lead && <p>{lead}</p>}
     <slot />
@@ -58,6 +58,7 @@ const { kicker, title, lead, color = "purple" } = Astro.props;
     flex-direction: column;
     gap: 1lh;
     padding-block: 3rem;
+    padding-inline: 1rem;
     text-align: center;
     justify-content: stretch;
     overflow: clip;
@@ -71,11 +72,11 @@ const { kicker, title, lead, color = "purple" } = Astro.props;
   }
 
   p {
-    font-size: var(--font-size-lg);
+    text-align: left;
+    // text-wrap: balance;
   }
 
   h1 {
-    font-family: var(--font-family-display);
     font-size: var(--font-size-2xl);
     text-wrap: balance;
   }
