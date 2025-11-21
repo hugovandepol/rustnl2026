@@ -54,21 +54,22 @@ const color400 = `var(--color-${color}-400)`;
   }
 
   .hero .ferris {
-    aspect-ratio: 1.5;
+    aspect-ratio: 2677/1764;
     background-image: url('/images/ferris.png');
+    background-repeat: no-repeat;
     background-size: contain;
-    bottom: -50%;
+    bottom: -4rem;
     position: absolute;
-    right: 0;
+    right: -4rem;
     rotate: -45deg;
     transition-duration: 150ms;
-    transition-property: translate;
-    translate: 50% -50%;
+    transition-property: bottom right;
     width: 12rem;
   }
 
   body:has(.button:hover) .ferris {
-    translate: calc(50% - 2rem) calc(-50% - 2rem);
+    bottom: -1.75rem;
+    right: -2.75rem;
   }
 
   .kicker {

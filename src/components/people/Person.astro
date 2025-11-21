@@ -95,8 +95,10 @@ const imageFile = image ? `/images/people/${image}` : empty_path;
     }
   </div>
   <div class="info">
-    <h3 class="font-display">{name}</h3>
-    {title && <div class="title">{title}</div>}
+    <div>
+      <h3 class="font-display">{name}</h3>
+      {title && <div class="title">{title}</div>}
+    </div>
     {
       !(tile || smalltile) && (
         <div class="socials">
@@ -210,11 +212,8 @@ const imageFile = image ? `/images/people/${image}` : empty_path;
     flex-wrap: wrap;
     gap: variables.space(2);
     margin-block-start: auto !important;
-    // position: absolute;
-    // bottom: 1rem;
-    // left: 1rem;
-    // width: calc(100% - 2rem);
   }
+
 
   .person .info {
     font-size: var(--font-size-md);

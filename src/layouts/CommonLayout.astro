@@ -21,39 +21,41 @@ const {
 } = Astro.props;
 ---
 
-<style is:global>
+<style is:global lang="scss">
+  @use "../styles/breakpoint.scss";
+
   :root {
     --color-background: white;
-    
-    --color-yellow-000: #FFEDCC;
-    --color-yellow-100: #FFDC99;
-    --color-yellow-200: #FFCA66;
-    --color-yellow-300: #FFB933;
-    --color-yellow-400: #FFA700;
 
-    --color-purple-000: #E6D9F2;
-    --color-purple-100: #C9A9DC;
-    --color-purple-200: #B28DC9;
-    --color-purple-300: #9966B2;
-    --color-purple-400: #7B3F8C;
+    --color-yellow-000: #ffedcc;
+    --color-yellow-100: #ffdc99;
+    --color-yellow-200: #ffca66;
+    --color-yellow-300: #ffb933;
+    --color-yellow-400: #ffa700;
 
-    --color-green-000: #D5E8DD;
-    --color-green-100: #ABD1BC;
-    --color-green-200: #82B99A;
-    --color-green-300: #58A279;
-    --color-green-400: #2E8B57;
+    --color-purple-000: #e6d9f2;
+    --color-purple-100: #c9a9dc;
+    --color-purple-200: #b28dc9;
+    --color-purple-300: #9966b2;
+    --color-purple-400: #7b3f8c;
 
-    --color-red-000: #F0D6D1;
-    --color-red-100: #E1ADA3;
-    --color-red-200: #D18374;
-    --color-red-300: #C25A46;
-    --color-red-400: #B33118;
+    --color-green-000: #d5e8dd;
+    --color-green-100: #abd1bc;
+    --color-green-200: #82b99a;
+    --color-green-300: #58a279;
+    --color-green-400: #2e8b57;
 
-    --color-blue-000: #E3ECF5;
-    --color-blue-100: #C7D9EB;
-    --color-blue-200: #AAC5E0;
-    --color-blue-300: #8EB2D6;
-    --color-blue-400: #729FCC;
+    --color-red-000: #f0d6d1;
+    --color-red-100: #e1ada3;
+    --color-red-200: #d18374;
+    --color-red-300: #c25a46;
+    --color-red-400: #b33118;
+
+    --color-blue-000: #e3ecf5;
+    --color-blue-100: #c7d9eb;
+    --color-blue-200: #aac5e0;
+    --color-blue-300: #8eb2d6;
+    --color-blue-400: #729fcc;
 
     --color-black: #222;
 
@@ -81,10 +83,14 @@ const {
     display: flex;
     flex-direction: column;
     font-family: var(--font-family);
-    font-size: var(--font-size-lg);
+    font-size: 1rem;
     font-weight: var(--font-weight-light);
     line-height: var(--line-height-normal);
     min-height: 100vh;
+
+    @include breakpoint.wider_than(sm) {
+      font-size: var(--font-size-lg);
+    }
   }
 
   main {
@@ -101,7 +107,7 @@ const {
   }
 
   .container {
-    width: min(100% - 2rem, 80rem);
+    width: min(100% - 3rem, 80rem);
     margin-inline: auto;
   }
 </style>
