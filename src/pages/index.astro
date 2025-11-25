@@ -14,8 +14,8 @@ import { useData } from "../components/useData";
 import { getCollection } from 'astro:content';
 
 const people = await getCollection('people')
-const { greg, taylor, andreea, alice } = useData(people);
-const speakers = [taylor, greg, andreea, alice];
+const { greg, taylor, andreea, alice, andrew } = useData(people);
+const speakers = [taylor, greg, andreea, alice, andrew];
 ---
 
 <HeroLayout title="RustWeek 2026">
