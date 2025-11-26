@@ -154,20 +154,20 @@ const imageFile = image ? `/images/people/${image}` : empty_path;
   @use "../../styles/variables.scss";
 
   .person {
-    border: 1px solid var(--color-green-100);
     position: relative;
     display: flex;
     flex-direction: column;
+    border-block-end: 2px solid var(--color-black);
   }
 
   .person.single {
     display: grid;
+    gap: 2rem;
     grid-template-columns: 1fr 1fr;
   }
 
   .person.single .image-container {
     border-block-end: 0;
-    border-inline-end: inherit;
     background-color: var(--color-green-000);
   }
 
@@ -188,7 +188,6 @@ const imageFile = image ? `/images/people/${image}` : empty_path;
   }
 
   .person .image-container {
-    border-block-end: inherit;
     position: relative;
   }
 
@@ -217,7 +216,6 @@ const imageFile = image ? `/images/people/${image}` : empty_path;
 
   .person .info {
     font-size: var(--font-size-md);
-    padding-inline: 1rem;
     padding-block: 1.5rem;
     display: flex;
     flex-direction: column;
