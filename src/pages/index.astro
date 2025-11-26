@@ -15,7 +15,9 @@ import { getCollection } from "astro:content";
 import OneColumn from "src/components/OneColumn.astro";
 import Cta from "src/components/Cta.astro";
 
-const speakers = await getCollection("people");
+const people = await getCollection('people')
+const { greg, taylor, andreea, alice, andrew } = useData(people);
+const speakers = [taylor, greg, andreea, alice, andrew];
 ---
 
 <HeroLayout title="RustWeek 2026">
@@ -59,7 +61,7 @@ const speakers = await getCollection("people");
   >
     {
       speakers.map((speaker: any) => (
-        <Speaker talkId={speaker.data.talk.id} smalltile {...speaker.data} />
+        <Speaker talkId={speaker.talk.id} smalltile {...speaker} />
       ))
     }
   </PeopleList>
