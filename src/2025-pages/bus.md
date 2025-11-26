@@ -1,5 +1,5 @@
 ---
-layout: "../layouts/MarkdownLayout.astro"
+layout: "../layouts/PageLayout.astro"
 title: "DUS-BUS schedule"
 slug: "dus"
 ---

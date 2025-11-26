@@ -1,5 +1,5 @@
 ---
-layout: "../../../layouts/MarkdownLayout.astro"
+layout: "../../../layouts/PageLayout.astro"
 name: "Folkert de Vries"
 image: "folkert.jpg" # images go in public/images/people
 title: "Systems Software engineer @ Tweede golf"

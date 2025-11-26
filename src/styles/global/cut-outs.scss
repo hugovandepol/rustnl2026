@@ -23,13 +23,13 @@
 
     @include breakpoint.wider_than(lg) {
         display: block;
-        background-image: url('/svg/button-group-cutout-4.svg');
+        background-image: url('/svg/button-group-cutout-1.svg');
         inset: -40%;
     }
 }
 
 .cutout-hero::after {
-    background-image: url('/svg/hero-cutout-5.svg');
+    background-image: url('/svg/hero-cutout-7.svg');
     inset: -6%;
     background-size: 100% 100%;
 }

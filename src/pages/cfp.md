@@ -1,7 +1,7 @@
 ---
-layout: "../layouts/MarkdownLayout.astro"
+layout: "../layouts/PageLayout.astro"
 title: "Call for Proposals"
 slug: "cfp"
 ---
 
-The Call for Proposals for RustWeek 2026 is open now, until the 31st of December! If you have an idea for a talk you'd like to give, you can let us know at <https://sessionize.com/rustweek-2026/>
+The Call for Proposals for RustWeek 2026 is open now, until the 31st of December! If you have an idea for a talk you'd like to give, you can let us know at <https://sessionize.com/rustweek-2026/>.

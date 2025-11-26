@@ -1,0 +1,32 @@
+---
+import Hero from "src/components/Hero.astro";
+import PeopleList from "../components/people/PeopleList.astro";
+import CommonLayout from "../layouts/CommonLayout.astro";
+import { useData } from "../components/useData";
+import { getCollection } from "astro:content";
+import Speaker from "src/components/people/Speaker.astro";
+import OneColumn from "src/components/OneColumn.astro";
+
+const speakers = await getCollection("people");
+---
+
+<CommonLayout title="Speakers" withLogo>
+  <div>
+    <img data-pagefind-meta="image[src]" style="display: none;" />
+    <Hero title="Speakers" color="yellow" />
+    <OneColumn>
+      <div class="markdown pb-12">
+        <p>
+          We'll announce our invited speakers here. Do you also want to speak at RustWeek? <a href='/cfp/'>Our CFP</a> is open!
+        </p>
+      </div>
+    </OneColumn>
+    <PeopleList>
+      {
+        speakers.map((speaker: any) => (
+          <Speaker talkId={speaker.data.talk.id} tile {...speaker.data} />
+        ))
+      }
+    </PeopleList>
+  </div>
+</CommonLayout>
