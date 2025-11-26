@@ -1,0 +1,88 @@
+---
+interface Props {
+  kicker?: string;
+  title: string;
+  lead?: string;
+  color?: "yellow" | "purple" | "red" | "blue" | "green";
+}
+
+const { kicker, title, lead, color = "purple" } = Astro.props;
+
+// Map color to shade variables
+const color000 = `var(--color-${color}-000)`;
+const color100 = `var(--color-${color}-100)`;
+const color300 = `var(--color-${color}-300)`;
+const color400 = `var(--color-${color}-400)`;
+---
+
+<div class="hero">
+  <div class="container">
+    <div class="ferris"></div>
+    <div>
+      {kicker && <div class="kicker">{kicker}</div>}
+      <h1 class="font-display">{title}</h1>
+    </div>
+    {lead && <p>{lead}</p>}
+    <slot />
+  </div>
+</div>
+
+<style lang="scss" define:vars={{ color000, color100, color300, color400 }}>
+  .hero {
+    background-color: var(--color400);
+    margin-block-end: 3rem;
+    position: relative;
+    padding-block: 3rem;
+    z-index: 0;
+  }
+
+  .hero .container {
+    position: relative;
+    align-items: center;
+    background-color: white;
+    border: 2px solid black;
+    border-top-right-radius: 4.5rem;
+    border-bottom-left-radius: 4.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1lh;
+    padding-block: 3rem;
+    text-align: center;
+    justify-content: stretch;
+    overflow: clip;
+    z-index: 0;
+  }
+
+  .hero .ferris {
+    aspect-ratio: 2677/1764;
+    background-image: url('/images/ferris.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    bottom: -5rem;
+    position: absolute;
+    right: -5rem;
+    rotate: -45deg;
+    transition-duration: 150ms;
+    transition-property: bottom right;
+    width: 12rem;
+  }
+
+  body:has(.button:hover) .ferris {
+    bottom: -1.5rem;
+    right: -2.5rem;
+  }
+
+  .kicker {
+    text-transform: uppercase;
+    margin-bottom: 0.5lh;
+  }
+
+  p {
+    font-size: var(--font-size-lg);
+  }
+
+  h1 {
+    font-size: var(--font-size-3xl);
+    text-wrap: balance;
+  }
+</style>

@@ -16,6 +16,7 @@ interface Props {
   bluesky?: string;
   tile?: boolean;
   smalltile?: boolean;
+  single?: boolean;
 }
 
 const {
@@ -33,9 +34,14 @@ const {
   bluesky,
   tile = false,
   smalltile = false,
+  single = false,
 } = Astro.props;
 
-let github_link = github? (github.includes("github.com")?github:`https://github.com/${github}`): null
+let github_link = github
+  ? github.includes("github.com")
+    ? github
+    : `https://github.com/${github}`
+  : null;
 
 function convertTrack(i: string): string {
   switch (i) {
@@ -55,56 +61,47 @@ function convertTrack(i: string): string {
 }
 
 const empty_path = "/images/people/empty.png";
-const imageFile = image
-  ? `/images/people/${image}`
-  : empty_path;
+const imageFile = image ? `/images/people/${image}` : empty_path;
 ---
 
 <div
   class:list={[
-    "person space-y-6",
+    "person",
     tile ? "tile" : smalltile ? "small-tile" : "detail",
+    single ? "single" : null,
   ]}
 >
   <div class="image-container">
     {
       link ? (
-          <div class="image">
-            <a href={link}>
-              <img
-                src={`${imageFile}`}
-                alt={`Picture of ${name}`}
-                class={imageFile == empty_path ? "empty" : null}
-              />
-            </a>
-          </div>
-      ) : (
-          <div class="image">
+        <div class="image">
+          <a href={link}>
             <img
               src={`${imageFile}`}
               alt={`Picture of ${name}`}
               class={imageFile == empty_path ? "empty" : null}
             />
-          </div>
+          </a>
+        </div>
+      ) : (
+        <div class="image">
+          <img
+            src={`${imageFile}`}
+            alt={`Picture of ${name}`}
+            class={imageFile == empty_path ? "empty" : null}
+          />
+        </div>
       )
     }
-    <div class="tags">
-      {
-        tracks &&
-        tracks.map((track) => (
-            <span class={`tag ${track}`}>
-              <span>{convertTrack(track)}</span>
-            </span>
-          ))
-      }
-    </div>
   </div>
-  <div class="person-info">
-    <h3>{name}</h3>
-    {title && <div class="title">{title}</div>}
+  <div class="info">
+    <div>
+      <h3 class="font-display">{name}</h3>
+      {title && <div class="title">{title}</div>}
+    </div>
     {
       !(tile || smalltile) && (
-        <div class="socials pb-6">
+        <div class="socials">
           {linkedin && (
             <a href={linkedin}>
               <Icon name="linkedin" />
@@ -138,12 +135,18 @@ const imageFile = image
         </div>
       )
     }
-    {
-      !(tile || smalltile) && bio && (
-        <div class="bio" set:html={bio} />
-      )
-    }
-    <slot />
+    {!(tile || smalltile) && bio && <div set:html={bio} />}
+    {!smalltile && <slot />}
+    <div class="tags">
+      {
+        tracks &&
+          tracks.map((track) => (
+            <span class={`tag ${track}`}>
+              <span>{convertTrack(track)}</span>
+            </span>
+          ))
+      }
+    </div>
   </div>
 </div>
 
@@ -151,45 +154,44 @@ const imageFile = image
   @use "../../styles/variables.scss";
 
   .person {
-    border: 1px solid variables.$color-neutral-400;
-    padding: variables.space(4);
     position: relative;
+    display: flex;
+    flex-direction: column;
   }
 
-  @media (min-width: 40rem) {
-    .person[data-astro-cid-kyxbqkyz].detail {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        align-items: start;
-        gap: 1em;
+  .person.single {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr 1fr;
+  }
 
-        .person-info {
-          margin-block-start: 0rem;
-        }
-    }
-}
+  .person.single .image-container {
+    border-block-end: 0;
+    background-color: var(--color-green-000);
+  }
 
-.socials {
+  .socials {
     display: flex;
     align-items: start;
     justify-content: left;
     flex-direction: row;
-    gap: 0.25em;
+    gap: 0.5em;
 
     a {
-        width: fit-content;
-        height: fit-content;
-        display: flex;
-        align-items: center;
+      width: fit-content;
+      height: fit-content;
+      display: flex;
+      align-items: center;
+      font-size: var(--font-size-lg);
     }
-}
+  }
 
   .person .image-container {
     position: relative;
-    max-width: 30rem;
   }
 
   .person .image {
+    background-color: var(--color-blue-100);
     aspect-ratio: 1;
     border-radius: 50% 0 50% 0;
     overflow: clip;
@@ -207,14 +209,62 @@ const imageFile = image
     display: flex;
     flex-wrap: wrap;
     gap: variables.space(2);
-    position: absolute;
-    bottom: variables.space(2);
-    left: variables.space(2);
+    margin-block-start: auto !important;
+  }
+
+
+  .person .info {
+    font-size: var(--font-size-md);
+    padding-block: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 0.75rem;
+  }
+
+  .person .info button {
+    background-color: transparent;
+    border: 0;
+    font-size: var(--font-size-body);
+    font-family: inherit;
+    border: 1px solid var(--color-green-000);
+    font-weight: 700;
+    padding: 0.5rem;
+  }
+
+  .person .info .popover {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    padding: 1.5rem;
+    border: 1px solid var(--color-green-100);
+    width: 100%;
+    max-width: 64rem;
+    font-size: var(--font-size-lg);
+  }
+
+  .person .info .popover::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .person h3 {
+    font-size: var(--font-size-lg);
+  }
+
+  .person .socials {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .person .socials a {
+    line-height: 1;
   }
 
   .person .tag {
     align-items: center;
-    background-color: variables.$color-blue-400;
+    background-color: var(--color-blue-100);
     border-radius: variables.space(1);
     display: flex;
     font-size: variables.$font-size-md;
@@ -223,12 +273,16 @@ const imageFile = image
     padding-inline: variables.space(3);
 
     &.project {
-      background-color: variables.$color-red-400;
+      background-color: var(--color-red-100);
     }
 
     &.industry,
     &.gosim-spotlight {
-      background-color: variables.$color-yellow-400;
+      background-color: var(--color-yellow-100);
     }
+  }
+
+  .person .bio {
+    font-size: variables.$font-size-base;
   }
 </style>

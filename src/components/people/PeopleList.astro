@@ -9,32 +9,31 @@ const { id, title, lead }: Props = Astro.props;
 ---
 
 <style lang="scss">
-    .header {
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        
-        h2 {
-            margin-block-end: 2rem;
-        }
-    }
+  .header {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-block-end: 1.5rem;
+  }
 
-    .people {
-        display: grid;
-        gap: 2em;
-        grid-template-columns: repeat(auto-fit,minmax(15rem,1fr));
-    }
+  .people {
+    display: grid;
+    gap: 4.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  }
 </style>
 
-<div class="container space-y-12" id={id}>
-    {title && 
-        <div class="header">
-            <h2>{title}</h2>
-            {lead && <p set:html={lead} />}
-        </div>
-    }
-    <div class="people">
-        <slot />
-    </div>
+<div class="container" id={id}>
+  {
+    title && (
+      <div class="header">
+        <h2>{title}</h2>
+        {lead && <p set:html={lead}></p>}
+      </div>
+    )
+  }
+  <div class="people">
+    <slot />
+  </div>
 </div>

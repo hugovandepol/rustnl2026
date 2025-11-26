@@ -2,7 +2,7 @@
 import { library, icon } from "@fortawesome/fontawesome-svg-core";
 import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
-interface Props {   
+interface Props {
   style?: "page" | "home";
   slidedeck?: "rustweek" | "industry";
 }
@@ -11,7 +11,7 @@ library.add(faArrowRight, faArrowLeft);
 const arrowRightIcon = icon({ prefix: "fas", iconName: faArrowRight.iconName });
 const arrowLeftIcon = icon({ prefix: "fas", iconName: faArrowLeft.iconName });
 
-const { style = "page", slidedeck = "rustweek"  }: Props = Astro.props;
+const { style = "page", slidedeck = "rustweek" }: Props = Astro.props;
 const slides = Array.from({ length: 4 }, (_, i) => i + 1);
 ---
 
@@ -19,6 +19,7 @@ const slides = Array.from({ length: 4 }, (_, i) => i + 1);
   <div class="container space-y-12 lg:grid lg:cols-12 lg:space-y-0">
     <div class="col-5 space-y-6 lg:space-y-8">
       <slot />
+      <div class="tag"></div>
     </div>
     <div class="col-7">
       <div class="cutout cutout-hero">
@@ -27,16 +28,19 @@ const slides = Array.from({ length: 4 }, (_, i) => i + 1);
             {
               slides.map((n) => (
                 <div class="swiper-slide">
-                  <img src={`/images/slider/${slidedeck}/${n}.jpg`} alt={`Slide ${n}`} />
+                  <img
+                    src={`/images/slider/${slidedeck}/${n}.jpg`}
+                    alt={`Slide ${n}`}
+                  />
                 </div>
               ))
             }
           </div>
           <div class="swiper-navigation-next">
-                <Fragment set:html={arrowRightIcon.html} />
+            <Fragment set:html={arrowRightIcon.html} />
           </div>
           <div class="swiper-navigation-prev">
-                <Fragment set:html={arrowLeftIcon.html} />
+            <Fragment set:html={arrowLeftIcon.html} />
           </div>
         </div>
       </div>
@@ -81,20 +85,6 @@ const slides = Array.from({ length: 4 }, (_, i) => i + 1);
   @use "../../styles/breakpoint.scss";
   @use "../../styles/variables.scss";
 
-  @keyframes peek {
-    0% {
-      translate: -50% 40%;
-    }
-
-    50% {
-      translate: -50% 20%;
-    }
-
-    0% {
-      translate: -50% 40%;
-    }
-  }
-
   .hero {
     align-items: center;
     background-color: variables.$color-yellow-400;
@@ -104,8 +94,12 @@ const slides = Array.from({ length: 4 }, (_, i) => i + 1);
     position: relative;
 
     @include breakpoint.wider_than(lg) {
-        padding-block: variables.space(20);
+      padding-block: variables.space(20);
     }
+  }
+
+  body:has(.button:hover) .ferris {
+    translate: -50% 25%;
   }
 
   .swiper {
@@ -131,7 +125,6 @@ const slides = Array.from({ length: 4 }, (_, i) => i + 1);
   }
 
   .ferris {
-    pointer-events: none;
     aspect-ratio: 1;
     background-image: url("/images/ferris.png");
     background-position: bottom;
@@ -140,17 +133,13 @@ const slides = Array.from({ length: 4 }, (_, i) => i + 1);
     bottom: 0;
     left: 50%;
     max-width: 40rem;
+    pointer-events: none;
     position: absolute;
+    transition-duration: 150ms;
+    transition-property: translate;
     translate: -50% 40%;
     width: 100%;
     z-index: 1;
-  }
-
-  .ferris-animate {
-    animation-delay: 300ms;
-    animation-name: peek;
-    animation-duration: 2500ms;
-    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .swiper-navigation-next,
@@ -158,18 +147,18 @@ const slides = Array.from({ length: 4 }, (_, i) => i + 1);
     display: none;
 
     @include breakpoint.wider_than(lg) {
-        cursor: pointer;
-        align-items: center;
-        aspect-ratio: 1;
-        background-color: white;
-        border-radius: 100%;
-        display: flex;
-        justify-content: center;
-        position: absolute;
-        top: 50%;
-        translate: 0 -50%;
-        width: variables.space(12);
-        z-index: 2;
+      cursor: pointer;
+      align-items: center;
+      aspect-ratio: 1;
+      background-color: white;
+      border-radius: 100%;
+      display: flex;
+      justify-content: center;
+      position: absolute;
+      top: 50%;
+      translate: 0 -50%;
+      width: variables.space(12);
+      z-index: 2;
     }
   }
 

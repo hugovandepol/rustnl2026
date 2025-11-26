@@ -3,68 +3,70 @@ import Person from "../components/people/Person.astro";
 import PeopleList from "../components/people/PeopleList.astro";
 import CommonLayout from "../layouts/CommonLayout.astro";
 import OneColumnText from "../components/OneColumnText.astro";
+import OneColumn from "src/components/OneColumn.astro";
+import Hero from "src/components/Hero.astro";
 ---
 
 <CommonLayout title="About" header="About" withLogo>
-    <OneColumnText>
-        <p>
-            RustNL is a non-profit that strives to promote the Rust programming language and support Rust's maintainers.
-        </p>
-        <p>
-            RustNL is an associate member of the Rust Foundation. We organize meetups and events to bring the Rust community
-            together, like RustWeek. The foundation's details can be found on <a
-            href="https://rustnl.org">rustnl.org</a
+  <Hero title="about" color="yellow" />
+  <OneColumn>
+    <div class="markdown">
+      <p>
+        RustNL is a non-profit that strives to promote the Rust programming
+        language and support Rust's maintainers.
+      </p>
+      <p>
+        RustNL is an associate member of the Rust Foundation. We organize
+        meetups and events to bring the Rust community together, like RustWeek.
+        The foundation's details can be found on <a href="https://rustnl.org"
+          >rustnl.org</a
         >.
-        </p>
-        <h3>
-            Contact us
-        </h3>
-        <p>
-            Questions? Reach out to us via <a href="mailto:rustweek@rustnl.org">rustweek@rustnl.org</a>
-        </p>
-    </OneColumnText>
-    <div class="people">
-        <h2 class="text-center py-12" id="organisers">RustWeek team</h2>
-        <PeopleList>
-            <Person
-                name="Erik Jonkers"
-                image="erik2.jpg"
-                title="Chair of RustNL, founder/director at Tweede golf and chair of Trifecta Tech Foundation."
-                tracks={["organisation"]}
-                smalltile
-            />
-            <Person
-                name="Mara Bos"
-                image="mara.jpg"
-                title="Rust leadership council, board member of RustNL, and founder of Hexcat"
-                tracks={["organisation"]}
-                smalltile
-            />
-            <Person
-                name="Laura Pircalaboiu"
-                image="laura.png"
-                title="Embedded software engineer at Q*Bird"
-                tracks={["organisation"]}
-                smalltile
-            />
-            <Person
-                name="Jana Dönszelmann"
-                image="jana.png"
-                title="Lecturer in Embedded Systems at Delft University of Technology and founder of Hexcat"
-                tracks={["organisation"]}
-                smalltile
-            />
-            <Person
-                name="Terts Diepraam"
-                image="terts.png"
-                title="Maintainer on Uutils and Software Engineer at NLnet Labs"
-                tracks={["organisation", "mc"]}
-                smalltile
-            />
-        </PeopleList>
+      </p>
+      <h3>Contact us</h3>
+      <p>
+        Questions? Reach out to us via <a href="mailto:rustweek@rustnl.org"
+          >rustweek@rustnl.org</a
+        >
+      </p>
     </div>
+  </OneColumn>
+  <PeopleList title="RustWeek team">
+    <Person
+      name="Erik Jonkers"
+      image="erik2.jpg"
+      title="Chair of RustNL, founder/director at Tweede golf and chair of Trifecta Tech Foundation."
+      tracks={["organisation"]}
+      smalltile
+    />
+    <Person
+      name="Mara Bos"
+      image="mara.jpg"
+      title="Rust leadership council, board member of RustNL, and founder of Hexcat"
+      tracks={["organisation"]}
+      smalltile
+    />
+    <Person
+      name="Laura Pircalaboiu"
+      image="laura.png"
+      title="Embedded software engineer at Q*Bird"
+      tracks={["organisation"]}
+      smalltile
+    />
+    <Person
+      name="Jana Dönszelmann"
+      image="jana.png"
+      title="Lecturer in Embedded Systems at Delft University of Technology and founder of Hexcat"
+      tracks={["organisation"]}
+      smalltile
+    />
+    <Person
+      name="Terts Diepraam"
+      image="terts.png"
+      title="Maintainer on Uutils and Software Engineer at NLnet Labs"
+      tracks={["organisation", "mc"]}
+      smalltile
+    />
+  </PeopleList>
 </CommonLayout>
 
-<style lang="scss">
-    
-</style>
+<style lang="scss"></style>

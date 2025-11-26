@@ -11,51 +11,12 @@ const { link, ty = "primary", inFooter = false, scale = 1 }: Props = Astro.props
 ---
 
 <a
-    class:list={["button", ty, inFooter ? "footer" : null]}
+    class:list={["button button-primary", ty, inFooter ? "footer" : null]}
     href={link}
 >
     <slot>{link}</slot>
 </a>
 
 <style lang="scss" define:vars={{ scale }}>
-    @use "../styles/variables.scss";
-
-    .button {
-        color: variables.$color-neutral-400;
-
-        align-items: center;
-        border-radius: variables.space(1);
-        border: 1px solid transparent;
-        cursor: pointer;
-        display: inline-flex;
-        font-size: calc(var(--scale) * variables.$font-size-md);
-        font-weight: 700;
-        padding: calc(var(--scale) * variables.space(3)) calc(var(--scale) * variables.space(6));
-        text-align: center;
-        text-decoration: none;
-        user-select: none;
-
-        &.primary {
-            background-color: variables.$color-red-400;
-            color: variables.$color-neutral-400;
-        }
-
-        &.secondary {
-            border: 1px solid variables.$color-red-400;
-            color: variables.$color-red-400;
-        }
-
-        &.primary-10 {
-          background-color: #ff7500;
-          color: white;
-        }
-
-        &.footer {
-            all: unset;
-
-            text-decoration: underline !important;
-            cursor: pointer;
-            color: variables.$color-neutral-400;
-        }
-    }
+    @use "../styles/global/buttons.scss";
 </style>

@@ -121,6 +121,10 @@ const { withLogo = true, withoutMenu = false }: Props = Astro.props;
         z-index: 100;
         top: 0;
         left: 0;
+
+        &.scrolled {
+            background-color: var(--color-yellow-000);
+        }
         
         > div {
             align-items: center;

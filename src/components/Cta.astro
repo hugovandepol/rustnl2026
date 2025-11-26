@@ -1,0 +1,83 @@
+---
+interface Props {
+  kicker?: string;
+  title: string;
+  lead?: string;
+  color?: "yellow" | "purple" | "red" | "blue" | "green";
+}
+
+const { kicker, title, lead, color = "purple" } = Astro.props;
+
+---
+
+<div class="cta">
+  <div class="ferris"></div>
+  <div class="container">
+    <div>
+      {kicker && <div class="kicker">{kicker}</div>}
+      <h2 class="font-display">{title}</h2>
+    </div>
+    {lead && <p>{lead}</p>}
+    <slot />
+  </div>
+</div>
+
+<style lang="scss">
+  .cta {
+    background-color: var(--color-yellow-400);
+    padding-block: 3rem;
+    z-index: 0;
+    position: relative;
+  }
+
+  .cta .ferris {
+    aspect-ratio: 2677/1764;
+    background-image: url("/images/ferris.png");
+    background-size: cover;
+    left: 50%;
+    position: absolute;
+    top: 0;
+    translate: -50% 0;
+    width: 12rem;
+    transition-property: translate;
+    transition-duration: 150ms;
+  }
+
+  .cta:has(.button:hover) .ferris {
+    translate: -50% -25%;
+  }
+
+  .cta .container {
+    position: relative;
+    align-items: center;
+    background-color: white;
+    border: 2px solid var(--color-black);
+    border-bottom-right-radius: 4.5rem;
+    border-top-left-radius: 4.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1lh;
+    padding-block: 3rem;
+    padding-inline: 1rem;
+    text-align: center;
+    justify-content: stretch;
+    overflow: clip;
+    z-index: 0;
+  }
+
+  .kicker {
+    text-transform: uppercase;
+    color: var(--color100);
+    margin-bottom: 0.5lh;
+  }
+
+  p {
+    text-align: left;
+    // text-wrap: balance;
+  }
+
+  h1 {
+    font-size: var(--font-size-2xl);
+    text-wrap: balance;
+  }
+</style>

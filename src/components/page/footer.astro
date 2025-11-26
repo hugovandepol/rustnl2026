@@ -1,48 +1,49 @@
 ---
+
 ---
 
 <footer class="footer">
-    <div class="menu">
-        <a href="/">RustWeek 2026</a>
-    </div>
-    <div class="menu">
-    <a href="/resources/sponsorship-prospectus-rustweek-2026.pdf">Sponsorships</a>
+  <div class="menu">
+    <a href="/">RustWeek 2026</a>
+  </div>
+  <div class="menu">
+    <a href="/resources/sponsorship-prospectus-rustweek-2026.pdf"
+      >Sponsorships</a
+    >
     <!--     <a href="/industry">Industry track</a> -->
     <!--     <a href="/unconf-intro">Unconf</a>  -->
     <a href="/code-of-conduct">Code of conduct</a>
     <a href="/terms">Terms & Conditions</a>
-        <!-- <a href="/health-brief">Health and Safety Policy</a> -->
-    </div>
-    <div class="menu">
-        <a href="https://fosstodon.org/@rustnl" rel="me">Mastodon</a>
-        <a href="https://www.linkedin.com/company/rustnl/">LinkedIn</a>
-        <a href="https://bsky.app/profile/rustnl.bsky.social">Bluesky</a>
-    </div>
+    <!-- <a href="/health-brief">Health and Safety Policy</a> -->
+  </div>
+  <div class="menu">
+    <a href="https://fosstodon.org/@rustnl" rel="me">Mastodon</a>
+    <a href="https://www.linkedin.com/company/rustnl/">LinkedIn</a>
+    <a href="https://bsky.app/profile/rustnl.bsky.social">Bluesky</a>
+  </div>
 </footer>
 
 <style lang="scss">
-    @use "../../styles/variables.scss";
+  @use "../../styles/variables.scss";
 
-    .footer {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: variables.$color-red-500;
-        margin-block-start: variables.space(24);
-        padding: variables.space(8) variables.space(4);
+  .footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--color-red-400);
+    padding-block: 3rem;
 
-        .menu {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: variables.space(4);
+    .menu {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+      margin-block-end: 0.75rem;
+      padding-block-end: 0.75rem;
 
-            margin-block-end: variables.space(3);
-            padding-block-end: variables.space(3);
-
-            a {
-                color: variables.$color-neutral-400;
-            }
-        }
+      a {
+        color: var(--color-red-000);
+      }
     }
+  }
 </style>
