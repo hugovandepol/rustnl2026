@@ -15,7 +15,7 @@ The address of the venue is:
 
  Note: please keep in mind that the **workshops** (Monday 18 May) are **not** held in the conference venue, but in the second venue, called [Beatrixgebouw](/beatrixgebouw).
 
-Check out our  [Getting There](getting-there) page for instructions for getting to the venue.
+Check out our  [Getting There](/getting-there) page for instructions for getting to the venue.
 
 ## Accessibility
 

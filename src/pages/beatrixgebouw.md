@@ -13,7 +13,7 @@ The address of the venue is:
 > 3521 CA Utrecht\
 > Nederland**
 
-Check out our  [Getting There](getting-there) page for instructions for getting to the conference venue, which is located in the same area as the workshop venue.
+Check out our  [Getting There](/getting-there) page for instructions for getting to the conference venue, which is located in the same area as the workshop venue.
 
 The most convenient method to get there is by train, since it's next to the train station.
 
