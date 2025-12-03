@@ -50,15 +50,16 @@ There's no need to buy a ticket for the national trains; just check in and
 out with your bank card, credit card, or phone.
 
 Many international trains stop in Utrecht.
-And Amsterdam, just a 30 minute train ride away, provides even more options.
+Other international trains stop in Amsterdam.
+From Amsterdam, there are 8 or more trains an hour to Utrecht taking about 30 minutes.
 
-You can also find [night trains][3] to Utrecht and Amsterdam.
+There are also long-distance [night trains][3] to both Utrecht and Amsterdam.
 
 ## By Plane
 
 The airport for Utrecht is **Amsterdam Schiphol Airport (AMS)**.
 
-Directly from the airport, you can hop on the high frequent rail connection to Utrecht. A 24/7 [train connection][5] takes you directly to Utrecht Central Station in just half an hour.
+Directly from the airport, you can hop on the high frequency (usually 8 per hour) rail connection to Utrecht. A 24/7 [train connection][5] takes you directly to Utrecht Central Station in just half an hour.
 
 There's no need to buy a ticket for the train; just check in and out with your
 bank card, credit card, or phone.
